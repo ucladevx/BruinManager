@@ -25,19 +25,17 @@ function getEnrollmentAndClassData() {
 if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf("studylist") > -1) {
 
 	chrome.storage.sync.get(/* String or Array */["data"], function(data){
-		console.log(data)
-	    if (Object.keys(data).length === 0) { // if we already got their data, don't do it again
-	    	
-	    	// inject loader into html to tell user we are gathering data
-			// CSS is in loader.css
-			const loader = document.createElement("div");
-			loader.id = "loader";
-			// const node = document.createTextNode("Gathering Data...");
-			// loader.appendChild(node);
-			document.body.appendChild(loader);
-	
-	    	getEnrollmentAndClassData()
-		}
+		// TODO: ask the user if they want us to scrape their data
+
+    	// inject loader into html to tell user we are gathering data
+		// CSS is in loader.css
+		const loader = document.createElement("div");
+		loader.id = "loader";
+		// const node = document.createTextNode("Gathering Data...");
+		// loader.appendChild(node);
+		document.body.appendChild(loader);
+
+    	getEnrollmentAndClassData()
 	});
 
 } else if (window.location.href.indexOf("google.com") > -1) { //TODO: change this to domain of bruinmanager when we create a site
