@@ -1,0 +1,22 @@
+{
+  "name": "Bruin Manager",
+  "description": "Get myUCLA user data",
+  "version": "1.0",
+  "permissions": [
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.my.ucla.edu/*", 
+        "*://*.google.com/*"  // will need to change this to bruinmanager when we get a domain but test on google for now
+      ],
+      "css": [ "loader.css" ],
+      "js": ["content.js"]
+    }
+  ],
+  "manifest_version": 2
+}
