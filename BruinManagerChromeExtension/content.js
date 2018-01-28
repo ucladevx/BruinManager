@@ -1,4 +1,5 @@
 function getEnrollmentAndClassData() {
+
 	// TODO: check if we are on the study list
 	const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
 
@@ -7,9 +8,19 @@ function getEnrollmentAndClassData() {
 							.filter(string => true ? string : false) // filter out empty strings
 
 	// TODO: Get class data
+	const classes = document.getElementsByClassName("lastEnrolled");
+	const classDataArray = classes[0].split("\n") // get each <p> as a separate element
+							.map(string => string.trim()) // remove whitespace
+							.filter(string => true ? string : false) // filter out empty strings
+		console.log(classDataArray)					
+	// for(clas in classes){
+	// 	console.log(classes[0].innerText);
+	// }
+
+
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
-	chrome.storage.sync.set({ 
+	chrome.storage.sync.set({
 		"data": {
 			"enrollmentData": {},
 			"classData": [],
