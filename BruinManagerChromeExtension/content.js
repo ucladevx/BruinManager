@@ -7,6 +7,7 @@ function getEnrollmentAndClassData() {
 							.map(string => string.trim()) 				// remove whitespace
 							.filter(string => true ? string : false) 	// filter out empty strings
 
+	console.log(enrollmentDataArray);
 	// TODO: Get class data
 	const classes = document.getElementsByClassName("lastEnrolled");
 	var arr = Array.prototype.slice.call(classes)						// convert HTML collection into an array
