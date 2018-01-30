@@ -3,21 +3,18 @@ function getEnrollmentAndClassData() {
 	// TODO: check if we are on the study list
 	const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
 
-	const enrollmentDataArray = enrollmentData.split("\n") // get each <p> as a separate element
-							.map(string => string.trim()) // remove whitespace
-							.filter(string => true ? string : false) // filter out empty strings
+	const enrollmentDataArray = enrollmentData.split("\n") 				// get each <p> as a separate element
+							.map(string => string.trim()) 				// remove whitespace
+							.filter(string => true ? string : false) 	// filter out empty strings
 
 	// TODO: Get class data
 	const classes = document.getElementsByClassName("lastEnrolled");
-	const classDataArray = classes[0].split("\n") // get each <p> as a separate element
-							.map(string => string.trim()) // remove whitespace
-							.filter(string => true ? string : false) // filter out empty strings
-		console.log(classDataArray)					
-	// for(clas in classes){
-	// 	console.log(classes[0].innerText);
-	// }
-
-
+	var arr = Array.prototype.slice.call(classes)						// convert HTML collection into an array
+	for(var i = 0; i < arr.length; i++){
+		console.log(arr[i].textContent.split("\n")						// get each <p> as a separate element
+	 						.map(string => string.trim()) 				// remove whitespace
+	 						.filter(string => true ? string : false)) 	// filter out empty strings);
+	}			
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
 	chrome.storage.sync.set({
