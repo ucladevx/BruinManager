@@ -7,15 +7,29 @@ function getEnrollmentAndClassData() {
 							.map(string => string.trim()) 				// remove whitespace
 							.filter(string => true ? string : false) 	// filter out empty strings
 
-	console.log(enrollmentDataArray);
+	var enroll = processEnrollementData(enrollmentDataArray);
+
 	// TODO: Get class data
+	var classArr = new Array();
+
 	const classes = document.getElementsByClassName("lastEnrolled");
-	var arr = Array.prototype.slice.call(classes)						// convert HTML collection into an array
-	for(var i = 0; i < arr.length; i++){
-		console.log(arr[i].textContent.split("\n")						// get each <p> as a separate element
+	var classData = Array.prototype.slice.call(classes)						// convert HTML collection into an array
+	for(var i = 0; i < classData.length; i++){
+		var p2 = processClassData( classData[i].textContent.split("\n")						// get each <p> as a separate element
 	 						.map(string => string.trim()) 				// remove whitespace
-	 						.filter(string => true ? string : false)) 	// filter out empty strings);
-	}			
+	 						.filter(string => true ? string : false) ); 	// filter out empty strings)
+		classArr[i] = p2;
+	}
+
+	// id user somehow, replace "user"
+	var user = {
+		"user": {
+			"enrollment": enroll,
+			"classes": classArr
+		}
+	}
+
+	console.log(user);
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
 	chrome.storage.sync.set({
@@ -27,6 +41,63 @@ function getEnrollmentAndClassData() {
 	    console.log("Stored Class and Enrollment Data")
 	    document.getElementById("loader").style.display = "none";
 	});
+}
+
+//first pass 6-8, second pass 11-13
+function processEnrollementData(data){
+
+	var firstPass = {
+		"start": data[6],
+		"end": data[7],
+		"units": data[8]
+	};
+
+	var secondPass = {
+		"start": data[11],
+		"end": data[12],
+		"units": data[13]
+	};
+
+	var passData = {
+		"first_pass": firstPass,
+		"second_pass": secondPass
+	}
+
+	return passData;
+}
+
+function processClassData(data){
+
+	// make dynamic
+
+	var lecture =  {
+		"name": data[0] + " " + data[1],
+		"section": data[17],
+		"status": data[18],
+		"waitlist_status": data[19],
+		"days": data[20],
+		"time": data[21],
+		"location": data[22],
+		"units": data[23],
+		"instructor": data[24]
+	}
+
+	var discussion = {
+		"section": data[28],
+		"status": data[29],
+		"waitlist_status": data[30],
+		"days": data[31],
+		"time": data[32],
+		"location": data[33],
+		"instructor": data[35],
+	}
+
+	var clasData = {
+		"lecture": lecture,
+		"discussion": discussion
+	}
+
+	return clasData;
 }
 
 
@@ -57,3 +128,5 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 	});
 
 }
+
+
