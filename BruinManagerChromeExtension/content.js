@@ -32,12 +32,7 @@ function getEnrollmentAndClassData() {
 	console.log(user);
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
-	chrome.storage.sync.set({
-		"data": {
-			"enrollmentData": {},
-			"classData": [],
-		}
-	}, () => {
+	chrome.storage.sync.set({'data': user}, () => {
 	    console.log("Stored Class and Enrollment Data")
 	    document.getElementById("loader").style.display = "none";
 	});
@@ -123,10 +118,8 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 } else if (window.location.href.indexOf("google.com") > -1) { //TODO: change this to domain of bruinmanager when we create a site
 
 	// Get the data that was stored
-	chrome.storage.sync.get(/* String or Array */["data"], function(items){
+	chrome.storage.sync.get('data', function(items){
 	    console.log(items)
 	});
 
 }
-
-
