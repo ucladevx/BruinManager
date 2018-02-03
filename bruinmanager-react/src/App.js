@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
+import MainScreen from './MainScreen/MainScreen';
 
 const Home = () => (
   <div>
@@ -15,7 +16,7 @@ const Home = () => (
 
 const About = () => (
   <div>
-    <h2>About</h2>
+    <MainScreen/>
   </div>
 )
 
