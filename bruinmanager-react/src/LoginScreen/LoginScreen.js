@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Background from './images/royce_hall_background.jpg';
 import Logo from './images/logo_bm.png';
 export default class LoginScreen extends Component {
@@ -10,15 +11,19 @@ export default class LoginScreen extends Component {
                     <div style={styles.loginBox}>
                         <img src={Logo} alt="" style={styles.logo}/>
                         <div style={styles.form}>
-                            <form>
-                                Username:<br/>
-                                <input type="text" name="Username"/><br/>
-                                Password:<br/>
-                                <input type="text" name="Password" style={styles.password}/>
-                            </form>
+                            <Form>
+                                <FormGroup>
+                                    <Label for="Email">Email</Label>
+                                    <Input type="email" name="email" id="Email"  />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="examplePassword">Password</Label>
+                                    <Input type="password" name="password" id="examplePassword"  />
+                                </FormGroup>
+                            </Form>
                         </div>
                         <div style={styles.buttonWrapper}>
-                            <button>Login</button>
+                            <Button color="primary">Login</Button>{' '}
                         </div>
                     </div>
                 </div>
@@ -56,18 +61,19 @@ let styles = {
     loginBox: {
         "display": "flex",
         "flex-direction": "column",
-        "height": 250,
-        "width": 400,
+        //"height": 400,
+        //"width": 500,
         //"justify-content": "center",
-        "margin-top": 40,
+        "margin": "40px 40px 40px 40px",
         "align-items": "center",
     },
     logo: {
         "width": 300,
-        "height": 75,
+        "height": 65,
     },
     form: {
         "margin-top": 10,
+        "width": "105%",
     },
     password: {
         "-webkit-text-security": "disc",
