@@ -15,7 +15,7 @@ export default class Summary extends React.Component {
 			<div style={styles.overall}>
 				<h1>Week {this.props.weekNumber}</h1>
 				<OverviewCalendar/>
-				<Table style={styles.bottomComponents}>
+				<Table>
 					<td><SuggestedEvents/></td>
 					<td><Portal/></td>
 				</Table>
@@ -25,9 +25,6 @@ export default class Summary extends React.Component {
 }
 
 let styles = {
-	bottomComponents: {
-		paddingTop: 100,
-	},
 	overall: {
 		paddingLeft: 50,
 		paddingRight: 50,
