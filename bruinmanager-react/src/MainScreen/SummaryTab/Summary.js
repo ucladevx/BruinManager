@@ -10,6 +10,7 @@ import Portal from './Portal';
 import { Table } from 'reactstrap';
 import StandardCalendar from './StandardCalendar.js';
 import StandardCalendarStyle from 'react-week-calendar/dist/style.css';
+import FeedCard from './FeedCard.js';
 
 export default class Summary extends React.Component {
 	render() {
