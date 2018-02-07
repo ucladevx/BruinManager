@@ -9,7 +9,7 @@ import SuggestedEvents from './SuggestedEvents';
 import Portal from './Portal';
 import { Table } from 'reactstrap';
 import StandardCalendar from './StandardCalendar.js';
-import StandardCalendarStyle from 'react-week-calendar/dist/style.css';
+import StandardCalendarStyle from './StandardCalendar.css';
 
 export default class Summary extends React.Component {
 	render() {
