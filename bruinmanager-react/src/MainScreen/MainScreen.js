@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link 
+  Link
 } from 'react-router-dom'
 import TabButton from '../Components/TabButton';
 import Summary from './SummaryTab/Summary';
 
 const SummaryScreen = () => (
-	<Summary weekNumber={1}/>
+	<Summary weekNumber={6} firstName="Kyle"/>
 )
 
 export default class MainScreen extends React.Component {
