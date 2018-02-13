@@ -74,8 +74,8 @@
 .weekCalendar__content {
     position: relative;
     width: auto;
-    overflow: auto;
-    max-height: 600px
+    overflow: hidden; /* change scrollabality */
+    max-height: 325px; /* change height of table */
 }
 
 .weekCalendar__overlay {

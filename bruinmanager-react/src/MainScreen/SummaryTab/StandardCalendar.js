@@ -49,8 +49,8 @@ export default class StandardCalendar extends React.Component {
 
   render() {
     return <WeekCalendar
-      startTime = {moment({h: 0, m: 0})}
-      endTime = {moment({h: 23, m: 59})}
+      startTime = {moment().format()}
+      endTime = {moment({h: 23, m: 59})} // moment().clone().add('4', 'hour')
       numberOfDays= {7}
       selectedIntervals = {this.state.selectedIntervals}
       onIntervalSelect = {this.handleSelect}
