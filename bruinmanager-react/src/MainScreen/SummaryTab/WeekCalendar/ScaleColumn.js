@@ -21,12 +21,12 @@ class ScaleColumn extends React.Component {
     } = this.props;
     let tempContent = "";
     let bottomStyle = "none";
-    console.log(scaleFormat);
+    //console.log(scaleFormat);
     if(scaleInterval.start.minutes() === 0) {
         tempContent = scaleInterval.start.format(scaleFormat);
     }
     if(scaleInterval.start.minutes() === 45) {
-        bottomStyle = '1px solid #b7b7b7';        
+        bottomStyle = '1px solid #b7b7b7';
     }
     return (
       <div key={index} className="weekCalendar__scaleCell" style={{ height: cellHeight, lineHeight: `${cellHeight}px`, borderBottom: bottomStyle, }}>

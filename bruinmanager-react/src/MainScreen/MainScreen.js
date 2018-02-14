@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom'
 import TabButton from '../Components/TabButton';
 import Summary from './SummaryTab/Summary';
@@ -21,30 +22,37 @@ const CalendarScreen = () => {
 
 const ButtonLinkDashboard = () => {
   return (
-    <button>
-      <Link to="/dashboard">Dashboard</Link>
-    </button>
+    <NavLink to="/dashboard" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+      Dashboard
+    </NavLink>
   )
 }
 
 const ButtonLinkCalendar = () => {
   return(
-    <button>
-      <Link to="/calendar">Calendar</Link>
-    </button>
+    <NavLink to="/calendar" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+      Calendar
+    </NavLink>
   )
 }
 
 export default class MainScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isActiveDashboard: true};
+  }
+
 	render() {
 		return (
 			//<TabButton onClick={this.props.onClick} tabName="Summary"/>
       <Router>
       <div>
         <div style={styles.overview}>
-          <h1 style={styles.navItems}>Hello, {this.props.firstName}</h1>
-          <ButtonLinkDashboard style={styles.navItems} />
-          <ButtonLinkCalendar style={styles.navItems} />
+          <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
+          <div style={styles.navButtons}>
+            <ButtonLinkDashboard style={styles.navItems} />
+            <ButtonLinkCalendar style={styles.navItems} />
+          </div>
         </div>
           <Switch>
             <Route path="/calendar" component={CalendarScreen} />
@@ -57,8 +65,27 @@ export default class MainScreen extends React.Component {
 }
 
 let styles = {
+  activeHighlightedButton: {
+    backgroundColor: '#DBDBDB',
+  },
+  highlightedButton: {
+    color: '#000000',
+    borderRadius: "20%",
+    marginLeft: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#ffffff',
+    fontFamily: "Roboto",
+  },
+  navButtons: {
+    marginLeft: 100,
+    display: "inline-block",
+  },
   navItems: {
     display: "inline-block",
+    verticalAlign: "middle",
   },
   overview: {
     marginLeft: 50,
