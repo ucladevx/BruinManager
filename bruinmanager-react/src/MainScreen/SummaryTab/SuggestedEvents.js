@@ -10,18 +10,18 @@ export default class SuggestedEvents extends React.Component {
 
 	render() {
 		return(
-			<div style={styles.background}>
-				<h1>Suggested Events</h1>
+			<div style={styles.wrapper}>
+				<div style={styles.header}></div>
 				<div style={styles.newsfeed}>
-					<FeedCard title='title 1' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 2' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 3' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 4' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 5' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 6' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 7' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 8' location= "startup ucla" time= "right now!" description= "testing"/>
-					<FeedCard title='title 9' location= "startup ucla" time= "right now!" description= "testing"/>
+					<FeedCard title='title 1' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 2' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 3' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 4' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 5' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 6' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 7' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 8' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
+					<FeedCard title='title 9' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k"/>
 				</div>
 			</div>
 		)
@@ -29,20 +29,21 @@ export default class SuggestedEvents extends React.Component {
 }
 
 let styles = {
-	background: {
-		"marginTop": "100",
+	wrapper: {
+		marginTop: 25,
+		display: "flex",
+		flexDirection: "column",
+	  	height: "calc(100vh - 500px)",
+  	},
+  	header: {
+	  	position: "relative",
+	  	height:1,
+		border: "1px solid black",
+	  	flex: "0 0 auto",
+  	},
+  	newsfeed: {
+		overflowY: "scroll",
+		flex: "0 1 auto",
+		background: "white",
 	},
-	newsfeed: {
-		"display": "flex",
-		"flex-wrap": "wrap",
-		"width": "20vw",
-		"height": "20vh",
-		"background": "white",
-		"overflow": "hidden",
-		"overflow-y": "scroll",
-		"justify-content": "space-around",
-		"align-items": "center",
-		"-webkit-transform": `translate3d(0,0,1px)`,
-		"-webkit-backface-visibility": "hidden",
-	}
 }

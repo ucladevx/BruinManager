@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 import OverviewCalendar from './OverviewCalendar';
 import SuggestedEvents from './SuggestedEvents';
 import Portal from './Portal';
@@ -15,21 +16,42 @@ import WeatherBox from './WeatherBox';
 export default class Summary extends React.Component {
 	render() {
 		return (
-			<div style={styles.overall}>
-        <div style={styles.firstColumn}>
-          <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
-        </div>
-        <div style={styles.secondColumn}>
-					<StandardCalendar style={StandardCalendarStyle}/>
-					<Table>
-						<td><SuggestedEvents/></td>
-						<td><Portal/></td>
-					</Table>
-        </div>
-			</div>
+            <Container fluid style={{height: "100%",}}>
+                <Row>
+                    <Col xs='3'>
+                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
+                        <SuggestedEvents/>
+                    </Col>
+                    <Col xs='9'>
+                        <StandardCalendar style={StandardCalendarStyle}/>
+                        <Row>
+                            <Col>
+                                <Portal/>
+                            </Col>
+                            <Col>
+                                <Portal/>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
 		)
 	}
 }
+/*
+<div style={styles.overall}>
+    <div style={styles.firstColumn}>
+        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
+    </div>
+    <div style={styles.secondColumn}>
+        <StandardCalendar style={StandardCalendarStyle}/>
+        <Table>
+            <td><SuggestedEvents/></td>
+            <td><Portal/></td>
+        </Table>
+    </div>
+</div>
+*/
 
 let styles = {
 	firstColumn: {

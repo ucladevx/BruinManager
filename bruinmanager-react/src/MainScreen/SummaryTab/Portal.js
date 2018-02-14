@@ -13,5 +13,6 @@ export default class Portal extends React.Component {
 let styles = {
 	background: {
 		paddingTop: 100,
+		border: "1px solid black",
 	},
 }

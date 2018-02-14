@@ -5,7 +5,8 @@ import {
   Switch,
   Link,
   NavLink
-} from 'react-router-dom'
+} from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 import TabButton from '../Components/TabButton';
 import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
@@ -70,32 +71,60 @@ export default class MainScreen extends React.Component {
     this.state = {isActiveDashboard: true};
   }
 
-	render() {
-		return (
-			//<TabButton onClick={this.props.onClick} tabName="Summary"/>
-      <Router>
-      <div>
-        <div style={styles.overview}>
-          <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
-          <div style={styles.navButtons}>
-            <ButtonLinkDashboard style={styles.navItems} />
-            <ButtonLinkCalendar style={styles.navItems} />
-            <ButtonLinkSettings style={styles.navItems} />
-            <ButtonLinkHelp style={styles.navItems} />
-          </div>
-        </div>
-          <Switch>
-            <Route path="/calendar" component={CalendarScreen} />
-            <Route path="/dashboard" component={SummaryScreen}/>
-            <Route path="/settings" component={SettingsScreen}/>
-            <Route path="/help" component={HelpScreen}/>
-          </Switch>
-      </div>
+//<TabButton onClick={this.props.onClick} tabName="Summary"/>
+render() {
+    return (
+        <Router>
+            <Container fluid>
+                <Row style={styles.overview}>
+                    <Col>
+                        <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
+                    </Col>
+                    <Col style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
+                        <div style={styles.navButtons}>
+                            <ButtonLinkDashboard style={styles.navItems} />
+                            <ButtonLinkCalendar style={styles.navItems} />
+                            <ButtonLinkSettings style={styles.navItems} />
+                            <ButtonLinkHelp style={styles.navItems} />
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Switch>
+                          <Route path="/calendar" component={CalendarScreen} />
+                          <Route path="/dashboard" component={SummaryScreen}/>
+                          <Route path="/settings" component={SettingsScreen}/>
+                          <Route path="/help" component={HelpScreen}/>
+                        </Switch>
+                    </Col>
+                </Row>
+            </Container>
       </Router>
 		);
 	}
 }
-
+/*
+<Router>
+    <div>
+      <div style={styles.overview}>
+        <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
+        <div style={styles.navButtons}>
+          <ButtonLinkDashboard style={styles.navItems} />
+          <ButtonLinkCalendar style={styles.navItems} />
+          <ButtonLinkSettings style={styles.navItems} />
+          <ButtonLinkHelp style={styles.navItems} />
+        </div>
+      </div>
+        <Switch>
+          <Route path="/calendar" component={CalendarScreen} />
+          <Route path="/dashboard" component={SummaryScreen}/>
+          <Route path="/settings" component={SettingsScreen}/>
+          <Route path="/help" component={HelpScreen}/>
+        </Switch>
+    </div>
+</Router>
+*/
 let styles = {
   activeHighlightedButton: {
     backgroundColor: '#DBDBDB',
@@ -113,11 +142,12 @@ let styles = {
   },
   navButtons: {
     marginLeft: 100,
-    display: "inline-block",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   navItems: {
-    display: "inline-block",
-    verticalAlign: "middle",
+    display: "flex",
   },
   overview: {
     marginLeft: 50,

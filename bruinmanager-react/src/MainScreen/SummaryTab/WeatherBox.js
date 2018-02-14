@@ -29,8 +29,8 @@ let styles = {
     borderLeft: "1px solid black",
     borderBottom: "1px solid black",
     borderRight: "1px solid black",
-    marginRight: 50,
-    marginBottom: 50,
+    //marginRight: 50,
+    //marginBottom: 50,
     paddingTop: 50,
     paddingBottom: 50,
   },
@@ -43,7 +43,7 @@ let styles = {
   },
   weekNum: {
     border: "1px solid black",
-    marginRight: 50,
+    //marginRight: 50,
     padding: 5,
   }
 }

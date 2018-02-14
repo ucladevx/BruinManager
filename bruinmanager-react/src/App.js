@@ -24,18 +24,19 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div style={{height: "100vh", width: "100vw",}}>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/login">Login</Link></li>
+            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/">Home</Link></li>
+            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/dashboard">Dashboard</Link></li>
+            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/login">Login</Link></li>
           </ul>
 
           <hr/>
-
-          <Route exact path="/" component={Home}/>
-          <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/login" component={LoginScreen}/>
+          <div>
+              <Route exact path="/" component={Home}/>
+              <Route path="/dashboard" component={Dashboard}/>
+              <Route path="/login" component={LoginScreen}/>
+          </div>
         </div>
       </Router>
     );
