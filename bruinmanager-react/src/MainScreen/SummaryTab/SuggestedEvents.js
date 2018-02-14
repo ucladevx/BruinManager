@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FeedCard from './FeedCard.js';
+import FeedCard from '../../Components/FeedCard.js';
 export default class SuggestedEvents extends React.Component {
 	constructor(props) {
       super(props);

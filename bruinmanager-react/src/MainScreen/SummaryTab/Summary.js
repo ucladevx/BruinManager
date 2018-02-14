@@ -10,7 +10,6 @@ import Portal from './Portal';
 import { Table } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar';
 import StandardCalendarStyle from '../../Components/StandardCalendar.css';
-import FeedCard from '../../Components/FeedCard';
 import WeatherBox from './WeatherBox';
 
 export default class Summary extends React.Component {
