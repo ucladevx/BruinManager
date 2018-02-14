@@ -14,5 +14,7 @@ let styles = {
 	background: {
 		paddingTop: 100,
 		border: "1px solid black",
+		marginTop: 25,
+		height: "100%",
 	},
 }

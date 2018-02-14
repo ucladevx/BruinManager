@@ -7,6 +7,8 @@
     padding-left: 125px;
     padding-top: 28px;
     color: #6b6b6b;
+    border-bottom: 1px solid #b7b7b7;
+    pointer-events: none;
 }
 
 .weekCalendar * {
@@ -22,7 +24,7 @@
     padding-left: 125px;
     text-align: center;
     font-size: 16px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .weekCalendar__scaleHeader {
@@ -63,7 +65,8 @@
     width: 125px;
     border-right: 1px solid #b7b7b7;
     border-left: 1px solid #b7b7b7;
-    text-align: center
+    border-bottom: 1px solid #b7b7b7;
+    text-align: center;
 }
 
 .weekCalendar__scaleCell {
@@ -75,8 +78,8 @@
     position: relative;
     width: auto;
     overflow-x: auto; /* change scrollabality */
-    overflow-y: auto; /* change scrollabality */
-    max-height: 325px; /* change height of table */
+    overflow-y: hidden; /* change scrollabality */
+    max-height: 300px; /* change height of table */
 }
 
 .weekCalendar__overlay {

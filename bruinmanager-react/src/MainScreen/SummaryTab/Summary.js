@@ -12,9 +12,11 @@ import { Table } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar';
 import StandardCalendarStyle from '../../Components/StandardCalendar.css';
 import WeatherBox from './WeatherBox';
+import moment from 'moment';
 
 export default class Summary extends React.Component {
-	render() {
+    render() {
+        console.log(moment().format());
 		return (
             <Container fluid style={{height: "100%",}}>
                 <Row>
@@ -23,7 +25,7 @@ export default class Summary extends React.Component {
                         <SuggestedEvents/>
                     </Col>
                     <Col xs='9'>
-                        <StandardCalendar style={StandardCalendarStyle}/>
+                        <StandardCalendar style={StandardCalendarStyle} startTime={moment().format()}/>
                         <Row>
                             <Col>
                                 <Portal/>
