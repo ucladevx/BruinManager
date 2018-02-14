@@ -14,9 +14,9 @@ const Home = () => (
   </div>
 )
 
-const About = () => (
+const Dashboard = () => (
   <div>
-    <MainScreen/>
+    <MainScreen firstName="Kyle"/>
   </div>
 )
 
@@ -27,14 +27,14 @@ export default class App extends Component {
         <div>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/login">Login</Link></li>
           </ul>
 
           <hr/>
 
           <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
+          <Route path="/dashboard" component={Dashboard}/>
           <Route path="/login" component={LoginScreen}/>
         </div>
       </Router>

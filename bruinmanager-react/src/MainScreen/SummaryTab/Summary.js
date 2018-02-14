@@ -17,12 +17,10 @@ export default class Summary extends React.Component {
 	render() {
 		return (
 			<div style={styles.overall}>
-        <h1>Hello, {this.props.firstName}!</h1>
         <div style={styles.firstColumn}>
           <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
         </div>
         <div style={styles.secondColumn}>
-					<h1>Week {this.props.weekNumber}</h1>
 					<StandardCalendar style={StandardCalendarStyle}/>
 					<Table>
 						<td><SuggestedEvents/></td>
@@ -37,11 +35,16 @@ export default class Summary extends React.Component {
 let styles = {
 	firstColumn: {
 		borderWidth: 0,
+    marginTop: 20,
     float: "left",
     width: "17.5%",
 	},
+  navItems: {
+    display: "inline-block",
+  },
 	secondColumn: {
 		borderWidth: 0,
+    marginTop: 20,
     float: "right",
     width: "82.5%",
 	},

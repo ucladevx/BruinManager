@@ -43,7 +43,6 @@ let styles = {
   },
   weekNum: {
     border: "1px solid black",
-    marginTop: 50,
     marginRight: 50,
     padding: 5,
   }
