@@ -11,10 +11,22 @@ import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
 
 const SummaryScreen = () => (
-	<Summary weekNumber={6}/>
+	  <Summary weekNumber={6}/>
 )
 
 const CalendarScreen = () => {
+  return (
+    <Calendar />
+  )
+}
+
+const SettingsScreen = () => {
+  return (
+    <Calendar />
+  )
+}
+
+const HelpScreen = () => {
   return (
     <Calendar />
   )
@@ -36,6 +48,22 @@ const ButtonLinkCalendar = () => {
   )
 }
 
+const ButtonLinkSettings = () => {
+  return(
+    <NavLink to="/settings" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+      Settings
+    </NavLink>
+  )
+}
+
+const ButtonLinkHelp = () => {
+  return(
+    <NavLink to="/help" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+      Help
+    </NavLink>
+  )
+}
+
 export default class MainScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -52,11 +80,15 @@ export default class MainScreen extends React.Component {
           <div style={styles.navButtons}>
             <ButtonLinkDashboard style={styles.navItems} />
             <ButtonLinkCalendar style={styles.navItems} />
+            <ButtonLinkSettings style={styles.navItems} />
+            <ButtonLinkHelp style={styles.navItems} />
           </div>
         </div>
           <Switch>
             <Route path="/calendar" component={CalendarScreen} />
             <Route path="/dashboard" component={SummaryScreen}/>
+            <Route path="/settings" component={SettingsScreen}/>
+            <Route path="/help" component={HelpScreen}/>
           </Switch>
       </div>
       </Router>

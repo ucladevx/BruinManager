@@ -18,7 +18,7 @@ class Event extends React.PureComponent {
     return (
       <div className="event">
         <span>{`${start.format('HH:mm')} - ${end.format('HH:mm')}`}</span>
-        <br /><br />
+        <br/>
         {value}
       </div>
     );
