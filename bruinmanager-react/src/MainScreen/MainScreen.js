@@ -77,15 +77,19 @@ render() {
         <Router>
             <Container fluid>
                 <Row style={styles.overview}>
-                    <Col>
+                    <Col xs="3">
                         <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
                     </Col>
                     <Col style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
                         <div style={styles.navButtons}>
-                            <ButtonLinkDashboard style={styles.navItems} />
-                            <ButtonLinkCalendar style={styles.navItems} />
-                            <ButtonLinkSettings style={styles.navItems} />
-                            <ButtonLinkHelp style={styles.navItems} />
+                            <div>
+                                <ButtonLinkDashboard style={styles.navItems} />
+                                <ButtonLinkCalendar/>
+                            </div>
+                            <div>
+                                <ButtonLinkSettings />
+                                <ButtonLinkHelp/>
+                            </div>
                         </div>
                     </Col>
                 </Row>
@@ -141,13 +145,10 @@ let styles = {
     fontFamily: "Roboto",
   },
   navButtons: {
-    marginLeft: 100,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  navItems: {
-    display: "flex",
+    width: "100%",
   },
   overview: {
     marginLeft: 50,

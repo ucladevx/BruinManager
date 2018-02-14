@@ -42,7 +42,7 @@ let styles = {
 	  	flex: "0 0 auto",
   	},
   	newsfeed: {
-		overflowY: "scroll",
+		overflow: "scroll",
 		flex: "0 1 auto",
 		background: "white",
 	},

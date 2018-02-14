@@ -29,12 +29,12 @@ let styles = {
 	card: {
 		border: "1px solid black",
 		borderTop: "none",
-		height: 140,
+		minHeight: 140,
 		width: "100%",
 	},
 	titleWrapper: {
 		display: "flex",
-		height: 70,
+		minHeight: 70,
 		justifyContent: "flex-start",
 		alignItems: "flex-end",
 		paddingLeft: 7,
@@ -43,7 +43,7 @@ let styles = {
 		marginBottom: 0,
 	},
 	largeFont: {
-		fontSize: 18,
+		fontSize: 16,
 	},
 	smallFont: {
 		fontSize: 14,
@@ -55,7 +55,7 @@ let styles = {
 	infoWrapper: {
 		display: "flex",
 		flexDirection: "column",
-		height: 70,
+		minHeight: 70,
 		paddingLeft: 15,
 		paddingRight: 15,
 	},
