@@ -6,11 +6,11 @@
     overflow: hidden;
     padding-left: 125px;
     padding-top: 28px;
-    color: #6b6b6b
+    color: #6b6b6b;
 }
 
 .weekCalendar * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 .weekCalendar__header {
@@ -38,7 +38,7 @@
     color: #6b6b6b;
     text-align: center;
     font-size: 16px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .weekCalendar__headerWrapper {
@@ -46,13 +46,13 @@
     border-top: 1px solid #b7b7b7;
     border-bottom: 1px solid #b7b7b7;
     background-color: #f7f7f7;
-    color: #6b6b6b
+    color: #6b6b6b;
 }
 
 .weekCalendar__headerColumn {
     height: 100%;
     display: inline-block;
-    border-right: 1px solid #b7b7b7
+    border-right: 1px solid #b7b7b7;
 }
 
 .weekCalendar__scaleColumn {
@@ -74,7 +74,8 @@
 .weekCalendar__content {
     position: relative;
     width: auto;
-    overflow: hidden; /* change scrollabality */
+    overflow-x: auto; /* change scrollabality */
+    overflow-y: auto; /* change scrollabality */
     max-height: 325px; /* change height of table */
 }
 
@@ -98,18 +99,18 @@
 }
 
 .calendarBody__row {
-    display: table-row
+    display: table-row;
 }
 
 .calendarBody__cell {
     background-color: #fff;
-    border-bottom: 1px solid #b7b7b7
+    /* border-bottom: 1px solid #b7b7b7; */
 }
 
 .calendarBody__column {
     display: table-cell;
     border-right: 1px solid #b7b7b7;
-    min-width: 100px
+    min-width: 100px;
 }
 
 .dayCell {
@@ -118,13 +119,15 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none
+    user-select: none;
 }
 
 .dayCell:hover {
+    /*
     cursor: pointer;
     background-color: rgba(249, 105, 14, .4);
-    border-color: #f9690e
+    */
+    border-color: #f9690e;
 }
 
 .event {

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import WeekCalendar from 'react-week-calendar';
+import WeekCalendar from './WeekCalendar/WeekCalendar';
 
 export default class StandardCalendar extends React.Component {
 
@@ -49,7 +49,7 @@ export default class StandardCalendar extends React.Component {
 
   render() {
     return <WeekCalendar
-      startTime = {moment().format()}
+      startTime = {moment({h: 0, m: 0})} //moment().format()
       endTime = {moment({h: 23, m: 59})} // moment().clone().add('4', 'hour')
       numberOfDays= {7}
       selectedIntervals = {this.state.selectedIntervals}
