@@ -38,7 +38,7 @@ const propTypes = {
   useModal: PropTypes.bool,
 };
 
-const defaultProps = {
+let defaultProps = {
   firstDay: moment(),
   numberOfDays: 7,
   scaleHeaderTitle: '',
@@ -48,7 +48,7 @@ const defaultProps = {
   endTime: moment({ h: 23, m: 59 }),
   scaleUnit: 15,
   scaleFormat: 'h:mm A',
-  cellHeight: 25,
+  cellHeight: 15,
   dayCellComponent: DayCell,
   selectedIntervals: [],
   eventComponent: Event,
@@ -71,6 +71,7 @@ class WeekCalendar extends React.Component {
       },
       startSelectionPosition: null,
       preselectedInterval: null,
+      isSmall: props.isSmall,
     };
   }
 
@@ -413,7 +414,8 @@ class WeekCalendar extends React.Component {
             cellHeight={this.props.cellHeight}
           />
         </div>
-        <div className="weekCalendar__content" onScroll={this.handleScroll}>
+        <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {maxHeight: 300, pointerEvents: "none",} :
+                                                                                                        {maxHeight: 10000, pointerEvents: "auto",}}>
           <CalendarBody
             firstDay={firstDay}
             numberOfDays={numberOfDays}
@@ -432,8 +434,6 @@ class WeekCalendar extends React.Component {
     );
   }
 }
-
 WeekCalendar.propTypes = propTypes;
 WeekCalendar.defaultProps = defaultProps;
-
 export default WeekCalendar;

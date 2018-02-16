@@ -29,12 +29,12 @@ let styles = {
 	card: {
 		border: "1px solid black",
 		borderTop: "none",
-		minHeight: 140,
+		minHeight: 120,
 		width: "100%",
 	},
 	titleWrapper: {
 		display: "flex",
-		minHeight: 70,
+		minHeight: 50,
 		justifyContent: "flex-start",
 		alignItems: "flex-end",
 		paddingLeft: 7,

@@ -38,7 +38,7 @@ let styles = {
   	header: {
 	  	position: "relative",
 	  	height:1,
-		border: "1px solid black",
+		borderBottom: "1px solid black",
 	  	flex: "0 0 auto",
   	},
   	newsfeed: {

@@ -16,7 +16,6 @@ import moment from 'moment';
 
 export default class Summary extends React.Component {
     render() {
-        console.log(moment().format());
 		return (
             <Container fluid style={{height: "100%",}}>
                 <Row>

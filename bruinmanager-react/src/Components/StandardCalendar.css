@@ -8,7 +8,6 @@
     padding-top: 28px;
     color: #6b6b6b;
     border-bottom: 1px solid #b7b7b7;
-    pointer-events: none;
 }
 
 .weekCalendar * {

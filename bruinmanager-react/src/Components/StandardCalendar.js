@@ -61,6 +61,7 @@ export default class StandardCalendar extends React.Component {
       onIntervalSelect = {this.handleSelect}
       onIntervalUpdate = {this.handleEventUpdate}
       onIntervalRemove = {this.handleEventRemove}
+      isSmall = {true}
     />
   }
 }
