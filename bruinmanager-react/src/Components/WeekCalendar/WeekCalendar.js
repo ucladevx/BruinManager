@@ -79,7 +79,9 @@ class WeekCalendar extends React.Component {
     this.calculateColumnDimension();
     window.addEventListener('resize', this.calculateColumnDimension);
     window.addEventListener('mouseup', this.handleSelectionStop);
-  }
+    if(!this.state.isSmall)
+        this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
+}
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.scaleUnit !== this.props.scaleUnit || nextProps.startTime !== this.props.startTime || nextProps.endTime !== this.props.endTime) {
@@ -412,11 +414,13 @@ class WeekCalendar extends React.Component {
             scaleFormat={scaleFormat}
             scaleIntervals={this.state.scaleIntervals}
             cellHeight={this.props.cellHeight}
+            ref="scaleCol"
           />
         </div>
         <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {maxHeight: 300, pointerEvents: "none",} :
-                                                                                                        {maxHeight: 10000, pointerEvents: "auto",}}>
+                                                                                                        {maxHeight: 665, pointerEvents: "auto",}}>
           <CalendarBody
+            ref = "calendarbody"
             firstDay={firstDay}
             numberOfDays={numberOfDays}
             scaleUnit={scaleUnit}

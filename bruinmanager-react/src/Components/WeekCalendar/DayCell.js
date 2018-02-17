@@ -9,9 +9,9 @@ const propTypes = {
 class DayCell extends React.Component {
   constructor (props) {
       super(props);
-      let tempHour = props.startTime.minute() === 45;
       this.state = {
-          isHour: tempHour,
+          hours: props.startTime.hours(),
+          minutes: props.startTime.minutes(),
       };
   }
   handleMouseDown = (e) => {
@@ -21,12 +21,16 @@ class DayCell extends React.Component {
   }
 
   render() {
-    let tempStyle = {}
-    if(this.state.isHour) {
+    let tempRef = -1;
+    let tempStyle = {};
+    if(this.state.minutes === 45) {
         tempStyle = hourStyle;
     }
+    if(this.state.minutes === 0) {
+        tempRef = this.state.hours;
+    }
     return (
-      <div onMouseDown={this.handleMouseDown} className="dayCell" role="presentation" style={tempStyle}>
+      <div ref={tempRef} onMouseDown={this.handleMouseDown} className="dayCell" role="presentation" style={tempStyle}>
           &nbsp;
       </div>);
   }

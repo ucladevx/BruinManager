@@ -26,7 +26,7 @@ class DayColumn extends React.Component {
   render() {
     const { cellHeight, colPos, dayIntervals } = this.props;
     const DayCell = this.props.dayCellComponent;
-
+    let tempRef = -1;
     const dayCells = dayIntervals.map((interval, rowPos) => (
       <div
         key={rowPos}
@@ -41,6 +41,7 @@ class DayColumn extends React.Component {
           endTime={interval.end}
           cellHeight={this.props.cellHeight}
           startSelection={this.handleStartSelection(colPos, rowPos)}
+          ref = {colPos == 0 ? (interval.start.minutes() == 0 ? interval.start.hours(): -1): -1}
         />
       </div>
     ));

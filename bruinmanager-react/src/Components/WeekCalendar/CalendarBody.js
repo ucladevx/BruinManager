@@ -47,6 +47,7 @@ class CalendarBody extends React.Component {
         dayIntervals={intervals}
         onSelectionStart={this.props.onSelectionStart}
         onCellMouseEnter={this.props.onCellMouseEnter}
+        ref = {i == 0 ? 0 : -1}
       />);
     }
 

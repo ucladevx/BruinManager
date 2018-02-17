@@ -77,7 +77,7 @@
     position: relative;
     width: auto;
     overflow-x: auto; /* change scrollabality */
-    overflow-y: hidden; /* change scrollabality */
+    overflow-y: scroll; /* change scrollabality */
     max-height: 300px; /* change height of table */
 }
 
@@ -186,7 +186,7 @@
     color: #fff;
     border: 1px solid rgba(249, 105, 14, .8);
     margin-bottom: 5px;
-    background-color: rgba(249, 105, 14, .8)
+    background-color: rgba(249, 105, 14, .8);
 }
 
 .customModal__button:focus,

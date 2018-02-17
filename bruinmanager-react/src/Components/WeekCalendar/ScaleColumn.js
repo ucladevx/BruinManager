@@ -22,14 +22,16 @@ class ScaleColumn extends React.Component {
     let tempContent = "";
     let bottomStyle = "none";
     //console.log(scaleFormat);
+    let tempRef = -1;
     if(scaleInterval.start.minutes() === 0) {
         tempContent = scaleInterval.start.format(scaleFormat);
+        tempRef = scaleInterval.start.hour();
     }
     if(scaleInterval.start.minutes() === 45) {
         bottomStyle = '1px solid #b7b7b7';
     }
     return (
-      <div key={index} className="weekCalendar__scaleCell" style={{ height: cellHeight, lineHeight: `${cellHeight}px`, borderBottom: bottomStyle, }}>
+      <div ref={tempRef} key={index} className="weekCalendar__scaleCell" style={{ height: cellHeight, lineHeight: `${cellHeight}px`, borderBottom: bottomStyle, }}>
         <span>{tempContent}</span>
       </div>
     );
@@ -37,6 +39,7 @@ class ScaleColumn extends React.Component {
 
   render() {
     const { scaleIntervals } = this.props;
+    ///console.log(scaleIntervals);
     return (
       <div>
         {scaleIntervals.map((scaleInterval, index) => this.renderScaleCell(scaleInterval, index))}
