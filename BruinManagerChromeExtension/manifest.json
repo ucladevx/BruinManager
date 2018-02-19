@@ -12,6 +12,7 @@
     {
       "matches": [
         "*://*.my.ucla.edu/*", 
+        "*://*.arcane-cove-10079.herokuapp.com/*", 
         "*://*.google.com/*"  // will need to change this to bruinmanager when we get a domain but test on google for now
       ],
       "css": [ "loader.css" ],

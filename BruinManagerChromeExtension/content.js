@@ -1,3 +1,5 @@
+var xhr = new XMLHttpRequest();   // new HttpRequest instance 
+
 function getEnrollmentAndClassData() {
 
 	// TODO: check if we are on the study list
@@ -25,7 +27,8 @@ function getEnrollmentAndClassData() {
 	var user = {
 		"user": {
 			"enrollment": enroll,
-			"classes": classArr
+			"classes": classArr,
+			"name": "taasin"
 		}
 	}
 
@@ -115,11 +118,19 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 		}
 	});
 
-} else if (window.location.href.indexOf("google.com") > -1) { //TODO: change this to domain of bruinmanager when we create a site
+} 
+// else if (window.location.href.indexOf("google.com") > -1) { //TODO: change this to domain of bruinmanager when we create a site
 
+else if (window.location.href.indexOf("arcane-cove-10079.herokuapp.com") > -1) {
 	// Get the data that was stored
 	chrome.storage.sync.get('data', function(items){
-	    console.log(items)
-	});
+	   	
+	   	console.log(items.data.user);
 
+		var url = "https://arcane-cove-10079.herokuapp.com/user";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+		xhr.send(JSON.stringify(items.data.user));
+	
+	});
 }
