@@ -77,10 +77,10 @@ render() {
         <Router>
             <Container style={{height: "100%"}}>
                 <Row style={styles.overview}>
-                    <Col xs="3">
-                        <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
+                    <Col xs="2">
+                        <h2 style={styles.navItems}>Hello,{'\u00A0'}{this.props.firstName}!</h2>
                     </Col>
-                    <Col style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
+                    <Col xs="10" style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
                         <div style={styles.navButtons}>
                             <div>
                                 <ButtonLinkDashboard style={styles.navItems} />
@@ -134,7 +134,7 @@ let styles = {
   highlightedButton: {
     color: '#000000',
     borderRadius: "20%",
-    marginLeft: 50,
+    
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
