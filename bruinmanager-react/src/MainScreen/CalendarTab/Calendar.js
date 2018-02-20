@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import WeekCalendar from '../../Components/WeekCalendar/WeekCalendar';
+import StandardCalendar from '../../Components/StandardCalendar';
 import WeekCalendarStyle from '../../Components/StandardCalendar.css';
 import moment from 'moment';
 export default class Calendar extends React.Component {
@@ -17,7 +17,7 @@ export default class Calendar extends React.Component {
 
             </Col>
             <Col style={{border: "1px solid red", maxHeight: 700,}}>
-                <WeekCalendar style={WeekCalendarStyle}/>
+                <StandardCalendar style={WeekCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false} weekNum={1}/>
             </Col>
         </Row>
       </Container>
