@@ -12,6 +12,7 @@ import { Table } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar';
 import StandardCalendarStyle from '../../Components/StandardCalendar.css';
 import WeatherBox from './WeatherBox';
+import NotesAndReminders from './NotesAndReminders';
 import moment from 'moment';
 
 export default class Summary extends React.Component {
@@ -19,9 +20,9 @@ export default class Summary extends React.Component {
 		return (
             <Container fluid style={{height: "100vh",}}>
                 <Row>
-                    <Col xs="1">
+                    <Col xs="1" style={styles.colOffset}>
                     </Col>
-                    <Col xs='1.5'>
+                    <Col xs="2">
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
                         <SuggestedEvents/>
                     </Col>
@@ -29,7 +30,7 @@ export default class Summary extends React.Component {
                         <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
                         <Row>
                             <Col>
-                                <Portal/>
+                                <NotesAndReminders />
                             </Col>
                             <Col>
                                 <Portal/>
@@ -67,6 +68,9 @@ let styles = {
 	},
   navItems: {
     display: "inline-block",
+  },
+  colOffset: {
+    marginLeft: -100,
   },
 	secondColumn: {
 		borderWidth: 0,
