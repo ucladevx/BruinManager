@@ -134,7 +134,6 @@ let styles = {
   highlightedButton: {
     color: '#000000',
     borderRadius: "20%",
-    
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
@@ -151,6 +150,7 @@ let styles = {
     //marginLeft: 50,
     //marginRight: 50,
     height: "10%",
+    paddingTop: 10,
   }
 }
 // <Route exact path="/summary" component={SummaryScreen} />

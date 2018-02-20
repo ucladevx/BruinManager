@@ -24,14 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div style={{height: "100vh", width: "100vw",}}>
-          <ul>
-            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/">Home</Link></li>
-            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/dashboard">Dashboard</Link></li>
-            <li style={{display: 'inline', marginLeft: 5,}}><Link to="/login">Login</Link></li>
-          </ul>
-
-          <hr/>
+        <div style={{height: "100vh", width: "100vw", overflow: "hidden"}}>
           <div>
               <Route exact path="/" component={Home}/>
               <Route path="/dashboard" component={Dashboard}/>
@@ -44,6 +37,16 @@ export default class App extends Component {
 }
 
 /*
+
+<ul>
+  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/">Home</Link></li>
+  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/dashboard">Dashboard</Link></li>
+  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/login">Login</Link></li>
+</ul>
+
+<hr/>
+
+
 let styles = {
   container: {
     backgroundColor: 'red',
