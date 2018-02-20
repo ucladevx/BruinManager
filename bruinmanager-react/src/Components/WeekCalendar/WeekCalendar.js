@@ -225,9 +225,7 @@ class WeekCalendar extends React.Component {
   }
 
   submitPreselectedInterval = (newValue) => {
-      console.log("submitting preselcted interval");
     const { preselectedInterval, updateEvent } = this.state;
-    console.log("*" + preselectedInterval + " " + updateEvent);
     if (updateEvent) {
       if (this.props.onIntervalUpdate) {
         this.props.onIntervalUpdate({
@@ -419,7 +417,7 @@ class WeekCalendar extends React.Component {
           />
         </div>
         <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, pointerEvents: "none",} :
-                                                                                                        {minHeight: 665, maxHeight: 665, pointerEvents: "auto",}}>
+                                                                                                        {minHeight: 650, maxHeight: 650, pointerEvents: "auto",}}>
           <CalendarBody
             ref = "calendarbody"
             firstDay={firstDay}

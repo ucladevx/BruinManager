@@ -4,16 +4,30 @@ import clearStar from './clear-star.png';
 import yellowStar from './yellow-star.png';
 
 export default class StarButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isToggle: false,
+        }
+    }
+
+    toggleColor = () => {
+        this.setState({
+            isToggle: !this.state.isToggle,
+        });
+    }
+
     render() {
+        let currentStar = this.state.isToggle ? yellowStar : clearStar;
+        console.log(this.state.isToggle);
         return (
-            <div style={{...{backgroundImage: `url(${clearStar})`, backgroundSize: "20px 20px"}, ...styles.star}}></div>
+            <div onClick={this.toggleColor} style={{...{backgroundImage: `url(${currentStar})`, backgroundSize: "20px 20px"}, ...styles.star}}></div>
         );
     }
 
 }
-
 let styles = {
-    star: {        
+    star: {
         height: 20,
         width: 20,
     },
