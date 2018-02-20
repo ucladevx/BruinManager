@@ -24,13 +24,14 @@ export default class NotesAndReminders extends React.Component {
 
 let styles = {
 	background: {
-		border: "1px solid black",
+		border: "1px solid #CFCFCF",
         overflowY: "none",
         marginBottom: -25,
         height: "100%",
+        boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
 	},
   reminderSection: {
-    borderRight: "1px solid black",
+    borderRight: "1px solid #CFCFCF",
 
     height: "100%",
   },

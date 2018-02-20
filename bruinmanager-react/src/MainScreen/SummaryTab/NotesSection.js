@@ -24,7 +24,7 @@ export default class NotesSection extends React.Component {
 
 let styles = {
   highlightBorder: {
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid #CFCFCF",
   },
   spacing: {
   },

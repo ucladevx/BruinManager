@@ -22,7 +22,8 @@ export default class DiningStack extends React.Component {
 
 let styles = {
     wrapper: {
-        marginTop: 10,
-        width: "100%"
+        marginTop: 20,
+        width: "100%",
+        boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
     },
 }

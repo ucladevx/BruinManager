@@ -35,7 +35,7 @@ export default class SuggestedEvents extends React.Component {
 let styles = {
 	card: {
 		display: "flex",
-		border: "1px solid black",
+		border: "1px solid #CFCFCF",
 		borderTop: "none",
 		minHeight: 120,
 		minWidth: "100%",
@@ -73,7 +73,7 @@ let styles = {
 		height: "100%",
 		minHeight: 120,
 		justifyContent: "center",
-		borderLeft: "1px solid black",
+		borderLeft: "1px solid #CFCFCF",
 		paddingLeft: 10,
 		paddingRight: 10,
 	},

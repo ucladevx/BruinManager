@@ -20,7 +20,7 @@ export default class Summary extends React.Component {
     render() {
 		return (
                 <Row noGutters>
-                    <Col xs="2" style={{height: "100%", marginTop: 10, paddingRight: 10}}>
+                    <Col xs="2" style={{height: "100%", marginTop: 10, paddingRight: 20}}>
                         <WeatherBox height = "20%" weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
                         <DiningStack height = "auto"/>
                     </Col>
@@ -28,8 +28,8 @@ export default class Summary extends React.Component {
                         <Row noGutters>
                             <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
                         </Row>
-                        <Row noGutters style={{height: "50%", marginTop: 10}}>
-                            <Col style={{paddingRight: 10, height: "auto"}}>
+                        <Row noGutters style={{height: "50%", marginTop: 20}}>
+                            <Col style={{paddingRight: 20, height: "auto"}}>
                                 <NotesAndReminders/>
                             </Col>
                             <Col style={{ height: "100%"}}>

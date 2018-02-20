@@ -12,7 +12,7 @@ export default class DiningTitle extends React.Component {
 
 let styles = {
     title: {
-        border: "1px solid black",
+        border: "1px solid #CFCFCF",
         display: "flex",
         alignItems: "center",
         height: 20,

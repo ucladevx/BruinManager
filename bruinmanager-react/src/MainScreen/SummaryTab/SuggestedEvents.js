@@ -12,7 +12,7 @@ export default class SuggestedEvents extends React.Component {
 
 	render() {
 		return(
-			<div style={{height: this.state.height,}}>
+			<div style={{height: this.state.height, boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
 				<div style={styles.searchBar}>
 					<StarButton/>
 					<form>
@@ -49,14 +49,14 @@ let styles = {
 		display: "flex",
 		justifyContent: "space-between",
 		alignItems: "center",
-		border: "1px solid black",
+		border: "1px solid #CFCFCF",
 		borderBottom: "none",
 		height: 50,
 		paddingLeft: 5,
 		paddingRight: 5,
 	},
 	tagBar: {
-		border: "1px solid black",
+		border: "1px solid #CFCFCF",
 		borderRight: "none",
 		width: "20%",
 	},
@@ -69,7 +69,7 @@ let styles = {
   	header: {
 	  	position: "relative",
 	  	height:1,
-		borderBottom: "1px solid black",
+		borderBottom: "1px solid #CFCFCF",
 	  	flex: "0 0 auto",
   	},
   	newsfeed: {

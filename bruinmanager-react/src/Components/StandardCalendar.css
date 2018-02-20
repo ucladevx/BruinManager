@@ -7,7 +7,7 @@
     padding-left: 125px;
     padding-top: 28px;
     color: #6b6b6b;
-    border-bottom: 1px solid #b7b7b7;
+    box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.25);
 }
 
 .weekCalendar * {
@@ -34,7 +34,7 @@
     width: 125px;
     height: 28px;
     background-color: #f7f7f7;
-    border: 1px solid #b7b7b7;
+    border: 1px solid #CFCFCF;
     line-height: 28px;
     color: #6b6b6b;
     text-align: center;
@@ -44,8 +44,8 @@
 
 .weekCalendar__headerWrapper {
     height: 100%;
-    border-top: 1px solid #b7b7b7;
-    border-bottom: 1px solid #b7b7b7;
+    border-top: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
     background-color: #f7f7f7;
     color: #6b6b6b;
 }
@@ -53,7 +53,7 @@
 .weekCalendar__headerColumn {
     height: 100%;
     display: inline-block;
-    border-right: 1px solid #b7b7b7;
+    border-right: 1px solid #CFCFCF;
 }
 
 .weekCalendar__scaleColumn {
@@ -62,15 +62,15 @@
     left: 0;
     padding-top: 28px;
     width: 125px;
-    border-right: 1px solid #b7b7b7;
-    border-left: 1px solid #b7b7b7;
-    border-bottom: 1px solid #b7b7b7;
+    border-right: 1px solid #CFCFCF;
+    border-left: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
     text-align: center;
 }
 
 .weekCalendar__scaleCell {
     background-color: #fff;
-    border-bottom: 1px solid #b7b7b7
+    border-bottom: 1px solid #CFCFCF;
 }
 
 .weekCalendar__content {
@@ -111,7 +111,7 @@
 
 .calendarBody__column {
     display: table-cell;
-    border-right: 1px solid #b7b7b7;
+    border-right: 1px solid #CFCFCF;
     min-width: 100px;
 }
 
@@ -161,7 +161,7 @@
 .calendarModal__content {
     position: relative;
     margin: auto;
-    border: 1px solid #b7b7b7;
+    border: 1px solid #CFCFCF;
     background: #fff;
     padding: 10px;
     border-radius: 3px
