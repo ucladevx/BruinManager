@@ -23,7 +23,7 @@ function getEnrollmentAndClassData() {
 		classArr[i] = p2;
 	}
 
-	// id user somehow, replace "user"
+	// id user somehow by saving username
 	var user = {
 		"user": {
 			"enrollment": enroll,
@@ -81,13 +81,13 @@ function processClassData(data){
 	}
 
 	var discussion = {
-		"section": data[28],
-		"status": data[29],
-		"waitlist_status": data[30],
-		"days": data[31],
-		"time": data[32],
-		"location": data[33],
-		"instructor": data[35],
+		"section": data[27],
+		"status": data[28],
+		"waitlist_status": data[29],
+		"days": data[30],
+		"time": data[31],
+		"location": data[32],
+		"instructor": data[34],
 	}
 
 	var clasData = {
