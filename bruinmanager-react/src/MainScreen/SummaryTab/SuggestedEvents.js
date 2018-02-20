@@ -20,7 +20,9 @@ export default class SuggestedEvents extends React.Component {
 					<div style={{width: 20,}}></div>
 				</div>
 				<div style={{display: "flex", width: "100%"}}>
-					<div style={styles.tagBar}></div>
+					<div style={styles.tagBar}>
+						
+					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>
 						<div style={styles.newsfeed}>

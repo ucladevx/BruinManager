@@ -12,6 +12,7 @@ import { Table } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar';
 import StandardCalendarStyle from '../../Components/StandardCalendar.css';
 import WeatherBox from './WeatherBox';
+import DiningStack from './DiningStack';
 import NotesAndReminders from './NotesAndReminders';
 import moment from 'moment';
 
@@ -24,7 +25,7 @@ export default class Summary extends React.Component {
                     </Col>
                     <Col xs="2">
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
-                        <Portal/>
+                        <DiningStack/>
                     </Col>
                     <Col>
                         <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
