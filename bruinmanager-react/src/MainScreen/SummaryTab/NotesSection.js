@@ -25,22 +25,22 @@ export default class NotesSection extends React.Component {
 let styles = {
   highlightBorder: {
     borderBottom: "1px solid black",
-    marginLeft: -20,
-    marginRight: -20,
   },
   spacing: {
-    marginLeft: 10,
-    marginRight: 10,
   },
   inlined: {
-    display: "inline"
+    display: "inline",
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   notesList: {
     marginTop: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   overview: {
     marginTop: 25,
-    height: 400,
+
   },
   rightText: {
     float: "right",

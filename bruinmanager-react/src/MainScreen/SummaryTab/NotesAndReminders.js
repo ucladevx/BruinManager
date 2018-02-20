@@ -7,8 +7,8 @@ export default class NotesAndReminders extends React.Component {
   render() {
     return (
       <div style={styles.background}>
-        <Container>
-          <Row>
+        <Container fluid style={{height: "100%", padding: "0 0 0 0"}}>
+          <Row noGutters style={{height: "100%"}}>
             <Col xs="4" style={styles.reminderSection}>
               <ReminderSection />
             </Col>
@@ -25,18 +25,17 @@ export default class NotesAndReminders extends React.Component {
 let styles = {
 	background: {
 		border: "1px solid black",
-		marginTop: 25,
-		height: "100%",
-    overflowY: "scroll",
-    marginBottom: -25,
-    height: 400,
+        overflowY: "none",
+        marginBottom: -25,
+        height: "100%",
 	},
   reminderSection: {
     borderRight: "1px solid black",
-    paddingLeft: 20,
+
+    height: "100%",
   },
   todoSection: {
-    borderLeft: "1px solid black",
-    paddingLeft: 20,
+
+    height: "100%",
   }
 }

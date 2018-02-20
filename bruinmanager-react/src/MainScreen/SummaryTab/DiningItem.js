@@ -19,6 +19,7 @@ export default class DiningItem extends React.Component {
 let styles = {
     wrapper: {
         border: "1px solid black",
+        borderTop: "none",
         display: "flex",
         height: 60,
         width: "100%",

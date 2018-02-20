@@ -75,7 +75,7 @@ export default class MainScreen extends React.Component {
 render() {
     return (
         <Router>
-            <Container fluid style={{height: "100vh"}}>
+            <Container style={{height: "100%"}}>
                 <Row style={styles.overview}>
                     <Col xs="3">
                         <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
@@ -93,16 +93,14 @@ render() {
                         </div>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <Switch>
-                          <Route path="/calendar" component={CalendarScreen} />
-                          <Route path="/dashboard" component={SummaryScreen}/>
-                          <Route path="/settings" component={SettingsScreen}/>
-                          <Route path="/help" component={HelpScreen}/>
-                        </Switch>
-                    </Col>
-                </Row>
+
+                    <Switch>
+                        <Route path="/calendar" component={CalendarScreen} />
+                        <Route path="/dashboard" component={SummaryScreen}/>
+                        <Route path="/settings" component={SettingsScreen}/>
+                        <Route path="/help" component={HelpScreen}/>
+                    </Switch>
+
             </Container>
       </Router>
 		);
@@ -141,7 +139,6 @@ let styles = {
     paddingRight: 20,
     paddingTop: 10,
     paddingBottom: 10,
-    backgroundColor: '#ffffff',
     fontFamily: "Roboto",
   },
   navButtons: {
@@ -151,8 +148,9 @@ let styles = {
     width: "100%",
   },
   overview: {
-    marginLeft: 50,
-    marginRight: 50,
+    //marginLeft: 50,
+    //marginRight: 50,
+    height: "10%",
   }
 }
 // <Route exact path="/summary" component={SummaryScreen} />

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
 export default class WeatherBox extends React.Component {
-  render() {
+  render(props) {
+      let tempHeight = this.props.height;
     return (
-      <div style={{height: 0, width: "100%", paddingBottom: "100%", border: "1px solid black", minHeight: 175,}}>
+      <div style={{display: "flex", flexDirection: "column", height: tempHeight, width: "100%", border: "1px solid black",}}>
           <div style={styles.weekNum}>
             <p style={{...styles.weekInfo, ...styles.centered}}>Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>
@@ -26,14 +27,11 @@ let styles = {
     margin: 0,
   },
   weather: {
-
-    //borderLeft: "1px solid black",
-    //borderBottom: "1px solid black",
-    //borderRight: "1px solid black",
-    //marginRight: 50,
-    //marginBottom: 50,
-    //paddingTop: 50,
-    //paddingBottom: 50,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: 15,
   },
   weatherCondition: {
     fontSize: 16,
@@ -41,11 +39,15 @@ let styles = {
   },
   weekInfo: {
     fontSize: 24,
+    marginBottom: 0,
   },
   weekNum: {
     borderBottom: "1px solid black",
-    
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     //marginRight: 50,
-    //padding: 5,
+    padding: 5,
   }
 }

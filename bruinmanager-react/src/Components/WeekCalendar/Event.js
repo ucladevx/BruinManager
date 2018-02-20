@@ -14,16 +14,17 @@ class Event extends React.PureComponent {
       start,
       end,
       value,
+      title,
+      location,
     } = this.props;
     return (
       <div className="event">
-        <span>{`${start.format('h:mm')} - ${end.format('h:mm')}`}</span>
+        <span>{value}</span>
         <br/>
-        {value}
+        <span>{location}</span>
       </div>
     );
   }
 }
-
 Event.propTypes = propTypes;
 export default Event;

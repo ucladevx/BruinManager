@@ -26,15 +26,15 @@ export default class ReminderSection extends React.Component {
 let styles = {
   highlightBorder: {
     borderBottom: "1px solid black",
-    marginLeft: -20,
-    marginRight: -20,
   },
   inlined: {
-    display: "inline"
+    display: "inline",
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   overview: {
     marginTop: 25,
-    height: 400,
+    height: "100%",
   },
   title: {
     marginTop: 20,
@@ -46,5 +46,7 @@ let styles = {
   },
   reminderList: {
     marginTop: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
   }
 }

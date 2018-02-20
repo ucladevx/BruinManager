@@ -6,12 +6,13 @@ export default class SuggestedEvents extends React.Component {
       super(props);
       this.state = {
         eventList: props.eventList,
+		height: props.height,
       }
     }
 
 	render() {
 		return(
-			<div style={styles.wrapper}>
+			<div style={{height: this.state.height,}}>
 				<div style={styles.searchBar}>
 					<StarButton/>
 					<form>
@@ -21,7 +22,7 @@ export default class SuggestedEvents extends React.Component {
 				</div>
 				<div style={{display: "flex", width: "100%"}}>
 					<div style={styles.tagBar}>
-						
+
 					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>
@@ -44,9 +45,6 @@ export default class SuggestedEvents extends React.Component {
 }
 
 let styles = {
-	wrapper: {
-		marginTop: 25,
-	},
 	searchBar: {
 		display: "flex",
 		justifyContent: "space-between",
@@ -54,6 +52,8 @@ let styles = {
 		border: "1px solid black",
 		borderBottom: "none",
 		height: 50,
+		paddingLeft: 5,
+		paddingRight: 5,
 	},
 	tagBar: {
 		border: "1px solid black",
@@ -63,7 +63,7 @@ let styles = {
 	scrollWrapper: {
 		display: "flex",
 		flexDirection: "column",
-		height: "calc(100vh - 453px)",
+		height: 335,
 		width: "80%",
 	},
   	header: {

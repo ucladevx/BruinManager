@@ -19,29 +19,25 @@ import moment from 'moment';
 export default class Summary extends React.Component {
     render() {
 		return (
-            <Container fluid style={{height: "100vh",}}>
-                <Row>
-                    <Col xs="1" style={styles.colOffset}>
+                <Row noGutters>
+                    <Col xs="2" style={{height: "100%", marginTop: 10, paddingRight: 10}}>
+                        <WeatherBox height = "20%" weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
+                        <DiningStack height = "auto"/>
                     </Col>
-                    <Col xs="2">
-                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
-                        <DiningStack/>
-                    </Col>
-                    <Col>
-                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
-                        <Row>
-                            <Col>
-                                <NotesAndReminders />
+                    <Col xs = "10" style={{height: "50%", marginTop: 10}}>
+                        <Row noGutters>
+                            <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
+                        </Row>
+                        <Row noGutters style={{height: "50%", marginTop: 10}}>
+                            <Col style={{paddingRight: 10, height: "auto"}}>
+                                <NotesAndReminders/>
                             </Col>
-                            <Col>
+                            <Col style={{ height: "100%"}}>
                                 <SuggestedEvents/>
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs="1">
-                    </Col>
                 </Row>
-            </Container>
 		)
 	}
 }

@@ -50,6 +50,7 @@ let styles = {
 		minHeight: 120,
 		justifyContent: "space-between",
 		alignItems: "flex-start",
+
 	},
 	textMargin: {
 		marginBottom: 0,
