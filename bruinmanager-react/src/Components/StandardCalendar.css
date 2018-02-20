@@ -92,7 +92,6 @@
 
 .weekCalendar__status_selection .weekCalendar__overlay {
     pointer-events: none;
-    border: 1px dotted red;
 }
 
 .calendarBody {
@@ -139,8 +138,6 @@
     height: 100%;
     color: #6b6b6b;
     background-color: rgba(139, 195, 74, .4);
-    border: 1px solid green;
-
 }
 
 .calendarModal {

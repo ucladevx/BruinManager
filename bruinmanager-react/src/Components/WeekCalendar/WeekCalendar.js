@@ -43,7 +43,7 @@ let defaultProps = {
   numberOfDays: 7,
   scaleHeaderTitle: '',
   headerCellComponent: HeaderCell,
-  dayFormat: 'ddd MM/DD',//'dd., DD.MM',
+  dayFormat: 'ddd M/DD',//'dd., DD.MM',
   startTime: moment({ h: 0, m: 0 }),
   endTime: moment({ h: 23, m: 59 }),
   scaleUnit: 15,
@@ -61,7 +61,6 @@ class WeekCalendar extends React.Component {
     super(props);
     const { scaleUnit, startTime, endTime } = props;
     const scaleIntervals = Utils.getIntervalsByDuration(scaleUnit, startTime, endTime);
-
     this.state = {
       scaleIntervals,
       columnDimensions: [],
@@ -336,7 +335,6 @@ class WeekCalendar extends React.Component {
   }
 
   renderOverlay() {
-      console.log("hello??");
     if (this.state.startSelectionPosition != null) {
       const startPosition = this.state.startSelectionPosition;
       const { mousePosition } = this.state;
@@ -363,7 +361,6 @@ class WeekCalendar extends React.Component {
   }
 
   renderModal() {
-      console.log("render Modal");
     const { useModal } = this.props;
     const { preselectedInterval } = this.state;
     if (useModal && preselectedInterval) {

@@ -11,6 +11,7 @@ export default class StandardCalendar extends React.Component {
       selectedIntervals: [],
       isSmall: this.props.isSmall,
       startTime: this.props.startTime,
+      weekNum: this.props.weekNum,
     }
   }
 
@@ -64,6 +65,7 @@ export default class StandardCalendar extends React.Component {
       onIntervalUpdate = {this.handleEventUpdate}
       onIntervalRemove = {this.handleEventRemove}
       isSmall = {this.state.isSmall}
+      scaleHeaderTitle = {`Week ${this.state.weekNum}`}
     />
   }
 }

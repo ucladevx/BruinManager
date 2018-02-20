@@ -17,7 +17,7 @@ export default class Calendar extends React.Component {
 
             </Col>
             <Col style={{border: "1px solid red", maxHeight: 700,}}>
-                <StandardCalendar style={WeekCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false}/>
+                <StandardCalendar style={WeekCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false} weekNum={1}/>
             </Col>
         </Row>
       </Container>

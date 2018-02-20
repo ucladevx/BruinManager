@@ -26,7 +26,7 @@ export default class Summary extends React.Component {
                         <SuggestedEvents/>
                     </Col>
                     <Col>
-                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true}/>
+                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
                         <Row>
                             <Col>
                                 <Portal/>
