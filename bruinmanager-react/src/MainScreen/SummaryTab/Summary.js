@@ -17,14 +17,16 @@ import moment from 'moment';
 export default class Summary extends React.Component {
     render() {
 		return (
-            <Container fluid style={{height: "100%",}}>
+            <Container fluid style={{height: "100vh",}}>
                 <Row>
-                    <Col xs='3'>
+                    <Col xs="1">
+                    </Col>
+                    <Col xs='1.5'>
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
                         <SuggestedEvents/>
                     </Col>
-                    <Col xs='9'>
-                        <StandardCalendar style={StandardCalendarStyle} startTime={moment().format()}/>
+                    <Col>
+                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true}/>
                         <Row>
                             <Col>
                                 <Portal/>
@@ -33,6 +35,8 @@ export default class Summary extends React.Component {
                                 <Portal/>
                             </Col>
                         </Row>
+                    </Col>
+                    <Col xs="1">
                     </Col>
                 </Row>
             </Container>

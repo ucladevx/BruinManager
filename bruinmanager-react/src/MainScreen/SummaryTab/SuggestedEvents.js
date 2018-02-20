@@ -33,7 +33,7 @@ let styles = {
 		marginTop: 25,
 		display: "flex",
 		flexDirection: "column",
-	  	height: "calc(100vh - 500px)",
+	  	height: "calc(100vh - 175px)",
   	},
   	header: {
 	  	position: "relative",

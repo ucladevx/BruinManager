@@ -19,5 +19,3 @@ class HeaderCell extends React.PureComponent {
 
 HeaderCell.propTypes = propTypes;
 export default HeaderCell;
-
-//{date.format(dayFormat.substring(0, 3))}<br/>{date.format(dayFormat.substring(4, 10))}

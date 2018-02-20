@@ -71,7 +71,7 @@ class WeekCalendar extends React.Component {
       },
       startSelectionPosition: null,
       preselectedInterval: null,
-      isSmall: props.isSmall,
+      isSmall: this.props.isSmall,
     };
   }
 
@@ -79,8 +79,10 @@ class WeekCalendar extends React.Component {
     this.calculateColumnDimension();
     window.addEventListener('resize', this.calculateColumnDimension);
     window.addEventListener('mouseup', this.handleSelectionStop);
-    if(!this.state.isSmall)
+    console.log(this.state.isSmall);
+    if(!this.state.isSmall) {
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
+    }
 }
 
   componentWillReceiveProps(nextProps) {
@@ -139,6 +141,7 @@ class WeekCalendar extends React.Component {
   }
 
   handleSelectionStart = (col, row) => {
+      console.log("handle selection start");
     const startSelectionPosition = {
       x: col,
       y: row,
@@ -150,6 +153,7 @@ class WeekCalendar extends React.Component {
   }
 
   handleSelectionStop = (e) => {
+      console.log("handle selection end");
     if (e.button !== 0) {
       return;
     }
@@ -224,16 +228,18 @@ class WeekCalendar extends React.Component {
   }
 
   submitPreselectedInterval = (newValue) => {
+      console.log("submitting preselcted interval");
     const { preselectedInterval, updateEvent } = this.state;
-
+    console.log("*" + preselectedInterval + " " + updateEvent);
     if (updateEvent) {
       if (this.props.onIntervalUpdate) {
         this.props.onIntervalUpdate({
           ...preselectedInterval,
           ...newValue,
         });
-      }
-    } else if (this.props.onIntervalSelect) {
+        }
+      } else if (this.props.onIntervalSelect) {
+          console.log("* inside else if");
       const intervals = Utils.getIntervals(preselectedInterval.start, preselectedInterval.end);
       const result = intervals.map(interval => ({
         ...interval,
@@ -241,9 +247,8 @@ class WeekCalendar extends React.Component {
       }));
       this.props.onIntervalSelect(result);
     }
-
     this.setState({ preselectedInterval: null });
-  }
+}
 
   closeModule = () => {
     this.setState({
@@ -279,7 +284,6 @@ class WeekCalendar extends React.Component {
     }
     const EventComponent = this.props.eventComponent;
     const offsetTop = Utils.getOffset(scaleIntervals[0].start);
-
     for (let dayIndex = 0; dayIndex < numberOfDays; dayIndex += 1) {
       const day = moment(firstDay).startOf('day').add(dayIndex, 'day');
       const intervals = selectedIntervals.filter(interval => interval.start.isSame(day, 'day') || interval.end.isSame(day, 'day'));
@@ -332,6 +336,7 @@ class WeekCalendar extends React.Component {
   }
 
   renderOverlay() {
+      console.log("hello??");
     if (this.state.startSelectionPosition != null) {
       const startPosition = this.state.startSelectionPosition;
       const { mousePosition } = this.state;
@@ -358,6 +363,7 @@ class WeekCalendar extends React.Component {
   }
 
   renderModal() {
+      console.log("render Modal");
     const { useModal } = this.props;
     const { preselectedInterval } = this.state;
     if (useModal && preselectedInterval) {

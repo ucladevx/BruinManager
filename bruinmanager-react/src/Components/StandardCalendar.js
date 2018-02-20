@@ -9,6 +9,8 @@ export default class StandardCalendar extends React.Component {
     this.state = {
       lastUid: 0,
       selectedIntervals: [],
+      isSmall: this.props.isSmall,
+      startTime: this.props.startTime,
     }
   }
 
@@ -48,7 +50,7 @@ export default class StandardCalendar extends React.Component {
   }
 
   render() {
-    let startTime = moment();
+    let startTime = this.state.startTime;
     let timeLimit = new Date();
     timeLimit.setHours(21,0,0);
     if(moment().toDate() > timeLimit)
@@ -61,7 +63,7 @@ export default class StandardCalendar extends React.Component {
       onIntervalSelect = {this.handleSelect}
       onIntervalUpdate = {this.handleEventUpdate}
       onIntervalRemove = {this.handleEventRemove}
-      isSmall = {true}
+      isSmall = {this.state.isSmall}
     />
   }
 }

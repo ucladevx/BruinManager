@@ -75,7 +75,7 @@ export default class MainScreen extends React.Component {
 render() {
     return (
         <Router>
-            <Container fluid>
+            <Container fluid style={{height: "100vh"}}>
                 <Row style={styles.overview}>
                     <Col xs="3">
                         <h1 style={styles.navItems}>Hello, {this.props.firstName}!</h1>
