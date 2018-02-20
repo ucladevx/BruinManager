@@ -78,10 +78,9 @@ class WeekCalendar extends React.Component {
     this.calculateColumnDimension();
     window.addEventListener('resize', this.calculateColumnDimension);
     window.addEventListener('mouseup', this.handleSelectionStop);
-    console.log(this.state.isSmall);
-    if(!this.state.isSmall) {
+
+    if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
-    }
 }
 
   componentWillReceiveProps(nextProps) {
@@ -420,8 +419,8 @@ class WeekCalendar extends React.Component {
             ref="scaleCol"
           />
         </div>
-        <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {maxHeight: 300, pointerEvents: "none",} :
-                                                                                                        {maxHeight: 665, pointerEvents: "auto",}}>
+        <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, pointerEvents: "none",} :
+                                                                                                        {minHeight: 665, maxHeight: 665, pointerEvents: "auto",}}>
           <CalendarBody
             ref = "calendarbody"
             firstDay={firstDay}

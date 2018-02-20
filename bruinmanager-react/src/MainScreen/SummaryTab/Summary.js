@@ -23,7 +23,7 @@ export default class Summary extends React.Component {
                     </Col>
                     <Col xs='1.5'>
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
-                        <SuggestedEvents/>
+                        <Portal/>
                     </Col>
                     <Col>
                         <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
@@ -32,7 +32,7 @@ export default class Summary extends React.Component {
                                 <Portal/>
                             </Col>
                             <Col>
-                                <Portal/>
+                                <SuggestedEvents/>
                             </Col>
                         </Row>
                     </Col>

@@ -51,13 +51,14 @@ export default class StandardCalendar extends React.Component {
   }
 
   render() {
-    let startTime = this.state.startTime;
+    let tempTime = this.state.startTime;
     let timeLimit = new Date();
-    timeLimit.setHours(21,0,0);
-    if(moment().toDate() > timeLimit)
-        startTime = moment({h: 21, m:0 });
+    timeLimit.setHours(17,0,0);
+    console.log("testing: " + tempTime.format());
+    if(tempTime.toDate() > timeLimit)
+        tempTime = moment({h: 17, m:0 });
     return <WeekCalendar
-      startTime = {startTime} //moment({h: 0, m: 0}
+      startTime = {tempTime}
       endTime = {moment({h: 23, m: 59})} // moment().clone().add('4', 'hour')
       numberOfDays= {7}
       selectedIntervals = {this.state.selectedIntervals}

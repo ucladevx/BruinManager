@@ -83,7 +83,6 @@
 
 .weekCalendar__overlay {
     position: absolute;
-    border: 1px solid black;
 }
 
 .weekCalendar__overlay_status_selection {
