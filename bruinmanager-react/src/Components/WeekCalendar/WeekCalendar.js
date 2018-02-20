@@ -78,7 +78,6 @@ class WeekCalendar extends React.Component {
     this.calculateColumnDimension();
     window.addEventListener('resize', this.calculateColumnDimension);
     window.addEventListener('mouseup', this.handleSelectionStop);
-
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
 }

@@ -25,7 +25,6 @@ let styles = {
         },
         formBox: {
             marginLeft: 50,
-
         },
         formTitle: {
             width: "auto",

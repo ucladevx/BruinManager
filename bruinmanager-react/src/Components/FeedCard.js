@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import StarButton from './StarButton';
 // title, date, time, location, going, interested
 export default class SuggestedEvents extends React.Component {
 	render(props) {
 		return(
 			<div style={styles.card}>
 				<div style={{...{backgroundImage: `url(${this.props.image})`}, ...styles.titleWrapper}}>
-					<div style={styles.star}>
-						
-					</div>
+					<StarButton/>
 					<div>
 						<p style={{...styles.largeFont, ...styles.textMargin}}>{this.props.title}</p>
 					</div>
@@ -25,7 +24,7 @@ export default class SuggestedEvents extends React.Component {
 						<p style={{...styles.smallFont, ...styles.textMargin}}>{this.props.going} people going, {this.props.interested} interested</p>
 					</div>
 					<div style={styles.interestedButtonWrapper}>
-						<Button color="link" style={{padding: "0 0 0 0", paddingBottom: 15,height: 10, fontSize: 13,textDecoration: "none",}}>+ I'm going!</Button>
+						<Button color="link" style={{padding: "0 0 0 0", paddingBottom: 15, height: 10, fontSize: 13,textDecoration: "none",}}>+ I'm going!</Button>
 					</div>
 				</div>
 			</div>
@@ -34,10 +33,6 @@ export default class SuggestedEvents extends React.Component {
 }
 
 let styles = {
-	star: {
-		marginTop: 5,
-		marginLeft: 5,
-	},
 	card: {
 		display: "flex",
 		border: "1px solid black",
