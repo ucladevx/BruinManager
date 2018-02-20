@@ -25,7 +25,7 @@ export default class ReminderSection extends React.Component {
 
 let styles = {
   highlightBorder: {
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid #CFCFCF",
   },
   inlined: {
     display: "inline",
