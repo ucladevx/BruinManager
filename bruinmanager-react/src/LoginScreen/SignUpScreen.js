@@ -17,7 +17,7 @@ export default class LoginScreen extends Component {
                     </Col>
                     <Col xs="4" style={{display: "flex", height: "100%"}}>
                         <div style={styles.loginBox}>
-                            <img src={Logo} style={{height: 50, marginBottom: 35,}}/>
+                            <img src={Logo} style={{height: "4vw", marginBottom: 35,}}/>
                             <FormBox title="First Name" inputType="text"/>
                             <FormBox title="Last Name" inputType="text"/>
                             <FormBox title="Email" inputType="text"/>

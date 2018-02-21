@@ -31,7 +31,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div style={{height: "100vh", width: "100vw", overflow: "hidden"}}>
+        <div style={{height: "100vh", width: "100vw"}}>
           <div>
               <Route exact path="/" component={LoginScreen}/>
               <Route exact path="/signup" component={SignUpScreen}/>
