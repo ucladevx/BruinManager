@@ -75,32 +75,32 @@ export default class MainScreen extends React.Component {
 render() {
     return (
         <Router>
-            <Container style={{height: "100%"}}>
+            <Container fluid style={{height: "100%"}}>
                 <Row style={styles.overview}>
+                    <Col xs="1"></Col>
                     <Col xs="2">
                         <h2 style={styles.navItems}>Hello,{'\u00A0'}{this.props.firstName}!</h2>
                     </Col>
-                    <Col xs="10" style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
+                    <Col xs="8" style={{display:"flex",justifyContent:"center",marginBottom: 8,}}>
                         <div style={styles.navButtons}>
                             <div>
                                 <ButtonLinkDashboard style={styles.navItems} />
                                 <ButtonLinkCalendar/>
                             </div>
                             <div>
-                                <ButtonLinkSettings />
+                                <ButtonLinkSettings/>
                                 <ButtonLinkHelp/>
                             </div>
                         </div>
                     </Col>
+                    <Col xs="1"></Col>
                 </Row>
-
                     <Switch>
                         <Route path="/calendar" component={CalendarScreen} />
                         <Route path="/dashboard" component={SummaryScreen}/>
                         <Route path="/settings" component={SettingsScreen}/>
                         <Route path="/help" component={HelpScreen}/>
                     </Switch>
-
             </Container>
       </Router>
 		);

@@ -7,7 +7,7 @@ import {
 import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import MainScreen from './MainScreen/MainScreen';
-
+import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
 const Home = () => (
   <div>
     <h2>Home</h2>
@@ -20,13 +20,18 @@ const Dashboard = () => (
   </div>
 )
 
+const Calendar = () => (
+  <div>
+    <CalendarScreen/>
+  </div>
+)
+
 export default class App extends Component {
   render() {
     return (
       <Router>
         <div style={{height: "100vh", width: "100vw", overflow: "hidden"}}>
           <div>
-              <Route exact path="/" component={Home}/>
               <Route path="/dashboard" component={Dashboard}/>
               <Route path="/login" component={LoginScreen}/>
           </div>

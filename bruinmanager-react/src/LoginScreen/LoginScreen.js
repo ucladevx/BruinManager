@@ -1,75 +1,79 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Background from './images/royce_hall_background.jpg';
 import Logo from './images/bruinmanager.png';
 import FormBox from '../Components/FormBox.js';
 export default class LoginScreen extends Component {
     render() {
         return (
-            <div>
-                <div style={styles.background}/>
-                <div style={styles.loginBoxWrapper}>
-                    <div style={styles.loginBox}>
-                        <div style={styles.logoBox}>
-                            <div style={styles.logo}>
-                                <p style={styles.textLogo}>bruin<b>manager</b></p>
+            <Container fluid style={{height: "100vh"}}>
+                <Row style={{height: "100vh"}}>
+                    <Col xs="8" style={{height: "100vh", border: "1px solid red"}}>
+
+                    </Col>
+                    <Col xs="4" style={{display: "flex", height: "100%", border: "1px solid blue"}}>
+                        <div style={styles.loginBox}>
+                            <p style={styles.textLogo}>bruin<b>manager</b></p>
+                            <FormBox title="Username" inputType="text"/>
+                            <FormBox title="Password" inputType="password"/>
+                            <div style={styles.buttonBox}>
+                                <Button outline color="primary">Login</Button>
+                                <p style={{margin: "0 0 0 0"}}>OR</p>
+                                <a href="">Create an account</a>
+                                <a href="">forgot your password?</a>
                             </div>
                         </div>
-                        <FormBox title="Username" inputType="text"/>
-                        <FormBox title="Password" inputType="password"/>
-                        <div style={styles.buttonBox}>
-                            <Button outline color="primary">Login</Button>
-                            <Button color="link">Create an account</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }
-
+/*
+<div>
+    <div style={styles.background}/>
+    <div style={styles.loginBoxWrapper}>
+        <div style={styles.loginBox}>
+            <div style={styles.logoBox}>
+                <div style={styles.logo}>
+                    <p style={styles.textLogo}>bruin<b>manager</b></p>
+                </div>
+            </div>
+            <FormBox title="Username" inputType="text"/>
+            <FormBox title="Password" inputType="password"/>
+            <div style={styles.buttonBox}>
+                <Button outline color="primary">Login</Button>
+                <Button color="link">Create an account</Button>
+            </div>
+        </div>
+    </div>
+</div>
+*/
 let styles = {
-    background: {
-        position: "fixed",
-        left: "-5%",
-        top: "-5%",
-        backgroundImage: `url(${Background})`,
-        opacity: 0.9,
-        zIndex: "-1",
-        backgroundSize: "cover",
-        width: "110%",
-        height: "110%",
-        webkitFilter: `blur(5px)`,
-        mozFilter: `blur(5px)`,
-        oFilter: `blur(5px)`,
-        msFilter: `blur(5px)`,
-        filter: `blur(5px)`,
-    },
     loginBoxWrapper: {
         display: "flex",
         justifyContent: "center",
         position: "fixed",
-        left: "50%",
-        top: "50%",
-        transform: `translate(-50%, -50%)`,
-        zIndex: 1,
-        background: `rgba(245, 245, 245, 1)`,
-        width: 350,
+        //background: `rgba(245, 245, 245, 1)`,
         border: "1px solid grey",
     },
     loginBox: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        //"justify-content": "center",
+        justifyContent: "center",
+        alignItems: "center",
         width: "100%",
+        border: "1px solid green"
     },
     logoBox: {
         display: "flex",
         width: "100%",
-        height: 90,
-        alignItems: "center",
+        height: "100vh",
+        border: "1px solid blue",
         justifyContent: "center",
+        alignItems: "center",
     },
     logo: {
         display: "flex",
@@ -90,7 +94,6 @@ let styles = {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        borderTop: "1px solid grey",
     }
     /*
     <div>

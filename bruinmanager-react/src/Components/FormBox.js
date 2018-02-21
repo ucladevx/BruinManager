@@ -21,10 +21,11 @@ let styles = {
             width: "100%",
             height: 60,
             flexDirection: "column",
-            borderTop: "1px solid grey",
         },
         formBox: {
-            marginLeft: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
         },
         formTitle: {
             width: "auto",
