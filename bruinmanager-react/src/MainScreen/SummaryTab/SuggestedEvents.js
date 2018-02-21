@@ -7,9 +7,30 @@ export default class SuggestedEvents extends React.Component {
       this.state = {
         eventList: props.eventList,
 		height: props.height,
+		eventArray: [],
       }
     }
+	componentDidMount() {
+		fetch('https://arcane-cove-10079.herokuapp.com/api/events/1')
+		.then(results => {return results.json();
+		}).then(data => {
+			this.setState({eventArray: data.events[0].eventArr});
+			console.log(data.events[0].eventArr);
+		})
+	}
 
+	getMonthDate(dateObj) {
+		return `${dateObj.toLocaleString("en-us", {month: "short"})}${'\u00a0'}${dateObj.getDate()}`;
+	}
+
+	getTime(dateObj) {
+		if(isNaN(dateObj.getDate()))
+			return "TBA";
+		return `${dateObj.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
+	}
+	getTimeRange(dateObj1, dateObj2) {
+		return `${this.getTime(dateObj1)}-${this.getTime(dateObj2)}`;
+	}
 	render() {
 		return(
 			<div style={{height: this.state.height, boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
@@ -26,15 +47,16 @@ export default class SuggestedEvents extends React.Component {
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>
 						<div style={styles.newsfeed}>
-							<FeedCard title='title 1' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= ""/>
-							<FeedCard title='title 2' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 3' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 4' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 5' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 6' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 7' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 8' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
-							<FeedCard title='title 9' date='Tuesday, Feb 13' location= "Craft & Folk Art Museum" time= "13:00-15:00" going= "403" interested="4.2k" image= "https://scontent.xx.fbcdn.net/v/t31.0-8/q83/s720x720/27709624_10156583848280656_6497485715349000922_o.jpg?oh=7f619c442e312a7f2524bf505de28485&oe=5B1BFFA5"/>
+							{this.state.eventArray.map((event) => {
+								return <FeedCard title={event.name}
+											date={this.getMonthDate(new Date(event.start_time))}
+											location= {event.location}
+											time= {this.getTimeRange(new Date(event.start_time), new Date(event.end_time))}
+											going= {event.going}
+											interested={event.interested}
+											image= {event.picture}
+										/>
+							})}
 						</div>
 					</div>
 				</div>

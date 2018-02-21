@@ -6,7 +6,7 @@ export default class SuggestedEvents extends React.Component {
 	render(props) {
 		return(
 			<div style={styles.card}>
-				<div style={{...{backgroundImage: `url(${this.props.image})`}, ...styles.titleWrapper}}>
+				<div style={{...{backgroundImage: `url(${this.props.image})`, backgroundSize: "100% 100%"}, ...styles.titleWrapper}}>
 					<StarButton/>
 					<div>
 						<p style={{...styles.largeFont, ...styles.textMargin}}>{this.props.title}</p>
@@ -21,7 +21,7 @@ export default class SuggestedEvents extends React.Component {
 						<p style={{...styles.smallFont, ...styles.textMargin}}>{this.props.location}</p>
 					</div>
 					<div style={styles.packageWrapper}>
-						<p style={{...styles.smallFont, ...styles.textMargin}}>{this.props.going} people going, {this.props.interested} interested</p>
+						<p style={{...styles.smallFont, ...styles.textMargin}}>{this.props.going} going, {this.props.interested} interested</p>
 					</div>
 					<div style={styles.interestedButtonWrapper}>
 						<Button color="link" style={{padding: "0 0 0 0", paddingBottom: 15, height: 10, fontSize: 13,textDecoration: "none",}}>+ I'm going!</Button>
@@ -56,7 +56,7 @@ let styles = {
 		marginBottom: 0,
 	},
 	largeFont: {
-		fontSize: 14,
+		fontSize: 13,
 		backgroundColor: "white",
 	},
 	smallFont: {
