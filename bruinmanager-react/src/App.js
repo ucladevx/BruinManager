@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
+import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
 import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
 const Home = () => (
@@ -32,8 +33,9 @@ export default class App extends Component {
       <Router>
         <div style={{height: "100vh", width: "100vw", overflow: "hidden"}}>
           <div>
+              <Route exact path="/" component={LoginScreen}/>
+              <Route exact path="/signup" component={SignUpScreen}/>
               <Route path="/dashboard" component={Dashboard}/>
-              <Route path="/login" component={LoginScreen}/>
           </div>
         </div>
       </Router>

@@ -84,17 +84,18 @@ export default class LoginScreen extends Component {
                     <Col xs="4" style={{display: "flex", height: "100%", border: "1px solid blue"}}>
                         <div style={styles.loginBox}>
                             <img src={Logo} style={{height: 50, marginBottom: 35,}}/>
+                            <FormBox title="First Name" inputType="text"/>
+                            <FormBox title="Last Name" inputType="text"/>
                             <FormBox title="Email" inputType="text"/>
                             <FormBox title="Password" inputType="password"/>
                             <div style={styles.buttonBox}>
                                 <Link to="/dashboard">
-                                    <button class="hoverDark">Sign in</button>
+                                    <button class="hoverDark">Sign up</button>
                                 </Link>
                                 <p style={{margin: "0 0 0 0"}}>OR</p>
-                                <Link to="/signup">
-                                    <a href="">Create an Account</a>
+                                <Link to="/">
+                                    <a href="">Cancel</a>
                                 </Link>
-                                <a href="">forgot your password?</a>
                             </div>
                         </div>
                     </Col>
@@ -166,8 +167,8 @@ let styles = {
         </div>
     </div>
     <div style={styles.buttonWrapper}>
-        <Button color="primary">Login</Button>{' '}
-        <a href = "">Create an Account</a>
+        <Button color="primary">Sign{' '}up</Button>
+        <a href = "">Cancel</a>
     </div>
 
     */
