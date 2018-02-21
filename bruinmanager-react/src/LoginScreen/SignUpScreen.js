@@ -92,9 +92,8 @@ export default class LoginScreen extends Component {
                                 <Link to="/dashboard">
                                     <button class="hoverDark">Sign up</button>
                                 </Link>
-                                <p style={{margin: "0 0 0 0"}}>OR</p>
-                                <Link to="/">
-                                    <a href="">Cancel</a>
+                                <Link to="/" style={{marginTop: 20, textDecoration: "none"}}>
+                                    <a href="" style={{color: "#000000", fontFamily: "Roboto", textDecoration: "none"}}>Cancel</a>
                                 </Link>
                             </div>
                         </div>
@@ -143,7 +142,6 @@ let styles = {
     buttonBox: {
         display: "flex",
         width: "100%",
-
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",

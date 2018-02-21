@@ -90,11 +90,11 @@ export default class LoginScreen extends Component {
                                 <Link to="/dashboard">
                                     <button class="hoverDark">Sign in</button>
                                 </Link>
-                                <p style={{margin: "0 0 0 0"}}>OR</p>
-                                <Link to="/signup">
-                                    <a href="">Create an Account</a>
+                                <p style={{marginBottom: 15, marginTop: 15, fontFamily: "Roboto"}}>OR</p>
+                                <Link to="/signup" style={{textDecoration: "none"}}>
+                                    <a href="" style={{color: "#000000", fontFamily: "Roboto", textDecoration: "none"}}>Create an Account</a>
                                 </Link>
-                                <a href="">forgot your password?</a>
+                                <a href="" style={{color: "#ABABAB", marginTop: 20, fontFamily: "Roboto", textDecoration: "none"}}>forgot your password?</a>
                             </div>
                         </div>
                     </Col>
