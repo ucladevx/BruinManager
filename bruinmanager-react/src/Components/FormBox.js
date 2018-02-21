@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-
+import FormBoxStyle from './FormBox.css';
 export default class FormBox extends React.Component {
     render(props) {
         return (
-            <div style={styles.formBoxWrapper} onClick={() => {this.myInp.focus()}}>
+            <div style={styles.formBoxWrapper}>
                 <div style={styles.formBox}>
-                    <form style={styles.formTitle}>
-                        <span style={styles.formText}>{this.props.title}</span><br/>
-                        <input type={this.props.inputType} style={styles.formTextBox} ref={(ip) => this.myInp = ip}/>
+                    <form style={{...FormBoxStyle}, {...styles.formTitle}}>
+                        <input type={this.props.inputType} placeholder={this.props.title} style={styles.formTextBox}/>
                     </form>
                 </div>
             </div>
         );
     }
 }
-
+/*
+onClick={() => {this.myInp.focus()}}
+ref={(ip) => this.myInp = ip
+*/
 let styles = {
         formBoxWrapper: {
             display: "flex",
             width: "100%",
-            height: 60,
+            height: 50,
             flexDirection: "column",
         },
         formBox: {
@@ -29,6 +31,7 @@ let styles = {
         },
         formTitle: {
             width: "auto",
+            borderBottom: "2px solid #454545",
         },
         formText: {
             color: "grey",
@@ -36,9 +39,9 @@ let styles = {
         formTextBox: {
             border: "none",
             height: 20,
-            backgroundColor: "rgba(245, 245, 245, 1)",
             outline: "none",
             width: 220,
             textSize: 14,
+            textAlign: "center",
         },
 }

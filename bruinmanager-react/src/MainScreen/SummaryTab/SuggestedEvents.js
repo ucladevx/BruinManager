@@ -22,7 +22,6 @@ export default class SuggestedEvents extends React.Component {
 				</div>
 				<div style={{display: "flex", width: "100%"}}>
 					<div style={styles.tagBar}>
-
 					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>

@@ -2,23 +2,91 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Background from './images/royce_hall_background.jpg';
-import Logo from './images/bruinmanager.png';
+import Logo from './images/SignikaNegative.png';
 import FormBox from '../Components/FormBox.js';
+import './LoginButton.css';
 export default class LoginScreen extends Component {
     render() {
         return (
             <Container fluid style={{height: "100vh"}}>
                 <Row style={{height: "100vh"}}>
-                    <Col xs="8" style={{height: "100vh", border: "1px solid red"}}>
-
+                    <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
+                        <Container fluid>
+                            <Row style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}>
+                                <Col xs="1"></Col>
+                                <Col xs="10">
+                                    <Row>
+                                        <Col style={{marginBottom: 50}}>
+                                            <h1 style={{marginBottom: 25, fontFamily: "Signika Negative"}}>BruinManager for busy Bruins</h1>
+                                            <p style={{fontFamily: "Signika Negative",}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <h1 style={{marginBottom: 25, fontFamily: "Signika Negative"}}>Features</h1>
+                                            <Container fluid style={{fontFamily: "Signika Negative",}}>
+                                                <Row>
+                                                    <Col>
+                                                        <h4>Calendar</h4>
+                                                        <ul>
+                                                            <li>point1</li>
+                                                            <li>point2</li>
+                                                            <li>point3</li>
+                                                            <li>point4</li>
+                                                        </ul>
+                                                    </Col>
+                                                    <Col>
+                                                        <h4>Newsfeed</h4>
+                                                        <ul>
+                                                            <li>point1</li>
+                                                            <li>point2</li>
+                                                            <li>point3</li>
+                                                            <li>point4</li>
+                                                        </ul>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <h4>Reminders</h4>
+                                                        <ul>
+                                                            <li>point1</li>
+                                                            <li>point2</li>
+                                                            <li>point3</li>
+                                                            <li>point4</li>
+                                                        </ul>
+                                                    </Col>
+                                                    <Col>
+                                                        <h4>Dining</h4>
+                                                        <ul>
+                                                            <li>point1</li>
+                                                            <li>point2</li>
+                                                            <li>point3</li>
+                                                            <li>point4</li>
+                                                        </ul>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                        <ul>
+                                            <li>download our chrome extension!</li>
+                                        </ul>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col xs="1"></Col>
+                            </Row>
+                        </Container>
                     </Col>
                     <Col xs="4" style={{display: "flex", height: "100%", border: "1px solid blue"}}>
                         <div style={styles.loginBox}>
-                            <p style={styles.textLogo}>bruin<b>manager</b></p>
+                            <img src={Logo} style={{height: 50, marginBottom: 35,}}/>
                             <FormBox title="Username" inputType="text"/>
                             <FormBox title="Password" inputType="password"/>
                             <div style={styles.buttonBox}>
-                                <Button outline color="primary">Login</Button>
+                                <button class="hoverDark">Sign in</button>
                                 <p style={{margin: "0 0 0 0"}}>OR</p>
                                 <a href="">Create an account</a>
                                 <a href="">forgot your password?</a>
@@ -30,26 +98,7 @@ export default class LoginScreen extends Component {
         );
     }
 }
-/*
-<div>
-    <div style={styles.background}/>
-    <div style={styles.loginBoxWrapper}>
-        <div style={styles.loginBox}>
-            <div style={styles.logoBox}>
-                <div style={styles.logo}>
-                    <p style={styles.textLogo}>bruin<b>manager</b></p>
-                </div>
-            </div>
-            <FormBox title="Username" inputType="text"/>
-            <FormBox title="Password" inputType="password"/>
-            <div style={styles.buttonBox}>
-                <Button outline color="primary">Login</Button>
-                <Button color="link">Create an account</Button>
-            </div>
-        </div>
-    </div>
-</div>
-*/
+
 let styles = {
     loginBoxWrapper: {
         display: "flex",
@@ -65,13 +114,11 @@ let styles = {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        border: "1px solid green"
     },
     logoBox: {
         display: "flex",
         width: "100%",
         height: "100vh",
-        border: "1px solid blue",
         justifyContent: "center",
         alignItems: "center",
     },
@@ -83,18 +130,18 @@ let styles = {
         height: 75,
     },
     textLogo: {
-        fontSize: 30,
+        fontSize: 50,
         color: "rgb(43, 167, 234)",
         marginBottom: 0,
     },
     buttonBox: {
         display: "flex",
         width: "100%",
-        height: 100,
+
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-    }
+    },
     /*
     <div>
         <img src={Logo} alt="" style={styles.logo}/>
