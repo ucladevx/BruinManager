@@ -15,7 +15,7 @@ export default class LoginScreen extends Component {
                     <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
                         <LandingScreen/>
                     </Col>
-                    <Col xs="4" style={{display: "flex", height: "100%", border: "1px solid blue"}}>
+                    <Col xs="4" style={{display: "flex", height: "100%"}}>
                         <div style={styles.loginBox}>
                             <img src={Logo} style={{height: 50, marginBottom: 35,}}/>
                             <FormBox title="First Name" inputType="text"/>

@@ -17,7 +17,7 @@ export default class FormBox extends React.Component {
 onClick={() => {this.myInp.focus()}}
 ref={(ip) => this.myInp = ip
 */
-let styles = {
+const styles = {
         formBoxWrapper: {
             display: "flex",
             width: "100%",

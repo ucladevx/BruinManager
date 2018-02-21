@@ -43,7 +43,7 @@ let defaultProps = {
   numberOfDays: 7,
   scaleHeaderTitle: '',
   headerCellComponent: HeaderCell,
-  dayFormat: 'ddd M/DD',//'dd., DD.MM',
+  dayFormat: 'ddd M/DD',
   startTime: moment({ h: 0, m: 0 }),
   endTime: moment({ h: 23, m: 59 }),
   scaleUnit: 15,
@@ -61,6 +61,14 @@ class WeekCalendar extends React.Component {
     super(props);
     const { scaleUnit, startTime, endTime } = props;
     const scaleIntervals = Utils.getIntervalsByDuration(scaleUnit, startTime, endTime);
+    const weekName = new Map([["Mo", "M"], ["Tu", "T"], ["We", "W"], ["Th", "R"], ["Fr", "F"], ["Sa", "S"], ["Su", "U"]]);
+    let momentsArray = [];
+    for(var i = 0; i < 7; i++) {
+        let curDay = moment().clone().add(i, 'days');
+        let dayName = curDay.format('dd');
+        momentsArray.push([weekName.get(dayName), curDay]);
+    }
+    moment().add(1, 'days');
     this.state = {
       scaleIntervals,
       columnDimensions: [],
@@ -71,6 +79,8 @@ class WeekCalendar extends React.Component {
       startSelectionPosition: null,
       preselectedInterval: null,
       isSmall: this.props.isSmall,
+      classArray: [],
+      momentsMap: new Map(momentsArray),
     };
   }
 
@@ -80,8 +90,57 @@ class WeekCalendar extends React.Component {
     window.addEventListener('mouseup', this.handleSelectionStop);
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
-}
-
+    console.log(this.state.momentsArray);
+    fetch('https://arcane-cove-10079.herokuapp.com/api/classes/taasin')
+    .then(results => {
+        return results.json()
+    }).then(data => {
+        this.setState({classArray: data[0].classes});
+        this.state.classArray.map((course) => {
+            console.log(course);
+            if(course.discussion.days.split("")[0] !== 'N')
+                this.addTimeSlots(course.discussion, `[LEC] ${course.lecture.name}`);
+            if(course.lecture.days.split("")[0] !== 'N')
+                this.addTimeSlots(course.lecture, `[DIS] ${course.lecture.name}`);
+        });
+    });
+  }
+  parseHour(time) {
+      let res = parseInt(time.split(":")[0].substring(0, time.length - 2));
+      if(time.substring(time.length-2,time.length) === "pm" && res !== 12)
+        res += 12;
+      console.log("hour: " + res + time.substring(time.length-2,time.length));
+      return parseInt(res);
+  }
+  parseMinute(time) {
+      if(!time.includes(":")) {
+        console.log("minute: " + 0);
+        return 0;
+      }
+        console.log("minute: " + parseInt(time.split(":")[1].substring(0, 2)));
+      return parseInt(time.split(":")[1].substring(0, 2));
+  }
+  addTimeSlots(timeSlot, name) {
+      timeSlot.days.split("").map((day) => {
+          let curDayStart = this.state.momentsMap.get(day).clone();
+          if(typeof curDayStart === "undefined") return;
+          curDayStart.hour(this.parseHour(timeSlot.time.split("-")[0]));
+          curDayStart.minutes(this.parseMinute(timeSlot.time.split("-")[0]));
+          let curDayEnd = this.state.momentsMap.get(day).clone();
+          curDayEnd.hour(this.parseHour(timeSlot.time.split("-")[1]));
+          curDayEnd.minutes(this.parseMinute(timeSlot.time.split("-")[1]));
+          console.log("---");
+          console.log(curDayStart);
+          console.log(curDayEnd);
+          this.state.preselectedInterval = {start: curDayStart, end: curDayEnd};
+          this.state.updateEvent = false;
+          let tempValue = {
+              value: name,
+              location: timeSlot.location,
+          }
+          this.submitPreselectedInterval(tempValue);
+      });
+  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.scaleUnit !== this.props.scaleUnit || nextProps.startTime !== this.props.startTime || nextProps.endTime !== this.props.endTime) {
       const scaleIntervals = Utils.getIntervalsByDuration(nextProps.scaleUnit, nextProps.startTime, nextProps.endTime);
@@ -226,6 +285,10 @@ class WeekCalendar extends React.Component {
 
   submitPreselectedInterval = (newValue) => {
     const { preselectedInterval, updateEvent } = this.state;
+    console.log(newValue);
+    console.log(preselectedInterval.end);
+    console.log(preselectedInterval.start);
+    console.log(updateEvent);
     if (updateEvent) {
       if (this.props.onIntervalUpdate) {
         this.props.onIntervalUpdate({
@@ -234,7 +297,6 @@ class WeekCalendar extends React.Component {
         });
         }
       } else if (this.props.onIntervalSelect) {
-          console.log("* inside else if");
       const intervals = Utils.getIntervals(preselectedInterval.start, preselectedInterval.end);
       const result = intervals.map(interval => ({
         ...interval,

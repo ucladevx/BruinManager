@@ -12,10 +12,10 @@ export default class SuggestedEvents extends React.Component {
     }
 	componentDidMount() {
 		fetch('https://arcane-cove-10079.herokuapp.com/api/events/1')
-		.then(results => {return results.json();
+		.then(results => {
+			return results.json();
 		}).then(data => {
 			this.setState({eventArray: data.events[0].eventArr});
-			console.log(data.events[0].eventArr);
 		})
 	}
 
@@ -55,6 +55,7 @@ export default class SuggestedEvents extends React.Component {
 											going= {event.going}
 											interested={event.interested}
 											image= {event.picture}
+											key={event.name}
 										/>
 							})}
 						</div>
