@@ -15,6 +15,7 @@ export default class SuggestedEvents extends React.Component {
 		.then(results => {
 			return results.json();
 		}).then(data => {
+			console.log(data);
 			this.setState({eventArray: data.events[0].eventArr});
 		})
 	}
@@ -44,6 +45,7 @@ export default class SuggestedEvents extends React.Component {
 				<div style={{display: "flex", width: "100%", justifyContent: "center",}}>
 					<div style={styles.tagBar}>
 						<span style={styles.tag}>Tag</span>
+						<br/>
 					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>

@@ -1,6 +1,34 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
+export default class WeatherBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      temperature: 0,
+      condition: "",
+    }
+  }
+
+  componentDidMount() {
+    let API_KEY = "6c3a52965805dd0e32727408884efe5d";
+    let url = `http://api.openweathermap.org/data/2.5/weather?lat=34.0689&lon=-118.4452&appid=${API_KEY}`;
+    fetch(url, {
+      method: 'get',
+    })
+    .then((res) => {
+      return res.json()
+      //this.setState({
+      //  temperature: data
+      //})
+    }).then((data) => {
+      this.setState({
+        temperature: parseInt((9.0/5) * (data.main.temp - 273) + 32),
+        condition: data.weather[0].main
+      });
+      // console.log(data.main.temp); // F = 9/5 (K - 273) + 32
+    });
+	}
 
 export default class WeatherBox extends React.Component {
   render(props) {
@@ -11,8 +39,8 @@ export default class WeatherBox extends React.Component {
             <p style={{...styles.weekInfo, ...styles.centered}}>Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>
           <div style={styles.weather}>
-            <p style={{...styles.temperature, ...styles.centered}}>{this.props.degrees} &deg;</p>
-            <p style={{...styles.weatherCondition, ...styles.centered}}>{this.props.weatherCondition}</p>
+            <p style={{...styles.temperature, ...styles.centered}}>{this.state.temperature}&deg;</p>
+            <p style={{...styles.weatherCondition, ...styles.centered}}>{this.state.condition}</p>
           </div>
       </div>
     )
