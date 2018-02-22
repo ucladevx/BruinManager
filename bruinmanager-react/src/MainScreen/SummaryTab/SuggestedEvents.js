@@ -45,7 +45,6 @@ export default class SuggestedEvents extends React.Component {
 					<div style={styles.tagBar}>
 						<span style={styles.tag}>Tag</span>
 						<br/>
-						<span style={styles.tag}>Long Tag</span>
 					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>
