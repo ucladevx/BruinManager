@@ -10,6 +10,7 @@ export default class SuggestedEvents extends React.Component {
 		eventArray: [],
       }
     }
+
 	componentDidMount() {
 		fetch('https://arcane-cove-10079.herokuapp.com/api/events/1')
 		.then(results => {
