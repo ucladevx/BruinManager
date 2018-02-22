@@ -97,11 +97,10 @@ class WeekCalendar extends React.Component {
     }).then(data => {
         this.setState({classArray: data[0].classes});
         this.state.classArray.map((course) => {
-            console.log(course);
             if(course.discussion.days.split("")[0] !== 'N')
-                this.addTimeSlots(course.discussion, `[LEC] ${course.lecture.name}`);
+                this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
             if(course.lecture.days.split("")[0] !== 'N')
-                this.addTimeSlots(course.lecture, `[DIS] ${course.lecture.name}`);
+                this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
         });
     });
   }
@@ -129,9 +128,6 @@ class WeekCalendar extends React.Component {
           let curDayEnd = this.state.momentsMap.get(day).clone();
           curDayEnd.hour(this.parseHour(timeSlot.time.split("-")[1]));
           curDayEnd.minutes(this.parseMinute(timeSlot.time.split("-")[1]));
-          console.log("---");
-          console.log(curDayStart);
-          console.log(curDayEnd);
           this.state.preselectedInterval = {start: curDayStart, end: curDayEnd};
           this.state.updateEvent = false;
           let tempValue = {
@@ -285,10 +281,6 @@ class WeekCalendar extends React.Component {
 
   submitPreselectedInterval = (newValue) => {
     const { preselectedInterval, updateEvent } = this.state;
-    console.log(newValue);
-    console.log(preselectedInterval.end);
-    console.log(preselectedInterval.start);
-    console.log(updateEvent);
     if (updateEvent) {
       if (this.props.onIntervalUpdate) {
         this.props.onIntervalUpdate({
