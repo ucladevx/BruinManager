@@ -8,7 +8,7 @@ export default class SuggestedEvents extends React.Component {
 			<div style={styles.card}>
 				<div style={{...{backgroundImage: `url(${this.props.image})`, backgroundSize: "100% 100%"}, ...styles.titleWrapper}}>
 					<StarButton/>
-					<div>
+					<div style={styles.eventBackdrop}>
 						<p style={{...styles.largeFont, ...styles.textMargin}}>{this.props.title}</p>
 					</div>
 				</div>
@@ -50,7 +50,10 @@ let styles = {
 		minHeight: 120,
 		justifyContent: "space-between",
 		alignItems: "flex-start",
-
+	},
+	eventBackdrop: {
+		backgroundColor: "#ffffff",
+		width: "100%"
 	},
 	textMargin: {
 		marginBottom: 0,

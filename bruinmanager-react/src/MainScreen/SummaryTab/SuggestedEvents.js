@@ -41,8 +41,9 @@ export default class SuggestedEvents extends React.Component {
 					</form>
 					<div style={{width: 20,}}></div>
 				</div>
-				<div style={{display: "flex", width: "100%"}}>
+				<div style={{display: "flex", width: "100%", justifyContent: "center",}}>
 					<div style={styles.tagBar}>
+						<span style={styles.tag}>Tag</span>
 					</div>
 					<div style={styles.scrollWrapper}>
 						<div style={styles.header}></div>
@@ -78,9 +79,22 @@ let styles = {
 		paddingRight: 5,
 	},
 	tagBar: {
+		display: "flex",
+		justifyContent: "center",
 		border: "1px solid #CFCFCF",
 		borderRight: "none",
-		width: "20%",
+		height: "auto",
+		padding: 5,
+	},
+	tag: {
+		backgroundColor: "#CFCFCF",
+		borderRadius: "25%",
+		paddingTop: 5,
+		paddingBottom: 5,
+		paddingLeft: 10,
+		paddingRight: 10,
+		textAlign: "center",
+		height: 30,
 	},
 	scrollWrapper: {
 		display: "flex",
@@ -88,13 +102,13 @@ let styles = {
 		height: 335,
 		width: "80%",
 	},
-  	header: {
-	  	position: "relative",
-	  	height:1,
-		borderBottom: "1px solid #CFCFCF",
-	  	flex: "0 0 auto",
-  	},
-  	newsfeed: {
+  header: {
+	  position: "relative",
+	 	height:1,
+	borderBottom: "1px solid #CFCFCF",
+	 	flex: "0 0 auto",
+  },
+  newsfeed: {
 		overflow: "scroll",
 		flex: "0 1 auto",
 		background: "white",

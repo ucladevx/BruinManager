@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
-export default class WeatherBox extends React.Component {
 
+export default class WeatherBox extends React.Component {
   render(props) {
       let tempHeight = this.props.height;
     return (
