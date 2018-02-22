@@ -27,7 +27,7 @@ export default class Summary extends React.Component {
                     </Col>
                     <Col xs = "8" style={{height: "50%", marginTop: 10}}>
                         <Row noGutters>
-                            <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={1}/>
+                            <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={7}/>
                         </Row>
                         <Row noGutters style={{height: "50%", marginTop: 20}}>
                             <Col style={{paddingRight: 20, height: "auto"}}>

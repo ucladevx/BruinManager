@@ -43,7 +43,7 @@ export default class SuggestedEvents extends React.Component {
 					</form>
 					<div style={{width: 20,}}></div>
 				</div>
-				<div style={{display: "flex", width: "100%"}}>
+				<div style={{display: "flex", width: "100%", justifyContent: "center",}}>
 					<div style={styles.tagBar}>
 						<span style={styles.tag}>Tag</span>
 						<br/>
@@ -82,9 +82,11 @@ let styles = {
 		paddingRight: 5,
 	},
 	tagBar: {
+		display: "flex",
+		justifyContent: "center",
 		border: "1px solid #CFCFCF",
 		borderRight: "none",
-		width: "20%",
+		height: "auto",
 		padding: 5,
 	},
 	tag: {
@@ -95,6 +97,7 @@ let styles = {
 		paddingLeft: 10,
 		paddingRight: 10,
 		textAlign: "center",
+		height: 30,
 	},
 	scrollWrapper: {
 		display: "flex",

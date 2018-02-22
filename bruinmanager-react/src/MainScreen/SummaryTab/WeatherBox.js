@@ -75,3 +75,17 @@ let styles = {
     padding: 5,
   }
 }
+
+/*
+componentDidMount() {
+    let city = "Los Angeles";
+    let apiKey = "1b5adcf031a94ac19e646d5ed6c0f1dc";
+    fetch(`api.openweathermap.org/data/2.5/weather?q=London&APPID=329c0d085ec9c5ebda1e5269e23edbb8`)
+    .then(results => {
+        return results
+    }).then(data => {
+        console.log(data.json());
+        console.log(data);
+    });
+}
+*/
