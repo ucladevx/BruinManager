@@ -15,6 +15,7 @@ export default class SuggestedEvents extends React.Component {
 		.then(results => {
 			return results.json();
 		}).then(data => {
+			console.log(data);
 			this.setState({eventArray: data.events[0].eventArr});
 		})
 	}
