@@ -133,7 +133,7 @@ let styles = {
   },
   highlightedButton: {
     color: '#000000',
-    borderRadius: "20%",
+    borderRadius: 12,
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,

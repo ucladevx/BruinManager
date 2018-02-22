@@ -17,7 +17,7 @@ const Home = () => (
 
 const Dashboard = () => (
   <div>
-    <MainScreen firstName="Kyle"/>
+    <MainScreen firstName="Taasin"/>
   </div>
 )
 
