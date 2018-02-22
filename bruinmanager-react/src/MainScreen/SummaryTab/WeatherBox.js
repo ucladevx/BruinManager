@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
+import axios from 'axios';
 
 export default class WeatherBox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    let API_KEY = "6c3a52965805dd0e32727408884efe5d";
+    let url = `http://samples.openweathermap.org/data/2.5/weather?lat=34.0689&lon=-118.4452&appid=${API_KEY}`;
+    axios.get(url).then((res) => console.log("weather" + res));
+	}
+
   render(props) {
       let tempHeight = this.props.height;
     return (
