@@ -8,8 +8,8 @@ export default class DiningItem extends React.Component {
                     <p>{this.props.name}</p>
                 </div>
                 <div style={styles.info}>
-                    <p style={{marginBottom: 0}}>{this.props.status}</p>
-                    <p style={{marginBottom: 0}}>{this.props.time}</p>
+                    <p style={styles.status}>{this.props.status}</p>
+                    <p style={styles.time}>{this.props.time}</p>
                 </div>
             </div>
         );
@@ -29,6 +29,19 @@ let styles = {
         width: "50%",
         justifyContent: "center",
         alignItems: "center",
+        fontWeight: 500,
+        fontSize: 13,
+        fontFamily: "Roboto",
+    },
+    status: {
+      fontSize: 15,
+      fontFamily: "Roboto",
+      marginBottom: 0,
+    },
+    time: {
+      fontSize: 12,
+      fontFamily: "Roboto",
+      marginBottom: 0,
     },
     info: {
         display: "flex",

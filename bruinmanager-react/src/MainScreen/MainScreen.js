@@ -12,7 +12,7 @@ import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
 
 const SummaryScreen = () => (
-	  <Summary weekNumber={6}/>
+	  <Summary weekNumber={8}/>
 )
 
 const CalendarScreen = () => {

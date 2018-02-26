@@ -22,7 +22,7 @@ export default class Summary extends React.Component {
                 <Row noGutters>
                     <Col xs="1"></Col>
                     <Col xs="2" style={{height: "100%", marginTop: 10, paddingRight: 20}}>
-                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17"/>
+                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/25" endWeek="3/3"/>
                         <DiningStack height = "auto"/>
                     </Col>
                     <Col xs = "8" style={{height: "50%", marginTop: 10}}>

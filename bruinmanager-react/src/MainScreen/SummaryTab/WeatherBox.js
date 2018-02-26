@@ -34,7 +34,7 @@ export default class WeatherBox extends React.Component {
             <p style={{...styles.weekInfo, ...styles.centered}}>Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>
           <div style={styles.weather}>
-            <p style={{...styles.temperature, ...styles.centered}}>{this.state.temperature}&deg;</p>
+            <p style={{...styles.temperature, ...styles.centered}}><b>{this.state.temperature}&deg;</b></p>
             <p style={{...styles.weatherCondition, ...styles.centered}}>{this.state.condition}</p>
           </div>
       </div>
@@ -47,8 +47,9 @@ let styles = {
     textAlign: 'center',
   },
   temperature: {
-    fontSize: 36,
+    fontSize: 40,
     margin: 0,
+    fontFamily: "Roboto",
   },
   weather: {
       display: "flex",
@@ -60,10 +61,12 @@ let styles = {
   weatherCondition: {
     fontSize: 16,
     margin: 0,
+    fontFamily: "Roboto",
   },
   weekInfo: {
-    fontSize: 24,
+    fontSize: 20,
     marginBottom: 0,
+    fontWeight: 500,
   },
   weekNum: {
     borderBottom: "1px solid #CFCFCF",
@@ -73,6 +76,7 @@ let styles = {
     alignItems: "center",
     //marginRight: 50,
     padding: 5,
+    backgroundColor: "#0096EB",
   }
 }
 

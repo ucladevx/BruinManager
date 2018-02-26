@@ -4,7 +4,7 @@ export default class DiningTitle extends React.Component {
     render(props) {
         return (
             <div style={styles.title}>
-                <p style={{margin: "0 0 0 0", padding: "0 0 0 0", marginLeft: 10, paddingBottom: 0}}>{this.props.title}</p>
+                <p style={styles.titleText}>{this.props.title}</p>
             </div>
         );
     }
@@ -15,7 +15,12 @@ let styles = {
         border: "1px solid #CFCFCF",
         display: "flex",
         alignItems: "center",
-        height: 20,
         fontSize: 16,
-    }
+        backgroundColor: "#0096EB",
+    },
+    titleText: {
+      margin: 10,
+      fontSize: 15,
+      fontFamily: "Roboto"
+    },
 }
