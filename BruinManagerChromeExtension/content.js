@@ -28,7 +28,7 @@ function getEnrollmentAndClassData() {
 		"user": {
 			"enrollment": enroll,
 			"classes": classArr,
-			"name": "taasin"
+			"name": "taasin"		// TODO: save schema with username that is accessible to us later
 		}
 	}
 
@@ -42,7 +42,7 @@ function getEnrollmentAndClassData() {
 }
 
 //first pass 6-8, second pass 11-13
-function processEnrollementData(data){
+function processEnrollementData(data){	// TODO: only get this once, first pass data goes away once it passes
 
 	var firstPass = {
 		"start": data[6],
@@ -127,7 +127,7 @@ else if (window.location.href.indexOf("arcane-cove-10079.herokuapp.com") > -1) {
 	   	
 	   	console.log(items.data.user);
 
-		var url = "https://arcane-cove-10079.herokuapp.com/user";
+		var url = "https://arcane-cove-10079.herokuapp.com/post/user";
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 		xhr.send(JSON.stringify(items.data.user));
