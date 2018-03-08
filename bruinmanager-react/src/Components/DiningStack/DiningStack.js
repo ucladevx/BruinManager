@@ -25,5 +25,6 @@ let styles = {
         marginTop: 20,
         width: "100%",
         boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
+        height: "auto",
     },
 }

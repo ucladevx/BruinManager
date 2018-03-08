@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import WeekCalendar from './WeekCalendar/WeekCalendar';
+import WeekCalendar from '../WeekCalendar/WeekCalendar';
 
 export default class StandardCalendar extends React.Component {
 
@@ -54,10 +54,11 @@ export default class StandardCalendar extends React.Component {
     let tempTime = this.state.startTime;
     let timeLimit = new Date();
     timeLimit.setHours(19,0,0);
-    
+
     if(tempTime.toDate() > timeLimit)
         tempTime = moment({h: 19, m:0 });
     return <WeekCalendar
+      firstDay = {moment().startOf('week')}
       startTime = {tempTime}
       endTime = {moment({h: 23, m: 59})} // moment().clone().add('4', 'hour')
       numberOfDays= {7}

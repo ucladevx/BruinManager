@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Background from './images/royce_hall_background.jpg';
 import Logo from './images/SignikaNegative.png';
-import FormBox from '../Components/FormBox.js';
+import FormBox from '../Components/FormBox/FormBox.js';
 import './LoginButton.css';
 import LandingScreen from './LandingScreen';
 export default class LoginScreen extends Component {

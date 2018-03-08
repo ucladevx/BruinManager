@@ -29,7 +29,7 @@ export default class WeatherBox extends React.Component {
 
   render(props) {
     return (
-      <div style={{display: "flex", flexDirection: "column", height: "20%", width: "100%", border: "1px solid #CFCFCF", boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
+      <div style={{display: "flex", flexDirection: "column", border: "1px solid #CFCFCF", boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
           <div style={styles.weekNum}>
             <p style={{...styles.weekInfo, ...styles.centered}}>Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>

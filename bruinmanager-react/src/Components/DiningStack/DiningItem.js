@@ -21,7 +21,7 @@ let styles = {
         border: "1px solid #CFCFCF",
         borderTop: "none",
         display: "flex",
-        height: 60,
+        height: 55,
         width: "100%",
     },
     name: {

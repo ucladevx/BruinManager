@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FeedCard from '../../Components/FeedCard.js';
-import StarButton from '../../Components/StarButton';
+import FeedCard from './FeedCard.js';
+import StarButton from './StarButton';
 export default class SuggestedEvents extends React.Component {
 	constructor(props) {
       super(props);

@@ -5,82 +5,64 @@ import {
   Link
 } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import OverviewCalendar from './OverviewCalendar';
-import SuggestedEvents from './SuggestedEvents';
-import Portal from './Portal';
-import { Table } from 'reactstrap';
-import StandardCalendar from '../../Components/StandardCalendar';
-import StandardCalendarStyle from '../../Components/StandardCalendar.css';
-import WeatherBox from './WeatherBox';
-import DiningStack from './DiningStack';
-import NotesAndReminders from './NotesAndReminders';
+import SuggestedEvents from '../../Components/SuggestedEvents/SuggestedEvents.js';
+import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
+import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.css';
+import WeatherBox from '../../Components/WeatherBox/WeatherBox.js';
+import DiningStack from '../../Components/DiningStack/DiningStack.js';
+import NotesAndReminders from '../../Components/NotesAndReminders/NotesAndReminders.js';
 import moment from 'moment';
 
 export default class Summary extends React.Component {
     render() {
 		return (
-                <Row noGutters>
-                    <Col xs="1"></Col>
-                    <Col xs="2" style={{height: "100%", marginTop: 10, paddingRight: 20}}>
-                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/25" endWeek="3/3"/>
-                        <DiningStack height = "auto"/>
-                    </Col>
-                    <Col xs = "8" style={{height: "50%", marginTop: 10}}>
-                        <Row noGutters>
-                            <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={7}/>
-                        </Row>
-                        <Row noGutters style={{height: "50%", marginTop: 20}}>
-                            <Col style={{paddingRight: 20, height: "auto"}}>
-                                <NotesAndReminders/>
-                            </Col>
-                            <Col style={{ height: "100%"}}>
-                                <SuggestedEvents/>
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col xs="1"></Col>
-                </Row>
+            <div style={styles.tabWrapper}>
+                <div style={styles.weatherWrapper}>
+                    <WeatherBox weekNum={this.props.weekNumber} startWeek="2/25" endWeek="3/3"/>
+                </div>
+                <div style={styles.calendarWrapper}>
+                    <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={7}/>
+                </div>
+                <div style={styles.diningWrapper}>
+                    <DiningStack height = "auto"/>
+                </div>
+                <div style={styles.notesWrapper}>
+                    <NotesAndReminders/>
+                </div>
+                <div style={styles.eventsWrapper}>
+                    <SuggestedEvents/>
+                </div>
+            </div>
 		)
 	}
 }
-/*
-<div style={styles.overall}>
-    <div style={styles.firstColumn}>
-        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/11" endWeek="2/17" degrees={64} weatherCondition="Partly Cloudy"/>
-    </div>
-    <div style={styles.secondColumn}>
-        <StandardCalendar style={StandardCalendarStyle}/>
-        <Table>
-            <td><SuggestedEvents/></td>
-            <td><Portal/></td>
-        </Table>
-    </div>
-</div>
-*/
 
 let styles = {
-	firstColumn: {
-		borderWidth: 0,
-    marginTop: 20,
-    float: "left",
-    width: "17.5%",
-	},
-  navItems: {
-    display: "inline-block",
-  },
-  colOffset: {
-    marginLeft: -100,
-  },
-	secondColumn: {
-		borderWidth: 0,
-    marginTop: 20,
-    float: "right",
-    width: "82.5%",
-	},
-	overall: {
-		paddingLeft: 50,
-		paddingRight: 50,
-		paddingUp: 25,
-		paddingDown: 25,
-	},
+    tabWrapper: {
+        display: "grid",
+        gridGap: "10px",
+        gridTemplateColumns: "repeat(20, 1fr)",
+        gridTemplateRows: "repeat(4, 1fr)",
+        height: "100%",
+    },
+    weatherWrapper: {
+        gridRow: "1 / 2",
+        gridColumn: "1 / 4",
+    },
+    calendarWrapper: {
+        gridRow: "1 / 3",
+        gridColumn: "5 / 21",
+    },
+    diningWrapper: {
+        gridRow: "2 / 5",
+        gridColumn: "1 / 4",
+    },
+    eventsWrapper: {
+        gridRow: "3 / 5",
+        gridColumn: "14 / 21",
+    },
+    notesWrapper: {
+        gridRow: "3 / 5",
+        gridColumn: "5 / 13",
+    },
 }
