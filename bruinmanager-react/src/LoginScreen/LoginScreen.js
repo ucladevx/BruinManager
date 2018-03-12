@@ -39,7 +39,7 @@ export default class LoginScreen extends Component {
                                     <button class="hoverDark">Placeholder button to dashboard</button>
                                 </Link>
                                 <FacebookLogin
-                                  appId="1088597931155576"
+                                  appId="185794305530394"
                                   autoLoad={true}
                                   fields="name,email,picture"
                                   onClick={this.componentClicked}
