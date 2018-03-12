@@ -17,7 +17,26 @@ export default class LoginScreen extends Component {
     }
 
     responseFacebook(response) {
-      console.log(response);
+      // store email, name, and id
+      let fb = {
+        "name": response.name,
+        "email": response.email,
+        "id": response.userID
+      };
+
+      let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
+      fetch(url, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(fb)
+      }).then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data);
+      })
+      // response.name
+      // response.email
+      // response.userID
     }
 
     responseGoogle(response) {
