@@ -121,7 +121,7 @@ class WeekCalendar extends React.Component {
   }
   addTimeSlots(timeSlot, name) {
       timeSlot.days.split("").map((day) => {
-          let curDayStart = this.state.momentsMap.get(day).clone();
+          let curDayStart = this.state.momentsMap.get(day); //.clone()
           if(typeof curDayStart === "undefined") return;
           curDayStart.hour(this.parseHour(timeSlot.time.split("-")[0]));
           curDayStart.minutes(this.parseMinute(timeSlot.time.split("-")[0]));
