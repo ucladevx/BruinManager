@@ -7,7 +7,23 @@ import Logo from './images/SignikaNegative.png';
 import FormBox from '../Components/FormBox/FormBox.js';
 import './LoginButton.css';
 import LandingScreen from './LandingScreen';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
 export default class LoginScreen extends Component {
+
+    componentClicked() {
+      console.log(1)
+    }
+
+    responseFacebook(response) {
+      console.log(response);
+    }
+
+    responseGoogle(response) {
+      console.log(response);
+    }
+
     render() {
         return (
             <Container fluid style={{height: "100vh"}}>
@@ -18,17 +34,22 @@ export default class LoginScreen extends Component {
                     <Col xs="4" style={{display: "flex", height: "100%"}}>
                         <div style={styles.loginBox}>
                             <img src={Logo} style={{height: "4vw", marginBottom: 35,}}/>
-                            <FormBox title="Email" inputType="text"/>
-                            <FormBox title="Password" inputType="password"/>
                             <div style={styles.buttonBox}>
                                 <Link to="/dashboard">
-                                    <button class="hoverDark">Sign in</button>
+                                    <button class="hoverDark">Placeholder button to dashboard</button>
                                 </Link>
-                                <p style={{marginBottom: 15, marginTop: 15, fontFamily: "Roboto"}}>OR</p>
-                                <Link to="/signup" style={{textDecoration: "none"}}>
-                                    <a href="" style={{color: "#000000", fontFamily: "Roboto", textDecoration: "none"}}>Create an Account</a>
-                                </Link>
-                                <a href="" style={{color: "#ABABAB", marginTop: 20, fontFamily: "Roboto", textDecoration: "none"}}>forgot your password?</a>
+                                <FacebookLogin
+                                  appId="1088597931155576"
+                                  autoLoad={true}
+                                  fields="name,email,picture"
+                                  onClick={this.componentClicked}
+                                  callback={this.responseFacebook} />
+                                <GoogleLogin
+                                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                  buttonText="Login"
+                                  onSuccess={this.responseGoogle}
+                                  onFailure={this.responseGoogle}
+                                />
                             </div>
                         </div>
                     </Col>
@@ -107,3 +128,35 @@ let styles = {
     */
 
 };
+
+/*
+in case we need actual signups again
+render() {
+    return (
+        <Container fluid style={{height: "100vh"}}>
+            <Row style={{height: "100vh"}}>
+                <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
+                    <LandingScreen/>
+                </Col>
+                <Col xs="4" style={{display: "flex", height: "100%"}}>
+                    <div style={styles.loginBox}>
+                        <img src={Logo} style={{height: "4vw", marginBottom: 35,}}/>
+                        <FormBox title="Email" inputType="text"/>
+                        <FormBox title="Password" inputType="password"/>
+                        <div style={styles.buttonBox}>
+                            <Link to="/dashboard">
+                                <button class="hoverDark">Sign in</button>
+                            </Link>
+                            <p style={{marginBottom: 15, marginTop: 15, fontFamily: "Roboto"}}>OR</p>
+                            <Link to="/signup" style={{textDecoration: "none"}}>
+                                <a href="" style={{color: "#000000", fontFamily: "Roboto", textDecoration: "none"}}>Create an Account</a>
+                            </Link>
+                            <a href="" style={{color: "#ABABAB", marginTop: 20, fontFamily: "Roboto", textDecoration: "none"}}>forgot your password?</a>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
+}
+*/
