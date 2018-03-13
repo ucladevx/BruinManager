@@ -34,6 +34,12 @@ function getEnrollmentAndClassData() {
 
 	console.log(user);
 
+	// chrome.storage.sync.get('myID', function(res){
+	// 	console.log(res.data)
+	// })
+	var id = localStorage.getItem('myBMID');
+	console.log(id);
+
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
 	chrome.storage.sync.set({'data': user}, () => {
 	    console.log("Stored Class and Enrollment Data")

@@ -34,6 +34,9 @@ export default class LoginScreen extends Component {
         return response.json();
       }).then(data => {
         console.log(data);
+        localStorage.setItem('myBMID', data.id);
+        // var id = localStorage.getItem('myBMID');
+        // console.log(id);
       })
       // response.name
       // response.email
