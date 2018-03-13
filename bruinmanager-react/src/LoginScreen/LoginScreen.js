@@ -9,6 +9,7 @@ import './LoginButton.css';
 import LandingScreen from './LandingScreen';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import FontAwesome from 'react-fontawesome';
 
 export default class LoginScreen extends Component {
 
@@ -62,13 +63,21 @@ export default class LoginScreen extends Component {
                                   autoLoad={true}
                                   fields="name,email,picture"
                                   onClick={this.componentClicked}
-                                  callback={this.responseFacebook} />
+                                  callback={this.responseFacebook}
+                                  icon="fa-facebook"
+                                  textButton="Login with Facebook"
+                                />
                                 <GoogleLogin
                                   clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                                   buttonText="Login"
                                   onSuccess={this.responseGoogle}
                                   onFailure={this.responseGoogle}
+                                >
+                                <FontAwesome
+                                  name='google'
                                 />
+                                <span> Login with Google</span>
+                                </GoogleLogin>
                             </div>
                         </div>
                     </Col>
