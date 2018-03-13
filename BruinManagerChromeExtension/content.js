@@ -23,22 +23,23 @@ function getEnrollmentAndClassData() {
 		classArr[i] = p2;
 	}
 
+	// TODO: won't work until frontend deployed with backend
+	var bmData = localStorage.getItem('myBMData');
+
+	// TODO: save schema with username that is accessible to us later
 	// id user somehow by saving username
 	var user = {
 		"user": {
 			"enrollment": enroll,
 			"classes": classArr,
-			"name": "taasin"		// TODO: save schema with username that is accessible to us later
+			"name": bmData.name
+			"user_id": bmData.id,
+			"email": bmData.email		
 		}
 	}
 
 	console.log(user);
 
-	// chrome.storage.sync.get('myID', function(res){
-	// 	console.log(res.data)
-	// })
-	var id = localStorage.getItem('myBMID');
-	console.log(id);
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
 	chrome.storage.sync.set({'data': user}, () => {
