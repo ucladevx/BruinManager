@@ -4,52 +4,18 @@ import {
   Route,
   Switch,
   Link,
-  NavLink
+  NavLink,
 } from 'react-router-dom';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Icon from './images/Vector.png';
 import Logo from './images/SignikaNegative.png';
 import combineLogo from './images/logo_bm.png';
 import LoginBox from '../Components/LoginBox/LoginBox.js';
 import LandingInfo from './LandingInfo';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
 
 export default class LoginScreen extends Component {
-
-    componentClicked() {
-      console.log(1)
-    }
-
-    responseFacebook(response) {
-      // store email, name, and id
-      let fb = {
-        "name": response.name,
-        "email": response.email,
-        "id": response.userID
-      };
-
-      let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
-      fetch(url, {
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(fb)
-      }).then(response => {
-        return response.json();
-      }).then(data => {
-        console.log(data);
-        localStorage.setItem('myBMData', data);
-        // var bmdata = localStorage.getItem('myBMData');
-        // console.log(bmdata.id);
-      })
-      // response.name
-      // response.email
-      // response.userID
-    }
-
-    responseGoogle(response) {
-      console.log(response);
-    }
 
     render() {
         return (

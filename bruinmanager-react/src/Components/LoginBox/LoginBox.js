@@ -1,16 +1,59 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import fbLogo from './fbLogo.png';
 import gmailLogo from './gmailLogo.png';
 import Logo from './SignikaNegative.png';
 import FormBox from '../FormBox/FormBox.js';
-
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
 import './LoginBoxStyle.css';
 
-export default class LoginBox extends Component {
+class LoginBox extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        fbdata: null
+      }
+      this.componentClicked = this.componentClicked.bind(this);
+      this.responseFacebook = this.responseFacebook.bind(this);
+    }
+
+    componentClicked(e) {
+      e.preventDefault();
+      this.props.history.push('/dashboard');
+    }
+
+    responseFacebook(response) {
+      // store email, name, and id
+      let fb = {
+        "name": response.name,
+        "email": response.email,
+        "id": response.userID
+      };
+
+      let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
+      fetch(url, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(fb)
+      }).then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data);
+        localStorage.setItem('myBMData', data);
+        this.setState({
+          fbdata: data
+        });
+        // var bmdata = localStorage.getItem('myBMData');
+        // console.log(bmdata.id);
+      })
+    }
+
+    responseGoogle(response) {
+      console.log(response);
+    }
+
     render() {
         return (
             <div style={styles.loginDisplayWrapper}>
@@ -83,6 +126,7 @@ export default class LoginBox extends Component {
         );
     }
 }
+export default withRouter(LoginBox);
 
 let styles = {
     loginDisplayWrapper: {
