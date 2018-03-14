@@ -38,7 +38,7 @@ export default class LoginScreen extends Component {
                     <LandingInfo/>
                 </div>
                 <div style={styles.login}>
-                    <LoginBox/>
+                    <LoginBox storeData={this.props.storeData}/>
                 </div>
             </div>
         );
@@ -144,6 +144,32 @@ render() {
 }
 
 
+// function to get user info from fb
+responseFacebook(response) {
+    // store email, name, and id
+    let fb = {
+        "name": response.name,
+        "email": response.email,
+        "id": response.userID
+    };
+
+    let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
+    fetch(url, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(fb)
+    }).then(response => {
+        return response.json();
+    }).then(data => {
+        console.log(data);
+        localStorage.setItem('myBMData', data);
+        // var bmdata = localStorage.getItem('myBMData');
+        // console.log(bmdata.id);
+    })
+      // response.name
+      // response.email
+      // response.userID
+}
 
 
 <div style={styles.loginBox}>

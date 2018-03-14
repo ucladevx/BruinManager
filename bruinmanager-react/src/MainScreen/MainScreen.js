@@ -43,7 +43,7 @@ export default class MainScreen extends React.Component {
             <Router>
                 <div style={styles.boxWrapper}>
                     <div style={styles.leftOfNavBar}>
-                        <h2>Hello,{'\u00A0'}{this.props.firstName}!</h2>
+                        <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name : ""}!</h2>
                     </div>
                     <div style={styles.navBarBox}>
                         <NavBar />

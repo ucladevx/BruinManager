@@ -9,17 +9,20 @@ import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
 import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
+
 const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
 )
 
+/*
 const Dashboard = () => (
   <div>
     <MainScreen firstName="Taasin"/>
   </div>
 )
+*/
 
 const Calendar = () => (
   <div>
@@ -28,14 +31,37 @@ const Calendar = () => (
 )
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fbdata: null
+    }
+    this.getData = this.getData.bind(this);
+  }
+
+  getData(data) {
+    this.setState({
+      fbdata: data
+    });
+    console.log(data);
+  }
+
   render() {
+    let Login = () => (
+      <LoginScreen storeData={this.getData}/>
+    );
+    let DashboardScreen = () => (
+      <div>
+        <MainScreen fbdata={this.state.fbdata}/>
+      </div>
+    )
     return (
       <Router>
         <div style={{height: "100vh", width: "100vw"}}>
           <div style={{height: "100%", width: "100%"}}>
-              <Route exact path="/" component={LoginScreen}/>
+              <Route exact path="/" component={Login}/>
               <Route exact path="/signup" component={SignUpScreen}/>
-              <Route path="/dashboard" component={Dashboard}/>
+              <Route path="/dashboard" component={DashboardScreen}/>
           </div>
         </div>
       </Router>

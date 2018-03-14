@@ -20,7 +20,7 @@ class LoginBox extends Component {
     }
 
     componentClicked(e) {
-      e.preventDefault();
+      //e.preventDefault();
       this.props.history.push('/dashboard');
     }
 
@@ -47,6 +47,9 @@ class LoginBox extends Component {
         });
         // var bmdata = localStorage.getItem('myBMData');
         // console.log(bmdata.id);
+        return data;
+      }).then((res) => {
+        this.props.storeData(res);
       })
     }
 
