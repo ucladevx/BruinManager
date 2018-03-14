@@ -83,7 +83,7 @@ class LoginBox extends Component {
                                                        <div style={{width:"15%"}}>
                                                            <img src={fbLogo} style={{width: "2vmax", height: "2vmax",}}/>
                                                        </div>
-                                                       <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center", fontSize: "1.1vmax"}}>
+                                                       <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center", fontSize: "1.1vmax", cursor: "pointer",}}>
                                                            <span> Login with Facebook </span>
                                                        </div>
                                                    </div>
@@ -94,7 +94,7 @@ class LoginBox extends Component {
                                              buttonText="Login"
                                              onSuccess={this.responseGoogle}
                                              onFailure={this.responseGoogle}
-                                             style={{width: "100%", height: "30%", backgroundColor: "#DF4B38", color: "#FFFFFF", border: "none", fontSize: "1.1vmax"}}>
+                                             style={{width: "100%", height: "30%", backgroundColor: "#DF4B38", color: "#FFFFFF", border: "none", fontSize: "1.1vmax", cursor: "pointer",}}>
                                              <div style={{display:"flex", width:"100%"}}>
                                                  <div style={{width:"15%"}}>
                                                      <img src={gmailLogo} style={{width: "2vmax", height: "2vmax",}}/>
