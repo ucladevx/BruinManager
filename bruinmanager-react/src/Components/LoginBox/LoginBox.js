@@ -138,7 +138,7 @@ let styles = {
         alignItems: "center",
         flexDirection: "column",
         width: "90%",
-        height: "75%",
+        height: "70%",
         backgroundColor: "rgba(219, 219, 219, 1)",
         borderRadius: 20,
         boxShadow: "0px 23px 34px rgba(0, 0, 0, 0.25)",
