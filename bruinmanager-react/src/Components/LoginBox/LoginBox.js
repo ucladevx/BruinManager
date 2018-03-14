@@ -76,13 +76,13 @@ class LoginBox extends Component {
                                              onClick={this.componentClicked}
                                              callback={this.responseFacebook}
                                              render={renderProps => (
-                                                 <button style={{width: "100%", height: "30%", backgroundColor: "#475993", color: "#FFFFFF", border: "none"}} onClick={renderProps.onClick}>
+                                                 <button onClick={renderProps.onClick} style={{width: "100%", height: "30%", backgroundColor: "#475993", color: "#FFFFFF", border: "none", cursor: "pointer",}}>
                                                    <div style={{display:"flex", width:"100%"}}>
                                                        <div style={{width:"15%"}}>
                                                            <img src={fbLogo} style={{width: "2vmax", height: "2vmax",}}/>
                                                        </div>
-                                                       <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center", fontSize: "1.1vmax", cursor: "pointer",}}>
-                                                           <span> Login with Facebook </span>
+                                                       <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center", fontSize: "1.1vmax",}}>
+                                                           <span> Login with Facebook</span>
                                                        </div>
                                                    </div>
                                                  </button>
@@ -112,7 +112,7 @@ class LoginBox extends Component {
                                    <div style={styles.firstPartyLogin}>
                                        <FormBox title="Email" inputType="text"/>
                                        <FormBox title="Password" inputType="password"/>
-                                       <Link to="/dashboard"><button class="hoverDark">Login</button> </Link>
+                                       <Link to="/dashboard"><button className="hoverDark">Login</button> </Link>
                                    </div>
                                </div>
                                <div style={styles.circleDivider}>
