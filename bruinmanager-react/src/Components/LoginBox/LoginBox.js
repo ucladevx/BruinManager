@@ -24,7 +24,7 @@ class LoginBox extends Component {
       this.props.history.push('/dashboard');
     }
 
-    async responseFacebook(response) {
+    responseFacebook(response) {
       // store email, name, and id
       let fb = {
         "name": response.name,
@@ -33,7 +33,7 @@ class LoginBox extends Component {
       };
 
       let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
-      await fetch(url, {
+      fetch(url, {
         method: 'post',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(fb)
