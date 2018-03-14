@@ -24,7 +24,7 @@ function getEnrollmentAndClassData() {
 	}
 
 	// TODO: won't work until frontend deployed with backend
-	var bmData = localStorage.getItem('myBMData');
+	// var bmData = localStorage.getItem('myBMData');
 
 	// TODO: save schema with username that is accessible to us later
 	// id user somehow by saving username
@@ -32,9 +32,10 @@ function getEnrollmentAndClassData() {
 		"user": {
 			"enrollment": enroll,
 			"classes": classArr,
-			"name": bmData.name
-			"user_id": bmData.id,
-			"email": bmData.email		
+			// "name": bmData.name,
+			// "user_id": bmData.id,
+			// "email": bmData.email
+			"name": "taasin"		
 		}
 	}
 
@@ -73,28 +74,49 @@ function processEnrollementData(data){	// TODO: only get this once, first pass d
 
 function processClassData(data){
 
-	// make dynamic
+	console.log(data);
+	// get location of "Lec 1", all values are relative to this position
+	var i;
+	for(i = 0; i < data.length; i++){
+		if(data[i] == "Lec 1"){
+			i++;
+			break;
+		}
+	}
 
 	var lecture =  {
 		"name": data[0] + " " + data[1],
-		"section": data[17],
-		"status": data[18],
-		"waitlist_status": data[19],
-		"days": data[20],
-		"time": data[21],
-		"location": data[22],
-		"units": data[23],
-		"instructor": data[24]
+		"section": data[i-1],
+		"status": data[i],
+		"waitlist_status": data[i+1],
+		"days": data[i+2],
+		"time": data[i+3],
+		"location": data[i+4],
+		"units": data[i+5],
+		"instructor": data[i+6]
+	}
+
+	var j;
+	for(j = i; j < data.length - 1; j++){
+		if(data[j] == "Exchange Class"){
+			if(data[j+1] != "Change Grade Type"){
+				break;
+			}
+			else{
+				j++;
+				break;
+			}
+		}
 	}
 
 	var discussion = {
-		"section": data[27],
-		"status": data[28],
-		"waitlist_status": data[29],
-		"days": data[30],
-		"time": data[31],
-		"location": data[32],
-		"instructor": data[34],
+		"section": data[j+1],
+		"status": data[j+2],
+		"waitlist_status": data[j+3],
+		"days": data[j+4],
+		"time": data[j+5],
+		"location": data[j+6],
+		"instructor": data[j+8],
 	}
 
 	var clasData = {
