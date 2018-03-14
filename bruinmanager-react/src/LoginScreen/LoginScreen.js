@@ -28,10 +28,10 @@ export default class LoginScreen extends Component {
                         </div>
                         <div>
                             <NavLink to="/">
-                              Home
+                              <span style={styles.navtext}><b>Home</b></span>
                             </NavLink>
                             <NavLink to="/team">
-                              Team
+                              <span style={styles.navtext}>Team</span>
                             </NavLink>
                         </div>
                     </div>
@@ -87,6 +87,14 @@ let styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+    },
+    navtext: {
+      fontFamily: 'Signika Negative',
+      color: "#475993",
+      fontSize: 25,
+      marginLeft: 40,
+      marginRight: 40,
+      textAlign: "left",
     },
 };
 
