@@ -7,7 +7,7 @@ export default class LandingScreen extends Component {
     render() {
         return(
             <Container fluid>
-                <Row style={{display: "flex", justifyContent: "center", alignItems: "center",}}>
+                <Row style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <Col>
                         <Row>
                             <Col style={{marginBottom: 10}}>
@@ -82,7 +82,7 @@ export default class LandingScreen extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <p style={{fontFamily: "Roboto"}}><br/>Download our Chrome extension 'BruinManager' to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
+                                <p style={{fontFamily: "Roboto"}}><br/>Download our BruinManager Chrome extension to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
                             </Col>
                         </Row>
                     </Col>

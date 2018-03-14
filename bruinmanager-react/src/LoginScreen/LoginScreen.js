@@ -57,8 +57,7 @@ export default class LoginScreen extends Component {
                 <div style={styles.navBar}>
                     <div style={styles.navContent}>
                         <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
-                            <img src={Icon} style={{height: 40, marginRight: 15,}}/>
-                            <img src={Logo} style={{height: 35, marginTop: 15,}}/>
+                            <img src={Icon} style={{height: 40, }}/>
                         </div>
                         <div>
                             <NavLink to="/">
@@ -116,7 +115,7 @@ let styles = {
         alignItems: "center",
     },
     login: {
-        gridColumn: "15/23",
+        gridColumn: "14/23",
         gridRow: "2/3",
         display: "flex",
         justifyContent: "center",

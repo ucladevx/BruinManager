@@ -1,6 +1,7 @@
 .facebookButton {
     background-color: #475993;
     color: #FFFFFF;
+    border: none;
 }
 .hoverDark:hover {
     background: #076CA6;

@@ -30,7 +30,7 @@ export default class LoginBox extends Component {
                                              onClick={this.componentClicked}
                                              callback={this.responseFacebook}
                                              render={renderProps => (
-                                                 <button style={{width: "100%", height: "30%", backgroundColor: "#475993", color: "#FFFFFF"}} onClick={renderProps.onClick}>
+                                                 <button style={{width: "100%", height: "30%", backgroundColor: "#475993", color: "#FFFFFF", border: "none"}} onClick={renderProps.onClick}>
                                                    <div style={{display:"flex", width:"100%"}}>
                                                        <div style={{width:"15%"}}>
                                                            <img src={fbLogo} style={{width: 20, height: 20,}}/>
@@ -46,7 +46,7 @@ export default class LoginBox extends Component {
                                              buttonText="Login"
                                              onSuccess={this.responseGoogle}
                                              onFailure={this.responseGoogle}
-                                             style={{width: "100%", height: "30%", backgroundColor: "#DF4B38", color: "#FFFFFF"}}>
+                                             style={{width: "100%", height: "30%", backgroundColor: "#DF4B38", color: "#FFFFFF", border: "none"}}>
                                              <div style={{display:"flex", width:"100%"}}>
                                                  <div style={{width:"15%"}}>
                                                      <img src={gmailLogo} style={{width: 20, height: 20,}}/>
@@ -95,6 +95,7 @@ let styles = {
         backgroundColor: "rgba(219, 219, 219, 1)",
         borderRadius: 20,
         boxShadow: "0px 23px 34px rgba(0, 0, 0, 0.25)",
+        fontSize: "1rem",
     },
     logoHeader: {
         display: "flex",
@@ -107,9 +108,15 @@ let styles = {
         height: "40%",
         boxShadow: "0px 3px 16px rgba(0, 0, 0, 0.19)",
     },
+    logoWrapper: {
+        display: "flex",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     logoStyle: {
-        width: 350,
-        height: "30%",
+        width: "75%",
+        height: "auto",
     },
     interface: {
         width: "95%",
