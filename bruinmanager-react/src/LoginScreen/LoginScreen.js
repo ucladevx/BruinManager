@@ -88,7 +88,7 @@ let styles = {
     navtext: {
       fontFamily: 'Signika Negative',
       color: "#475993",
-      fontSize: 25,
+      fontSize: 20,
       marginLeft: 40,
       marginRight: 40,
       textAlign: "left",
