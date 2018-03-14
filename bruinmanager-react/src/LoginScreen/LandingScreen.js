@@ -13,7 +13,7 @@ export default class LandingScreen extends Component {
                         <Row>
                             <Col style={{marginBottom: 50}}>
                                 <h1 style={{marginBottom: 25, fontFamily: "Signika Negative"}}>BruinManager for busy Bruins</h1>
-                                <p style={{fontFamily: "Signika Negative",}}>UCLA is a really happening place, sometimes too happening. We try to make this easier for you by building a platform to organise your college experience by placing all your essentials in one place. You get your own personalised calendar integrated with myUCLA, alerts when your favourite food is on the menu at a dining hall and get to see exciting events happening at UCLA.
+                                <p style={{fontFamily: "Signika Negative",}}> 
                                 <br/><br/>You won’t need another app to manage your life as a Bruin.</p>
                             </Col>
                         </Row>
@@ -42,7 +42,7 @@ export default class LandingScreen extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <p style={{fontFamily: "Roboto"}}><br/>Download our chrome extension!<br/><br/>Why?<br/><br/>Our Chrome extension allows us, with your permission, to sync your BruinManager calendar with your myUCLA data.</p>
+                                <p style={{fontFamily: "Roboto"}}><br/>Download our BruinManager chrome extension!<br/><br/>Why?<br/><br/>This enables real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically. If you don’t use Chrome, you can upload an ICS file from myUCLA instead! .</p>
                             </Col>
                         </Row>
                     </Col>
