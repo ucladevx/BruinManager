@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
-import Background from './images/royce_hall_background.jpg';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  NavLink
+} from 'react-router-dom';
+import Icon from './images/Vector.png';
 import Logo from './images/SignikaNegative.png';
-import FormBox from '../Components/FormBox/FormBox.js';
-import './LoginButton.css';
-import LandingScreen from './LandingScreen';
+import combineLogo from './images/logo_bm.png';
+import LoginBox from '../Components/LoginBox/LoginBox.js';
+import LandingInfo from './LandingInfo';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
@@ -49,90 +53,77 @@ export default class LoginScreen extends Component {
 
     render() {
         return (
-            <Container fluid style={{height: "100vh"}}>
-                <Row style={{height: "100vh"}}>
-                    <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
-                        <LandingScreen/>
-                    </Col>
-                    <Col xs="4" style={{display: "flex", height: "100%"}}>
-                        <div style={styles.loginBox}>
-                            <img src={Logo} style={{height: "4vw", marginBottom: 35,}}/>
-                            <div style={styles.buttonBox}>
-                                <Link to="/dashboard">
-                                    <button class="hoverDark">Placeholder button to dashboard</button>
-                                </Link>
-                                <FacebookLogin
-                                  appId="185794305530394"
-                                  autoLoad={true}
-                                  fields="name,email,picture"
-                                  onClick={this.componentClicked}
-                                  callback={this.responseFacebook}
-                                  icon="fa-facebook"
-                                  textButton="Login with Facebook"
-                                />
-                                <GoogleLogin
-                                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                                  buttonText="Login"
-                                  onSuccess={this.responseGoogle}
-                                  onFailure={this.responseGoogle}
-                                >
-                                <FontAwesome
-                                  name='google'
-                                />
-                                <span> Login with Google</span>
-                                </GoogleLogin>
-                            </div>
+            <div style={styles.landingWrapper}>
+                <div style={styles.navBar}>
+                    <div style={styles.navContent}>
+                        <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
+                            <img src={Icon} style={{height: 40, marginRight: 15,}}/>
+                            <img src={Logo} style={{height: 35, marginTop: 15,}}/>
                         </div>
-                    </Col>
-                </Row>
-            </Container>
+                        <div>
+                            <NavLink to="/">
+                              Home
+                            </NavLink>
+                            <NavLink to="/team">
+                              Team
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+
+                <div style={styles.landingInfo}>
+                    <LandingInfo/>
+                </div>
+                <div style={styles.login}>
+                    <LoginBox/>
+                </div>
+            </div>
         );
     }
 }
 
 let styles = {
-    loginBoxWrapper: {
-        display: "flex",
-        justifyContent: "center",
-        position: "fixed",
-        //background: `rgba(245, 245, 245, 1)`,
-        border: "1px solid grey",
-    },
-    loginBox: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        alignItems: "center",
+    landingWrapper: {
+        height: "100%",
         width: "100%",
+        background: "linear-gradient(239.12deg, rgba(75, 106, 173, 0.58) 16.86%, rgba(46, 166, 236, 0.58) 92.6%), linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)",
+        display: "grid",
+        gridTemplateColumns: "repeat(24, 1fr)",
+        gridTemplateRows: "75px 1fr",
     },
-    logoBox: {
+    navBar: {
+        gridColumn: "1/25",
+        gridRow: "1/2",
+        backgroundColor: "white",
+        boxShadow: "0px 9px 16px rgba(0, 0, 0, 0.25)",
+        display:"grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gridTemplateRows: "1fr",
+    },
+    navContent: {
+        gridColumn: "2/12",
+        gridRow: "1/2",
         display: "flex",
-        width: "100%",
-        height: "100vh",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    landingInfo: {
+        gridColumn: "3/14",
+        gridRow: "2/3",
+        color: "white",
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
     },
-    logo: {
+    login: {
+        gridColumn: "15/23",
+        gridRow: "2/3",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: 300,
-        height: 75,
     },
-    textLogo: {
-        fontSize: 50,
-        color: "rgb(43, 167, 234)",
-        marginBottom: 0,
-    },
-    buttonBox: {
-        display: "flex",
-        width: "100%",
+};
 
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-    },
     /*
     <div>
         <img src={Logo} alt="" style={styles.logo}/>
@@ -158,8 +149,6 @@ let styles = {
 
     */
 
-};
-
 /*
 in case we need actual signups again
 render() {
@@ -167,7 +156,7 @@ render() {
         <Container fluid style={{height: "100vh"}}>
             <Row style={{height: "100vh"}}>
                 <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
-                    <LandingScreen/>
+                    <LandingInfo/>
                 </Col>
                 <Col xs="4" style={{display: "flex", height: "100%"}}>
                     <div style={styles.loginBox}>
@@ -190,4 +179,36 @@ render() {
         </Container>
     );
 }
+
+
+
+
+<div style={styles.loginBox}>
+    <img src={Logo} style={{height: "4vw", marginBottom: 35,}}/>
+    <div style={styles.buttonBox}>
+        <Link to="/dashboard">
+            <button class="hoverDark">Placeholder button to dashboard</button>
+        </Link>
+        <FacebookLogin
+          appId="185794305530394"
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={this.componentClicked}
+          callback={this.responseFacebook}
+          icon="fa-facebook"
+          textButton="Login with Facebook"
+        />
+        <GoogleLogin
+          clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+        >
+        <FontAwesome
+          name='google'
+        />
+        <span> Login with Google</span>
+        </GoogleLogin>
+    </div>
+</div>
 */

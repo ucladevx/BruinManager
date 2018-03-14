@@ -65,10 +65,11 @@ export default class MainScreen extends React.Component {
 let styles = {
     boxWrapper: {
         display: "grid",
+        gridGap: "0px 0px",
         gridTemplateColumns: "repeat(24, 1fr)",
-        gridTemplateRows: "60px auto",
-        height: "auto",
-        width: "auto",
+        gridTemplateRows: "repeat(12, 1fr)",
+        height: "100vh",
+        width: "100vw",
     },
     leftOfNavBar: {
         gridRow: "1 / 2",
@@ -82,8 +83,7 @@ let styles = {
         gridColumn: "7 / 23",
     },
     currentTab: {
-        gridRow: "2 / 3",
+        gridRow: "2 / 13",
         gridColumn: "3 / 23",
-        height: "80%",
     },
 }

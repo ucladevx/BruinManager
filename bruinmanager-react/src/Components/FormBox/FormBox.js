@@ -19,8 +19,7 @@ ref={(ip) => this.myInp = ip
 */
 const styles = {
         formBoxWrapper: {
-            display: "flex",
-            width: "100%",
+            display: "flex",            
             height: 50,
             flexDirection: "column",
         },
@@ -40,8 +39,8 @@ const styles = {
             border: "none",
             height: 20,
             outline: "none",
-            width: 220,
             textSize: 14,
             textAlign: "center",
+            backgroundColor: "transparent",
         },
 }
