@@ -32,7 +32,9 @@ class LoginBox extends Component {
         "id": response.userID
       };
 
-      let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
+      localStorage.setItem('myBMData', "fbData":{fb});
+
+      let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       fetch(url, {
         method: 'post',
         headers: {'Content-Type':'application/json'},
@@ -41,7 +43,6 @@ class LoginBox extends Component {
         return response.json();
       }).then(data => {
         console.log(data);
-        localStorage.setItem('myBMData', data);
         this.setState({
           fbdata: data
         });
