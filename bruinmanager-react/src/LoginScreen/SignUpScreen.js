@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
-import Background from './images/royce_hall_background.jpg';
 import Logo from './images/SignikaNegative.png';
 import FormBox from '../Components/FormBox/FormBox.js';
 import './LoginButton.css';
-import LandingScreen from './LandingScreen';
+import LandingInfo from './LandingInfo';
 export default class LoginScreen extends Component {
     render() {
         return (
             <Container fluid style={{height: "100vh"}}>
                 <Row style={{height: "100vh"}}>
                     <Col style={{background: "linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)", color: "white"}}>
-                        <LandingScreen/>
+                        <LandingInfo/>
                     </Col>
                     <Col xs="4" style={{display: "flex", height: "100%"}}>
                         <div style={styles.loginBox}>

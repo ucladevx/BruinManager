@@ -35,7 +35,7 @@ export default class SuggestedEvents extends React.Component {
 	}
 	render() {
 		return(
-			<div style={{height: this.state.height, boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
+			<div style={{boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
 				<div style={styles.searchBar}>
 					<StarButton/>
 					<form>
@@ -102,7 +102,7 @@ let styles = {
 	scrollWrapper: {
 		display: "flex",
 		flexDirection: "column",
-		height: 335,
+		height: 400,
 		width: "80%",
 	},
   header: {

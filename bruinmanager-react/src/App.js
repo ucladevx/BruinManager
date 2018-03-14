@@ -32,7 +32,7 @@ export default class App extends Component {
     return (
       <Router>
         <div style={{height: "100vh", width: "100vw"}}>
-          <div>
+          <div style={{height: "100%", width: "100%"}}>
               <Route exact path="/" component={LoginScreen}/>
               <Route exact path="/signup" component={SignUpScreen}/>
               <Route path="/dashboard" component={Dashboard}/>
