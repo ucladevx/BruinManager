@@ -26,10 +26,12 @@ class LoginBox extends Component {
 
     responseFacebook(response) {
       // store email, name, and id
+      console.log(response.picture.data.url);
       let fb = {
         "name": response.name,
         "email": response.email,
-        "id": response.userID
+        "id": response.userID,
+        "picture": response.picture.data.url,
       };
 
       let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
@@ -112,7 +114,7 @@ class LoginBox extends Component {
                                    <div style={styles.firstPartyLogin}>
                                        <FormBox title="Email" inputType="text"/>
                                        <FormBox title="Password" inputType="password"/>
-                                       <Link to="/dashboard"><button class="hoverDark">Login</button> </Link>
+                                       <Link to="/dashboard"><button className="hoverDark">Login</button> </Link>
                                    </div>
                                </div>
                                <div style={styles.circleDivider}>
