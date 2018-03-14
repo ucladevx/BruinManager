@@ -43,7 +43,7 @@ let defaultProps = {
   numberOfDays: 7,
   scaleHeaderTitle: '',
   headerCellComponent: HeaderCell,
-  dayFormat: 'ddd M/DD',
+  dayFormat: "ddd M/DD",
   startTime: moment({ h: 0, m: 0 }),
   endTime: moment({ h: 23, m: 59 }),
   scaleUnit: 15,
@@ -449,7 +449,7 @@ class WeekCalendar extends React.Component {
 
     return (
       <div className={isSelection ? 'weekCalendar weekCalendar__status_selection' : 'weekCalendar'}>
-        <div className="weekCalendar__scaleHeader" >
+        <div style={{backgroundColor: "#0096EB"}} className="weekCalendar__scaleHeader" >
           <span>{scaleHeaderTitle}</span>
         </div>
         <div className="weekCalendar__header" style={{ left: -this.state.scrollPosition.left }}>

@@ -43,7 +43,6 @@ export default class App extends Component {
     this.setState({
       fbdata: data
     });
-    console.log(data);
   }
 
   render() {

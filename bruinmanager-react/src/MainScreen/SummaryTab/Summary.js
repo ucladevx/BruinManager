@@ -27,7 +27,7 @@ export default class Summary extends React.Component {
                 </div>
                 <div style={styles.rightSide}>
                     <div style={styles.calendarWrapper}>
-                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={7}/>
+                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/>
                     </div>
                     <div style={styles.bottomSide}>
                         <div style={styles.notesWrapper}>
@@ -48,7 +48,7 @@ let styles = {
         display: "grid",
         gridTemplateColumns: "repeat(20, 1fr)",
         gridTemplateRows: "1fr",
-        height: "100%",
+        height: "95%",
     },
     leftSide: {
         gridRow: "1 / 7",

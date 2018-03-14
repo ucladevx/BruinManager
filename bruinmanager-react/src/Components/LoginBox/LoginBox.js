@@ -26,10 +26,12 @@ class LoginBox extends Component {
 
     responseFacebook(response) {
       // store email, name, and id
+      console.log(response.picture.data.url);
       let fb = {
         "name": response.name,
         "email": response.email,
-        "id": response.userID
+        "id": response.userID,
+        "picture": response.picture.data.url,
       };
 
       let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
