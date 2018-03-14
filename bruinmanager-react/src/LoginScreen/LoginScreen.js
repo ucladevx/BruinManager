@@ -47,7 +47,7 @@ export default class LoginScreen extends Component {
 
 let styles = {
     landingWrapper: {
-        height: "100%",
+        minHeight: "100vh",
         width: "100%",
         background: "linear-gradient(239.12deg, rgba(75, 106, 173, 0.58) 16.86%, rgba(46, 166, 236, 0.58) 92.6%), linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)",
         display: "grid",
