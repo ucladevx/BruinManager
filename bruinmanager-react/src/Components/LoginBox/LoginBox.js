@@ -34,7 +34,7 @@ class LoginBox extends Component {
         "picture": response.picture.data.url,
       };
 
-      localStorage.setItem('myBMData', "fbData":{fb});
+      localStorage.setItem('myBMData', JSON.stringify(fb));
 
       let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       fetch(url, {
