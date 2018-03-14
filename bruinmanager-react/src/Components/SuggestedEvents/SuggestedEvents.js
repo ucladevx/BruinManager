@@ -37,13 +37,13 @@ export default class SuggestedEvents extends React.Component {
 		return(
 			<div style={{boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)", height:"100%", width:"100%",}}>
 				<div style={styles.searchBar}>
-					<StarButton/>
-					<form style={{width: "50%"}}>
-						<input type="text" style={{width: "100%"}}/>
-					</form>
 					<div style={{width: 20,}}></div>
+					<form style={{width: "50%"}}>
+						<input type="text" placeholder="Search for nearby events" style={{width: "100%", borderRadius: "25px", paddingLeft: 20}}/>
+					</form>
+					<StarButton/>
 				</div>
-				<div style={{display: "flex", width: "100%", height: "calc(100% - 50px)", justifyContent: "center", overflow: "hidden"}}>
+				<div style={{display: "flex", width: "100%", height: "calc(100% - 50px)", overflow: "hidden"}}>
 					<div style={styles.tagBar}>
 						<span style={styles.tag}>Tag</span>
 						<br/>
@@ -80,6 +80,7 @@ let styles = {
 		height: 50,
 		paddingLeft: 5,
 		paddingRight: 5,
+		backgroundColor: "#0096EB",
 	},
 	tagBar: {
 		display: "flex",
@@ -102,7 +103,7 @@ let styles = {
 	scrollWrapper: {
 		display: "flex",
 		flexDirection: "column",
-		width: "80%",
+		width: "100%",
 		height: "100%",
 		overflow: "hidden",
 	},

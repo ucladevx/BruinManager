@@ -7,9 +7,11 @@ export default class NotesSection extends React.Component {
   render() {
     return (
       <div style={styles.overview}>
-        <div style={styles.inlined}>
-          <p style={{...styles.title, ...styles.inlined}}>Notes</p>
-          <p style={{...styles.inlined, ...styles.rightText}}>Edit</p>
+        <div style={{backgroundColor: "#0096EB", paddingTop: 15, marginTop: -25}}>
+          <div style={styles.inlined}>
+            <p style={{...styles.title, ...styles.inlined}}>Notes</p>
+            <p style={{...styles.inlined, ...styles.rightText}}>Edit</p>
+          </div>
         </div>
         <div style={styles.highlightBorder}/>
         <div style={styles.notesList}>
@@ -40,7 +42,6 @@ let styles = {
   },
   overview: {
     marginTop: 25,
-
   },
   rightText: {
     float: "right",
