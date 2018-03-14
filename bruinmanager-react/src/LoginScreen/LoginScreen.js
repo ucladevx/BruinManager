@@ -6,8 +6,6 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
 import Icon from './images/Vector.png';
 import Logo from './images/SignikaNegative.png';
 import combineLogo from './images/logo_bm.png';
@@ -23,15 +21,14 @@ export default class LoginScreen extends Component {
                 <div style={styles.navBar}>
                     <div style={styles.navContent}>
                         <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
-                            <img src={Icon} style={{height: 40, marginRight: 15,}}/>
-                            <img src={Logo} style={{height: 35, marginTop: 15,}}/>
+                            <img src={Icon} style={{height: 40, }}/>
                         </div>
                         <div>
                             <NavLink to="/">
-                              Home
+                              <span style={styles.navtext}><b>Home</b></span>
                             </NavLink>
                             <NavLink to="/team">
-                              Team
+                              <span style={styles.navtext}>Team</span>
                             </NavLink>
                         </div>
                     </div>
@@ -50,7 +47,7 @@ export default class LoginScreen extends Component {
 
 let styles = {
     landingWrapper: {
-        height: "100%",
+        minHeight: "100vh",
         width: "100%",
         background: "linear-gradient(239.12deg, rgba(75, 106, 173, 0.58) 16.86%, rgba(46, 166, 236, 0.58) 92.6%), linear-gradient(218.66deg, #2A57B8 48.12%, #0096EB 93.89%)",
         display: "grid",
@@ -82,11 +79,19 @@ let styles = {
         alignItems: "center",
     },
     login: {
-        gridColumn: "15/23",
+        gridColumn: "14/23",
         gridRow: "2/3",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+    },
+    navtext: {
+      fontFamily: 'Signika Negative',
+      color: "#475993",
+      fontSize: 20,
+      marginLeft: 40,
+      marginRight: 40,
+      textAlign: "left",
     },
 };
 

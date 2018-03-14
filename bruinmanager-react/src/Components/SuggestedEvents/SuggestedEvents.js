@@ -35,15 +35,15 @@ export default class SuggestedEvents extends React.Component {
 	}
 	render() {
 		return(
-			<div style={{boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
+			<div style={{boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)", height:"100%", width:"100%",}}>
 				<div style={styles.searchBar}>
-					<StarButton/>
-					<form>
-						<input type="text" />
-					</form>
 					<div style={{width: 20,}}></div>
+					<form style={{width: "50%"}}>
+						<input type="text" placeholder="Search for nearby events" style={{width: "100%", borderRadius: "25px", paddingLeft: 20}}/>
+					</form>
+					<StarButton/>
 				</div>
-				<div style={{display: "flex", width: "100%", justifyContent: "center",}}>
+				<div style={{display: "flex", width: "100%", height: "calc(100% - 50px)", overflow: "hidden"}}>
 					<div style={styles.tagBar}>
 						<span style={styles.tag}>Tag</span>
 						<br/>
@@ -80,13 +80,14 @@ let styles = {
 		height: 50,
 		paddingLeft: 5,
 		paddingRight: 5,
+		backgroundColor: "#0096EB",
 	},
 	tagBar: {
 		display: "flex",
 		justifyContent: "center",
 		border: "1px solid #CFCFCF",
 		borderRight: "none",
-		height: "auto",
+		height: "40vh",
 		padding: 5,
 	},
 	tag: {
@@ -102,8 +103,9 @@ let styles = {
 	scrollWrapper: {
 		display: "flex",
 		flexDirection: "column",
-		height: 400,
-		width: "80%",
+		width: "100%",
+		height: "100%",
+		overflow: "hidden",
 	},
   header: {
 	  position: "relative",
@@ -115,5 +117,6 @@ let styles = {
 		overflow: "scroll",
 		flex: "0 1 auto",
 		background: "white",
+		height: "40vh",
 	},
 }

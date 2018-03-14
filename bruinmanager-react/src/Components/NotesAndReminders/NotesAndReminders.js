@@ -32,11 +32,9 @@ let styles = {
 	},
   reminderSection: {
     borderRight: "1px solid #CFCFCF",
-
     height: "100%",
   },
   todoSection: {
-
     height: "100%",
   }
 }

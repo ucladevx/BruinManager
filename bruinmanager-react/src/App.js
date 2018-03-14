@@ -43,7 +43,6 @@ export default class App extends Component {
     this.setState({
       fbdata: data
     });
-    console.log(data);
   }
 
   render() {
@@ -57,7 +56,7 @@ export default class App extends Component {
     )
     return (
       <Router>
-        <div style={{height: "100vh", width: "100vw"}}>
+        <div style={{height: "100%", width: "100%"}}>
           <div style={{height: "100%", width: "100%"}}>
               <Route exact path="/" component={Login}/>
               <Route exact path="/signup" component={SignUpScreen}/>

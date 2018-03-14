@@ -59,7 +59,7 @@ export default class NavBar extends React.Component {
 
 let styles = {
   activeHighlightedButton: {
-    backgroundColor: '#DBDBDB',
+    backgroundColor: '#9EF8FF',
   },
   highlightedButton: {
     color: '#000000',

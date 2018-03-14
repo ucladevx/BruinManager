@@ -19,17 +19,15 @@ export default class Summary extends React.Component {
             <div style={styles.tabWrapper}>
                 <div style={styles.leftSide}>
                     <div style={styles.weatherWrapper}>
-                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/25" endWeek="3/3"/>
+                        <WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/>
                     </div>
-                    <div style={styles.diningWrapper}>
+                    <div style={{marginTop: 15,}}>
                         <DiningStack height = "auto"/>
                     </div>
                 </div>
                 <div style={styles.rightSide}>
-                    <div>
-                        <div style={styles.calendarWrapper}>
-                            <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={7}/>
-                        </div>
+                    <div style={styles.calendarWrapper}>
+                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/>
                     </div>
                     <div style={styles.bottomSide}>
                         <div style={styles.notesWrapper}>
@@ -50,35 +48,42 @@ let styles = {
         display: "grid",
         gridTemplateColumns: "repeat(20, 1fr)",
         gridTemplateRows: "1fr",
-        height: "100%",
+        height: "95%",
     },
     leftSide: {
         gridRow: "1 / 7",
         gridColumn: "1 / 4",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         height: "100%",
     },
     rightSide: {
         gridRow: "1 / 7",
         gridColumn: "5 / 21",
-        display: "flex",
-        flexDirection: "column",
+        display: "grid",
+        gridTemplateColumns: "repeat(16, 1fr)",
+        gridTemplateRows: "1fr 1fr",
     },
     bottomSide: {
+        gridRow: "2 / 3",
+        gridColumn: "1 / 17",
         display: "grid",
         gridTemplateColumns: "repeat(16, 1fr)",
         gridTemplateRows: "auto",
     },
     calendarWrapper: {
-        gridRow: "1 / 10",
+        gridRow: "1 / 2",
         gridColumn: "1 / 17",
+        overflow: "scroll",
     },
     notesWrapper: {
+        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "1 / 8",
     },
     eventsWrapper: {
+        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "9 / 17",
     },

@@ -1,16 +1,21 @@
 .facebookButton {
     background-color: #475993;
     color: #FFFFFF;
+    border: none;
 }
 .hoverDark:hover {
     background: #076CA6;
 }
 .hoverDark {
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1.25vw;
+    text-align: center;
     background: #0096EB;
-    border-radius: 1510px;
+    border-radius: 15px;
     border: none;
-    padding: 7px 40px;
     color: white;
     box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.2);
     font-family: "Roboto";
+    cursor: pointer;
 }

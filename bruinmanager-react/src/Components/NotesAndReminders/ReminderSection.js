@@ -5,8 +5,10 @@ export default class ReminderSection extends React.Component {
   render() {
     return (
       <div style={styles.overview}>
-        <div style={styles.inlined}>
-          <p style={{...styles.title, ...styles.inlined}}>Reminders</p>
+        <div style={{backgroundColor: "#0096EB", paddingTop: 15, marginTop: -25}}>
+          <div style={styles.inlined}>
+            <p style={{...styles.title, ...styles.inlined}}>Reminders</p>
+          </div>
         </div>
         <div style={styles.highlightBorder} />
         <div style={styles.reminderList}>

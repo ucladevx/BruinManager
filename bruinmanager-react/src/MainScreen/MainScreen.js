@@ -11,7 +11,7 @@ import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
 
 const SummaryScreen = () => (
-	  <Summary weekNumber={8}/>
+	  <Summary weekNumber={10}/>
 )
 
 const CalendarScreen = () => {
@@ -35,7 +35,10 @@ const HelpScreen = () => {
 export default class MainScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isActiveDashboard: true};
+        this.state = {
+          isActiveDashboard: true,
+          fbdata: this.props.fbdata
+        };
     }
 
     render() {
@@ -43,7 +46,7 @@ export default class MainScreen extends React.Component {
             <Router>
                 <div style={styles.boxWrapper}>
                     <div style={styles.leftOfNavBar}>
-                        <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name : ""}!</h2>
+                        <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : ""}!</h2>
                     </div>
                     <div style={styles.navBarBox}>
                         <NavBar />
