@@ -20,11 +20,11 @@ class LoginBox extends Component {
     }
 
     componentClicked(e) {
-      e.preventDefault();
+      //e.preventDefault();
       this.props.history.push('/dashboard');
     }
 
-    responseFacebook(response) {
+    async responseFacebook(response) {
       // store email, name, and id
       let fb = {
         "name": response.name,
@@ -33,7 +33,7 @@ class LoginBox extends Component {
       };
 
       let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
-      fetch(url, {
+      await fetch(url, {
         method: 'post',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(fb)
@@ -47,6 +47,9 @@ class LoginBox extends Component {
         });
         // var bmdata = localStorage.getItem('myBMData');
         // console.log(bmdata.id);
+        return data;
+      }).then((res) => {
+        this.props.storeData(res);
       })
     }
 

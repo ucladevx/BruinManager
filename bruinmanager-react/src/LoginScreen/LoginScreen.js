@@ -41,7 +41,7 @@ export default class LoginScreen extends Component {
                     <LandingInfo/>
                 </div>
                 <div style={styles.login}>
-                    <LoginBox/>
+                    <LoginBox storeData={this.props.storeData}/>
                 </div>
             </div>
         );
