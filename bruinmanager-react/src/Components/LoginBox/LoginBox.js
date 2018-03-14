@@ -21,7 +21,7 @@ class LoginBox extends Component {
 
     componentClicked(e) {
       //e.preventDefault();
-      this.props.history.push('/dashboard');
+
     }
 
     responseFacebook(response) {
@@ -52,6 +52,7 @@ class LoginBox extends Component {
         return data;
       }).then((res) => {
         this.props.storeData(res);
+        this.props.history.push('/dashboard');
       })
     }
 
