@@ -38,8 +38,8 @@ export default class SuggestedEvents extends React.Component {
 			<div style={{boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)", height:"100%", width:"100%",}}>
 				<div style={styles.searchBar}>
 					<StarButton/>
-					<form>
-						<input type="text" />
+					<form style={{width: "50%"}}>
+						<input type="text" style={{width: "100%"}}/>
 					</form>
 					<div style={{width: 20,}}></div>
 				</div>
