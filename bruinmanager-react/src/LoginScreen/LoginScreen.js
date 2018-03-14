@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import Background from './images/royce_hall_background.jpg';
@@ -11,10 +12,20 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
 
-    componentClicked() {
-      console.log(1)
+    constructor(props) {
+      super(props);
+      this.state = {
+        fbdata: null
+      }
+      this.componentClicked = this.componentClicked.bind(this);
+      this.responseFacebook = this.responseFacebook.bind(this);
+    }
+
+    componentClicked(e) {
+      e.preventDefault();
+      this.props.history.push('/dashboard');
     }
 
     responseFacebook(response) {
@@ -33,14 +44,13 @@ export default class LoginScreen extends Component {
       }).then(response => {
         return response.json();
       }).then(data => {
-        console.log(data);
         localStorage.setItem('myBMData', data);
+        this.setState({
+          fbdata: data
+        });
         // var bmdata = localStorage.getItem('myBMData');
         // console.log(bmdata.id);
       })
-      // response.name
-      // response.email
-      // response.userID
     }
 
     responseGoogle(response) {
@@ -89,6 +99,7 @@ export default class LoginScreen extends Component {
         );
     }
 }
+export default withRouter(LoginScreen);
 
 let styles = {
     loginBoxWrapper: {
