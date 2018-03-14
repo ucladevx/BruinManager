@@ -19,7 +19,7 @@ export default class Summary extends React.Component {
             <div style={styles.tabWrapper}>
                 <div style={styles.leftSide}>
                     <div style={styles.weatherWrapper}>
-                        <WeatherBox weekNum={this.props.weekNumber} startWeek="2/25" endWeek="3/3"/>
+                        <WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/>
                     </div>
                     <div style={styles.diningWrapper}>
                         <DiningStack height = "auto"/>
