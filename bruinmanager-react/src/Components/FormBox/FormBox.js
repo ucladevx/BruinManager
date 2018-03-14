@@ -39,7 +39,7 @@ const styles = {
             border: "none",
             height: 20,
             outline: "none",
-            textSize: 14,
+            textSize: "1vmax",
             textAlign: "center",
             backgroundColor: "transparent",
             width: "100%",

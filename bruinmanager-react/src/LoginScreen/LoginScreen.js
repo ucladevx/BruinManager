@@ -6,8 +6,6 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
 import Icon from './images/Vector.png';
 import Logo from './images/SignikaNegative.png';
 import combineLogo from './images/logo_bm.png';

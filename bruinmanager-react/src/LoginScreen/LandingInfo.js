@@ -7,23 +7,23 @@ export default class LandingScreen extends Component {
     render() {
         return(
             <Container fluid>
-                <Row style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <Row style={{display: "flex", justifyContent: "center", alignItems: "center",}}>
                     <Col>
                         <Row>
                             <Col style={{marginBottom: 10}}>
-                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative"}}>BruinManager for busy Bruins</h1>
-                                <p style={{fontFamily: "Signika Negative",}}>
+                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative", fontSize: "3vmax"}}>BruinManager for busy Bruins</h1>
+                                <p style={{fontFamily: "Signika Negative", fontSize: "1.25vmax"}}>
                                 You won’t need another app to manage your life as a Bruin.</p>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative"}}>Features</h1>
+                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative", fontSize: "3vmax"}}>Features</h1>
                                 <Container fluid style={{fontFamily: "Signika Negative",}}>
                                     <Row>
                                         <Col>
-                                            <h4>Calendar</h4>
-                                            <ul>
+                                            <h4 style={{fontSize: "2vmax"}}>Calendar</h4>
+                                            <ul style={{fontSize: "1vmax"}}>
                                                 <li>
                                                     Quarter system oriented
                                                 </li>
@@ -42,8 +42,8 @@ export default class LandingScreen extends Component {
                                             </ul>
                                         </Col>
                                         <Col>
-                                            <h4>News Feed</h4>
-                                            <ul>
+                                            <h4 style={{fontSize: "2vmax"}}>News Feed</h4>
+                                            <ul style={{fontSize: "1vmax"}}>
                                                 <li>
                                                     Cool events at UCLA
                                                 </li>
@@ -55,8 +55,8 @@ export default class LandingScreen extends Component {
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <h4>Reminders</h4>
-                                            <ul>
+                                            <h4 style={{fontSize: "2vmax"}}>Reminders</h4>
+                                            <ul style={{fontSize: "1vmax"}}>
                                                 <li>
                                                     Add what you like
                                                 </li>
@@ -66,8 +66,8 @@ export default class LandingScreen extends Component {
                                             </ul>
                                         </Col>
                                         <Col>
-                                            <h4>Dining</h4>
-                                            <ul>
+                                            <h4 style={{fontSize: "2vmax"}}>Dining</h4>
+                                            <ul style={{fontSize: "1vmax"}}>
                                                 <li>
                                                     Quick access
                                                 </li>
@@ -82,7 +82,7 @@ export default class LandingScreen extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <p style={{fontFamily: "Roboto"}}><br/>Download our BruinManager Chrome extension to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
+                                <p style={{fontFamily: "Roboto", fontSize: "1vmax",}}><br/>Download our BruinManager Chrome extension to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
                             </Col>
                         </Row>
                     </Col>
