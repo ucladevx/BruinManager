@@ -75,10 +75,12 @@ let styles = {
         gridColumn: "1 / 17",
     },
     notesWrapper: {
+        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "1 / 8",
     },
     eventsWrapper: {
+        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "9 / 17",
     },

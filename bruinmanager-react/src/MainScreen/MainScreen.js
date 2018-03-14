@@ -35,7 +35,10 @@ const HelpScreen = () => {
 export default class MainScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isActiveDashboard: true};
+        this.state = {
+          isActiveDashboard: true,
+          fbdata: this.props.fbdata
+        };
     }
 
     render() {
