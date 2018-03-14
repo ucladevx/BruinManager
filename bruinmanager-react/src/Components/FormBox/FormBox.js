@@ -22,15 +22,18 @@ const styles = {
             display: "flex",
             height: 50,
             flexDirection: "column",
+            textSize: "1vmax",
         },
         formBox: {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            textSize: "1vmax",
         },
         formTitle: {
             borderBottom: "2px solid #454545",
             width: "100%",
+            textSize: "1vmax",
         },
         formText: {
             color: "grey",

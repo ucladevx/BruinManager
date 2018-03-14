@@ -27,16 +27,14 @@ let styles = {
 		border: "1px solid #CFCFCF",
         overflowY: "none",
         marginBottom: -25,
-        height: "100%",
+        maxHeight: "100%",
         boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
 	},
   reminderSection: {
     borderRight: "1px solid #CFCFCF",
-
-    height: "100%",
+    maxHeight: "100%",
   },
   todoSection: {
-
-    height: "100%",
+    maxHeight: "100%",
   }
 }

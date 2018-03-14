@@ -470,7 +470,7 @@ class WeekCalendar extends React.Component {
             ref="scaleCol"
           />
         </div>
-        <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, pointerEvents: "none",} :
+        <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, overflowX: "scroll", overflowY: "hidden",} :
                                                                                                         {minHeight: 650, maxHeight: 650, pointerEvents: "auto",}}>
           <CalendarBody
             ref = "calendarbody"
