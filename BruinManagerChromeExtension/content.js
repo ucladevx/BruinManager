@@ -23,24 +23,18 @@ function getEnrollmentAndClassData() {
 		classArr[i] = p2;
 	}
 
-	// TODO: won't work until frontend deployed with backend
-	// var bmData = localStorage.getItem('myBMData');
-
 	// TODO: save schema with username that is accessible to us later
-	// id user somehow by saving username
 	var user = {
 		"user": {
 			"enrollment": enroll,
 			"classes": classArr,
-			// "name": bmData.name,
-			// "user_id": bmData.id,
-			// "email": bmData.email
-			"name": "taasin"		
+			"name": "",
+			"user_id": "",
+			"email": ""		
 		}
 	}
 
 	console.log(user);
-
 
 	// TODO: parse enrollmentDataArray and class data and store these in chrome storage
 	chrome.storage.sync.set({'data': user}, () => {
@@ -163,3 +157,32 @@ else if (window.location.href.indexOf("arcane-cove-10079.herokuapp.com") > -1) {
 	
 	});
 }
+
+//TODO: only POST if data has changed
+else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com") > -1){
+	// idk();
+	var b = localStorage.getItem("myBMData");
+	var c = JSON.parse(b);
+	console.log(c.name);
+	console.log(c.email);
+	console.log(c.id);
+
+	chrome.storage.sync.get('data', function(items){
+
+		var b = localStorage.getItem("myBMData");
+		var c = JSON.parse(b);
+	   	
+	   	items.data.user.email = c.email;
+	   	items.data.user.user_id = c.id;
+	   	items.data.user.name= c.name
+
+	   	console.log(items.data.user);
+
+		var url = "https://arcane-cove-10079.herokuapp.com/post/user";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+		xhr.send(JSON.stringify(items.data.user));
+	
+	});
+}
+

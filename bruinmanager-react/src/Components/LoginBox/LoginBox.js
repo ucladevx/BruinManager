@@ -21,7 +21,7 @@ class LoginBox extends Component {
 
     componentClicked(e) {
       //e.preventDefault();
-      this.props.history.push('/dashboard');
+
     }
 
     responseFacebook(response) {
@@ -34,7 +34,9 @@ class LoginBox extends Component {
         "picture": response.picture.data.url,
       };
 
-      let url = "https://arcane-cove-10079.herokuapp.com/post/userFB";
+      localStorage.setItem('myBMData', JSON.stringify(fb));
+
+      let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       fetch(url, {
         method: 'post',
         headers: {'Content-Type':'application/json'},
@@ -43,7 +45,6 @@ class LoginBox extends Component {
         return response.json();
       }).then(data => {
         console.log(data);
-        localStorage.setItem('myBMData', data);
         this.setState({
           fbdata: data
         });
@@ -52,6 +53,7 @@ class LoginBox extends Component {
         return data;
       }).then((res) => {
         this.props.storeData(res);
+        this.props.history.push('/dashboard');
       })
     }
 
