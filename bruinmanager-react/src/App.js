@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import './App.scss';
 import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
@@ -56,8 +57,8 @@ export default class App extends Component {
     )
     return (
       <Router>
-        <div style={{height: "100%", width: "100%"}}>
-          <div style={{height: "100%", width: "100%"}}>
+        <div class="fullscreen">
+          <div class="fullscreen">
               <Route exact path="/" component={Login}/>
               <Route exact path="/signup" component={SignUpScreen}/>
               <Route path="/dashboard" component={DashboardScreen}/>

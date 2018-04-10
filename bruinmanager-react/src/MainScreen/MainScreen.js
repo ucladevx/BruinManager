@@ -6,6 +6,7 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
+import './MainScreen.scss';
 import NavBar from '../Components/NavBar/NavBar.js'
 import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
@@ -44,14 +45,14 @@ export default class MainScreen extends React.Component {
     render() {
         return (
             <Router>
-                <div style={styles.boxWrapper}>
-                    <div style={styles.leftOfNavBar}>
+                <div class="box-wrapper">
+                    <div class="left-of-nav-bar">
                         <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : ""}!</h2>
                     </div>
-                    <div style={styles.navBarBox}>
+                    <div class="nav-bar-box">
                         <NavBar />
                     </div>
-                    <div style={styles.currentTab}>
+                    <div class="current-tab">
                         <Switch>
                             <Route path="/calendar" component={CalendarScreen} />
                             <Route path="/dashboard" component={SummaryScreen}/>
@@ -63,30 +64,4 @@ export default class MainScreen extends React.Component {
             </Router>
 		);
 	}
-}
-
-let styles = {
-    boxWrapper: {
-        display: "grid",
-        gridGap: "0px 0px",
-        gridTemplateColumns: "repeat(24, 1fr)",
-        gridTemplateRows: "repeat(12, 1fr)",
-        height: "100vh",
-        width: "100vw",
-    },
-    leftOfNavBar: {
-        gridRow: "1 / 2",
-        gridColumn: "3 / 7",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    navBarBox: {
-        gridRow: "1 / 2",
-        gridColumn: "7 / 23",
-    },
-    currentTab: {
-        gridRow: "2 / 13",
-        gridColumn: "3 / 23",
-    },
 }

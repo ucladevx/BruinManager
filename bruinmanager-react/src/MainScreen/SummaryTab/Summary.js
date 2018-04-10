@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import './Summary.scss';
 import { Container, Row, Col } from 'reactstrap';
 import SuggestedEvents from '../../Components/SuggestedEvents/SuggestedEvents.js';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
@@ -16,24 +17,24 @@ import moment from 'moment';
 export default class Summary extends React.Component {
     render() {
 		return (
-            <div style={styles.tabWrapper}>
-                <div style={styles.leftSide}>
-                    <div style={styles.weatherWrapper}>
+            <div class="tab-wrapper">
+                <div class="left-side">
+                    <div class="weather-wrapper">
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/>
                     </div>
-                    <div style={{marginTop: 15,}}>
+                    <div class="dining-wrapper">
                         <DiningStack height = "auto"/>
                     </div>
                 </div>
-                <div style={styles.rightSide}>
-                    <div style={styles.calendarWrapper}>
-                        <StandardCalendar style={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/>
+                <div class="right-side">
+                    <div class="calendar-wrapper">
+                        <StandardCalendar class={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/>
                     </div>
-                    <div style={styles.bottomSide}>
-                        <div style={styles.notesWrapper}>
+                    <div class="bottom-side">
+                        <div class="notes-wrapper">
                             <NotesAndReminders/>
                         </div>
-                        <div style={styles.eventsWrapper}>
+                        <div class="events-wrapper">
                             <SuggestedEvents/>
                         </div>
                     </div>
@@ -48,7 +49,7 @@ let styles = {
         display: "grid",
         gridTemplateColumns: "repeat(20, 1fr)",
         gridTemplateRows: "1fr",
-        height: "95%",
+        height: "99%",
     },
     leftSide: {
         gridRow: "1 / 7",
@@ -64,6 +65,7 @@ let styles = {
         display: "grid",
         gridTemplateColumns: "repeat(16, 1fr)",
         gridTemplateRows: "1fr 1fr",
+        gridGap: "5px",
     },
     bottomSide: {
         gridRow: "2 / 3",
@@ -78,12 +80,10 @@ let styles = {
         overflow: "scroll",
     },
     notesWrapper: {
-        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "1 / 8",
     },
     eventsWrapper: {
-        marginTop: 15,
         gridRow: "1 / 2",
         gridColumn: "9 / 17",
     },

@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import './Calendar.scss';
 import { Container, Row, Col } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
 import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.css';
@@ -13,9 +14,9 @@ export default class Calendar extends React.Component {
     return (
       <Container fluid>
         <Row>
-            <Col xs="1" style={{border: "1px solid black"}}>
+            <Col xs="1" class="week-selector">
             </Col>
-            <Col xs="11" style={{maxHeight: 700,}}>
+            <Col xs="11" class="calendar-content">
                 <StandardCalendar style={StandardCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false} weekNum={7}/>
             </Col>
         </Row>

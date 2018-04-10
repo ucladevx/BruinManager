@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import FormBoxStyle from './FormBox.css';
+import FormBoxStyle from './FormBox.scss';
 export default class FormBox extends React.Component {
     render(props) {
         return (
             <div style={styles.formBoxWrapper}>
                 <div style={styles.formBox}>
-                    <form style={{...FormBoxStyle}, {...styles.formTitle}}>
+                    <form style={{...FormBoxStyle, ...styles.formTitle}}>
                         <input type={this.props.inputType} placeholder={this.props.title} style={styles.formTextBox}/>
                     </form>
                 </div>
