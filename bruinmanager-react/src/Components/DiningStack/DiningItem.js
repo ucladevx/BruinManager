@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './DiningItem.scss';
 
 export default class DiningItem extends React.Component {
     render(props) {
