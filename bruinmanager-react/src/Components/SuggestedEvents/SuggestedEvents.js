@@ -36,7 +36,7 @@ export default class SuggestedEvents extends React.Component {
 	}
 	render() {
 		return(
-			<div className="wrapper">
+			<div className="events-wrapper">
 				<div className="searchBar">
 					<div style={{width: 20,}}></div>
 					<form style={{width: "50%"}}>
@@ -50,7 +50,7 @@ export default class SuggestedEvents extends React.Component {
 						<br/>
 					</div>
 					<div className="scroll-wrapper">
-						<div className="header"></div>
+						<div className="events-header"></div>
 						<div className="newsfeed">
 							{this.state.eventArray.map((event) => {
 								return <FeedCard title={event.name}
