@@ -23,7 +23,7 @@ export default class LoginScreen extends Component {
                             <FormBox title="Password" inputType="password"/>
                             <div style={styles.buttonBox}>
                                 <Link to="/dashboard">
-                                    <button class="hoverDark">Sign up</button>
+                                    <button className="hoverDark">Sign up</button>
                                 </Link>
                                 <Link to="/" style={{marginTop: 20, textDecoration: "none"}}>
                                     <a href="" style={{color: "#000000", fontFamily: "Roboto", textDecoration: "none"}}>Cancel</a>

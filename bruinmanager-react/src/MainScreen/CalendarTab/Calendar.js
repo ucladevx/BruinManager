@@ -14,9 +14,9 @@ export default class Calendar extends React.Component {
     return (
       <Container fluid>
         <Row>
-            <Col xs="1" class="week-selector">
+            <Col xs="1" className="week-selector">
             </Col>
-            <Col xs="11" class="calendar-content">
+            <Col xs="11" className="calendar-content">
                 <StandardCalendar style={StandardCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false} weekNum={7}/>
             </Col>
         </Row>
