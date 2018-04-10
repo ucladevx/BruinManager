@@ -1,0 +1,41 @@
+.weather-wrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #CFCFCF;
+    box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.25);
+}
+.centered {
+    text-align: center;
+}
+.temperature {
+    font-size: 40;
+    margin: 0;
+    font-family: Roboto;
+}
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15;
+}
+.weather-condition {
+    font-size: 16;
+    margin: 0;
+    font-family: Roboto;
+}
+.week-info {
+    font-size: 20;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+.week-num {
+    border-bottom: 1px solid #CFCFCF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //marginRight: 50;
+    padding: 5;
+    background-color: #0096EB;
+}

@@ -7,10 +7,11 @@ import {
   NavLink
 } from 'react-router-dom';
 import TabButton from '../TabButton/TabButton.js';
+import './NavBar.scss';
 
 const ButtonLinkDashboard = () => {
   return (
-    <NavLink to="/dashboard" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+    <NavLink to="/dashboard" className="highlighted-button" activeClassName="active-highlighted-button">
       Dashboard
     </NavLink>
   )
@@ -18,7 +19,7 @@ const ButtonLinkDashboard = () => {
 
 const ButtonLinkCalendar = () => {
   return(
-    <NavLink to="/calendar" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+    <NavLink to="/calendar" className="highlighted-button" activeClassName="active-highlighted-button">
       Calendar
     </NavLink>
   )
@@ -26,7 +27,7 @@ const ButtonLinkCalendar = () => {
 
 const ButtonLinkSettings = () => {
   return(
-    <NavLink to="/settings" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+    <NavLink to="/settings" className="highlighted-button" activeClassName="active-highlighted-button">
       Settings
     </NavLink>
   )
@@ -34,18 +35,17 @@ const ButtonLinkSettings = () => {
 
 const ButtonLinkHelp = () => {
   return(
-    <NavLink to="/help" style={styles.highlightedButton} activeStyle={styles.activeHighlightedButton}>
+    <NavLink to="/help" className="highlighted-button" activeClassName="styles.active-highlighted-button">
       Help
     </NavLink>
   )
 }
-
 export default class NavBar extends React.Component {
     render() {
         return(
-            <div style={styles.navButtons}>
+            <div className="nav-buttons">
                 <div>
-                    <ButtonLinkDashboard style={styles.navItems}/>
+                    <ButtonLinkDashboard className="nav-items"/>
                     <ButtonLinkCalendar/>
                 </div>
                 <div>
@@ -55,29 +55,4 @@ export default class NavBar extends React.Component {
             </div>
         );
     }
-}
-
-let styles = {
-  activeHighlightedButton: {
-    backgroundColor: '#9EF8FF',
-  },
-  highlightedButton: {
-    color: '#000000',
-    borderRadius: 12,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-    fontFamily: "Roboto",
-  },
-  navButtons: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-  },
-  navItems: {
-
-  }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FormBoxStyle from './FormBox.scss';
 import './FormBox.scss';
 export default class FormBox extends React.Component {
     render(props) {

@@ -7,7 +7,7 @@ import {
 import './Calendar.scss';
 import { Container, Row, Col } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
-import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.css';
+import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.scss';
 import moment from 'moment';
 export default class Calendar extends React.Component {
   render() {

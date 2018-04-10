@@ -8,7 +8,7 @@ import './Summary.scss';
 import { Container, Row, Col } from 'reactstrap';
 import SuggestedEvents from '../../Components/SuggestedEvents/SuggestedEvents.js';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
-import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.css';
+import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.scss';
 import WeatherBox from '../../Components/WeatherBox/WeatherBox.js';
 import DiningStack from '../../Components/DiningStack/DiningStack.js';
 import NotesAndReminders from '../../Components/NotesAndReminders/NotesAndReminders.js';
