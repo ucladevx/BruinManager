@@ -3,8 +3,8 @@ import './DiningTitle.scss';
 export default class DiningTitle extends React.Component {
     render(props) {
         return (
-            <div className="title">
-                <p className="title-text">{this.props.title}</p>
+            <div className="diningTitle-title">
+                <p className="diningTitle-title-text">{this.props.title}</p>
             </div>
         );
     }

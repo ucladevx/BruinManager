@@ -1,11 +1,11 @@
-.wrapper {
+.diningItem-wrapper {
     border: 1px solid #CFCFCF;
     border-top: none;
     display: flex;
     height: 55;
     width: 100%;
 }
-.name {
+.diningItem-name {
     display: flex;
     width: 50%;
     justify-content: center;
@@ -14,17 +14,17 @@
     font-size: 13;
     font-family: Roboto;
 }
-.status {
+.diningItem-status {
     font-size: 15;
     font-family: Roboto;
     margin-bottom: 0;
 }
-.time {
+.diningItem-time {
     font-size: 12;
     font-family: Roboto;
     margin-bottom: 0;
 }
-.info {
+.diningItem-info {
     display: flex;
     flex-direction: column;
     width: 50%;

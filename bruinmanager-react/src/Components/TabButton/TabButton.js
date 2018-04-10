@@ -7,7 +7,7 @@ export default class TabButton extends React.Component {
 
 	render() {
 		return (
-			<div onClick={this.handleClick} className="container">
+			<div onClick={this.handleClick} className="tab-container">
 				<h1>
 					{this.props.tabName}
 				</h1>

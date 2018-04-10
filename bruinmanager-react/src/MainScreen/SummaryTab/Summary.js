@@ -19,7 +19,7 @@ export default class Summary extends React.Component {
 		return (
             <div className="tab-wrapper">
                 <div className="left-side">
-                    <div className="weather-wrapper">
+                    <div>
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/>
                     </div>
                     <div className="dining-wrapper">
