@@ -1,0 +1,8 @@
+
+@import '../../definitions';
+.notes-and-reminders-section{
+    @include widget-dec();
+}
+.notes-header,.reminder-header{
+    @include widget-header-dec();
+}

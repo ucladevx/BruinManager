@@ -1,0 +1,30 @@
+$color1: #C9D3E8;
+$color2: darken($color1,80%);
+
+.color1{
+    background-color:$color1;
+}
+.color2txt{
+    color:$color2 !important;
+}
+
+@mixin widget-dec() {
+    border: 2px solid darken($color1,20%);
+    box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+@mixin widget-header-dec() {
+    background-color: $color1;
+    h1{
+        font-size:20px;
+        font-weight:normal;
+        color: $color2;
+    }
+    p{
+        font-size:14px;
+        font-weight:normal;
+        color: $color2;
+    }
+}
+

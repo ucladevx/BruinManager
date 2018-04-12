@@ -53,7 +53,7 @@ export default class NavBar extends React.Component {
      <Menu inverted secondary>
      <Menu.Menu position='left'>
             <Menu.Item > <Image centered src='/temp-logo.png' />
-                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinPub</p>  </Menu.Item>
+                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinHub</p>  </Menu.Item>
             <Menu.Item > {this.props.name} </Menu.Item>
     </Menu.Menu>
         <Menu.Menu position='right'>
