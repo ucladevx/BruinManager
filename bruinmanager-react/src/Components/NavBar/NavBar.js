@@ -35,7 +35,7 @@ const ButtonLinkSettings = () => {
 
 const ButtonLinkHelp = () => {
   return(
-    <NavLink to="/help" className="highlighted-button" activeClassName="styles.active-highlighted-button">
+    <NavLink to="/help" className="highlighted-button" activeClassName="active-highlighted-button">
       Help
     </NavLink>
   )

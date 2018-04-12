@@ -3,7 +3,8 @@
 		display: flex;
 		border: 1px solid #CFCFCF;
 		border-top: none;
-		min-height: 120;
+		min-height: 120px;
+		height: 100%;
 		min-width: 100%;
 		width: 100%;
 		align-items: flex-end;
@@ -13,7 +14,7 @@
 		flex-direction: column;
 		width: 50%;
 		height: 100%;
-		min-height: 120;
+		min-height: 120px;
 		justify-content: space-between;
 		align-items: flex-start;
 		background-size: 100% 100%;
@@ -26,11 +27,11 @@
 		margin-bottom: 0;
 	}
 	.large-font {
-		font-size: 13;
+		font-size: 13px;
 		background-color: white;
 	}
 	.small-font {
-		font-size: 12;
+		font-size: 12px;
 	}
 	.hr {
 		margin: 0 0 0 0;
@@ -41,7 +42,7 @@
 		flex-direction: column;
 		width: 50%;
 		height: 100%;
-		min-height: 120;
+		min-height: 120px;
 		justify-content: center;
 		border-left: 1px solid #CFCFCF;
 		padding-left: 10;
@@ -60,9 +61,9 @@
 	}
 	.interested-button {
 		padding: 0 0 0 0;
-		padding-bottom: 15;
-		height: 10;
-		font-size: 13;
+		padding-bottom: 15px;
+		height: 10px;
+		font-size: 13px;
 		text-decoration: none;
 	}
 }

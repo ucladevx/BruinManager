@@ -29,7 +29,7 @@ export default class WeatherBox extends React.Component {
 
   render(props) {
     return (
-      <div className="weather-wrapper">
+      <div className="weather-style-wrapper">
           <div className="week-num">
             <p className="week-info centered">Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>

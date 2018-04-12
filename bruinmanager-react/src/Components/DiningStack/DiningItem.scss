@@ -2,31 +2,33 @@
     border: 1px solid #CFCFCF;
     border-top: none;
     display: flex;
-    height: 55;
+    height: 55px;
     width: 100%;
+    font-family: Roboto;
     .diningItem-name {
         display: flex;
         width: 50%;
         justify-content: center;
         align-items: center;
-        font-weight: 500;
-        font-size: 13;
+        font-weight: bold;
+        font-size: 13px;
         font-family: Roboto;
     }
     .diningItem-status {
-        font-size: 15;
+        font-size: 15px;
         font-family: Roboto;
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
     .diningItem-time {
-        font-size: 12;
+        font-size: 12px;
         font-family: Roboto;
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
     .diningItem-info {
         display: flex;
         flex-direction: column;
         width: 50%;
         justify-content: center;
+        font-family: Roboto;
     }
 }
