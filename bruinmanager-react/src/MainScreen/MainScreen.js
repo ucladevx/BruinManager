@@ -44,7 +44,7 @@ export default class MainScreen extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router className="mainScreen-style-wrapper">
                 <div className="mainScreen-wrapper">
                     <div className="left-of-nav-bar">
                         <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : ""}!</h2>

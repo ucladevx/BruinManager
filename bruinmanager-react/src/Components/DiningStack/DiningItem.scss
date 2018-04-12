@@ -1,32 +1,32 @@
-.diningItem-wrapper {
+.diningItem-style-wrapper {
     border: 1px solid #CFCFCF;
     border-top: none;
     display: flex;
     height: 55;
     width: 100%;
-}
-.diningItem-name {
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    font-size: 13;
-    font-family: Roboto;
-}
-.diningItem-status {
-    font-size: 15;
-    font-family: Roboto;
-    margin-bottom: 0;
-}
-.diningItem-time {
-    font-size: 12;
-    font-family: Roboto;
-    margin-bottom: 0;
-}
-.diningItem-info {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
+    .diningItem-name {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 13;
+        font-family: Roboto;
+    }
+    .diningItem-status {
+        font-size: 15;
+        font-family: Roboto;
+        margin-bottom: 0;
+    }
+    .diningItem-time {
+        font-size: 12;
+        font-family: Roboto;
+        margin-bottom: 0;
+    }
+    .diningItem-info {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        justify-content: center;
+    }
 }

@@ -4,7 +4,7 @@ import './DiningItem.scss';
 export default class DiningItem extends React.Component {
     render(props) {
         return (
-            <div className="diningItem-wrapper">
+            <div className="diningItem-style-wrapper">
                 <div className="dinintItem-name">
                     <p>{this.props.name}</p>
                 </div>
