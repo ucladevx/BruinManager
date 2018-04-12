@@ -1,8 +1,14 @@
-div.column{
+div.column, div.row{
     padding:0px !important;
-    border:none;
-
 }
-div.segment{
-    border:none !important;
+div.column{
+    margin-bottom:1em !important;
+}
+div.ui.segment{
+    border:0 !important;
+    padding: 0;
+    margin: 1em 1em;
+}
+div.grid{
+    margin: 0 !important;
 }

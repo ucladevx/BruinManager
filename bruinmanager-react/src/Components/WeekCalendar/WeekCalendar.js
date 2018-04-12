@@ -468,8 +468,8 @@ class WeekCalendar extends React.Component {
 
     return (
       <div className={isSelection ? 'weekCalendar weekCalendar__status_selection' : 'weekCalendar'}>
-        <div style={{backgroundColor: "#0096EB"}} className="weekCalendar__scaleHeader" >
-          <span style={{color:'black',fontWeight:'normal'}}>{scaleHeaderTitle}</span>
+        <div className="weekCalendar__scaleHeader color1 color2txt" >
+          <span style={{fontWeight:'normal'}}>{scaleHeaderTitle}</span>
         </div>
         <div className="weekCalendar__header" style={{ left: -this.state.scrollPosition.left }}>
           <CalendarHeader

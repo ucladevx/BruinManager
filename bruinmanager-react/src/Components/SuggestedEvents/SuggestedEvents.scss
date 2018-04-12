@@ -1,5 +1,7 @@
+@import '../../definitions';
+
 .suggestedEvents-style-wrapper {
-    box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.25);
+    @include widget-dec();
     height: 100%;
     width: 100%;
 	.search-bar {
@@ -11,7 +13,8 @@
 		height: 50;
 		padding-left: 5;
 		padding-right: 5;
-		background-color: #0096EB;
+        background-color: $color1;
+        color: $color2;
 	}
 	.tag-bar {
 		display: flex;

@@ -6,7 +6,7 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
+import { Image, Button, Dropdown, Menu } from 'semantic-ui-react'
 import TabButton from '../TabButton/TabButton.js';
 import './NavBar.scss';
 
@@ -50,16 +50,18 @@ export default class NavBar extends React.Component {
         const { activeItem } = this.state
 
         return(
-     <Menu secondary>
+     <Menu inverted secondary>
      <Menu.Menu position='left'>
-            <Menu.Item >
-            <img src='/octobear.png' style={{marginRight:'.5em'}}></img>
-            {this.props.name}</Menu.Item>
+            <Menu.Item > <Image centered src='/temp-logo.png' />
+                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinPub</p>  </Menu.Item>
+            <Menu.Item > {this.props.name} </Menu.Item>
+    </Menu.Menu>
+        <Menu.Menu position='right'>
+        <Menu.Item>
             <Menu.Item name='dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick}><ButtonLinkDashboard className="nav-items"/></Menu.Item>
             <Menu.Item name='calendar' active={activeItem === 'calendar'} onClick={this.handleItemClick}><ButtonLinkCalendar/></Menu.Item>
-        </Menu.Menu>
-        <Menu.Menu position='right'>
-          <Menu.Item>
+         </Menu.Item>
+        <Menu.Item>
             <Menu.Item name='settings' active={activeItem === 'settings'} onClick={this.handleItemClick}> <ButtonLinkSettings/></Menu.Item>
             <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}><ButtonLinkHelp/></Menu.Item>
           </Menu.Item>

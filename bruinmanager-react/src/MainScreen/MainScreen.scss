@@ -1,8 +1,9 @@
 .mainScreen-style-wrapper {
-
+    //background: linear-gradient( rgba(83, 104, 149, .5), rgba(83, 104, 149, .5) ), url("/UCLA-Campus.jpg");
+    background: url("/UCLA-Campus.jpg");
+    background-size: cover;
     .mainScreen-wrapper {
-        height: 95vh;
-        width: 95vw;
+        width: 90vw;
         margin:auto;
     }
 }

@@ -8,7 +8,7 @@ export default class DiningTitle extends React.Component {
       <List.Content>
         <List.Header >
             <div >
-                <p className="diningTitle-title-text">{this.props.title}</p>
+                <h1 className="diningTitle-title-text">{this.props.title}</h1>
             </div>
         </List.Header >
       </List.Content>

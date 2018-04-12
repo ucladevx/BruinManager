@@ -18,18 +18,24 @@ import moment from 'moment';
 export default class Summary extends React.Component {
     render() {
 		return (
-   <Grid  celled>
+   <Grid >
     <Grid.Row>
       <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={4} >
         <Segment><WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/></Segment>
         <Segment><DiningStack height = "auto"/></Segment>
       </Grid.Column>
       <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={12} >
-        <Segment><StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/></Segment>
-        <Segment><Grid.Row >
-            <Grid.Column mobile={16} tablet={12} computer={6} largeScreen={6} > <Segment><NotesAndReminders/> </Segment></Grid.Column>
-            <Grid.Column mobile={16} tablet={12} computer={6} largeScreen={6} > <Segment><SuggestedEvents/></Segment> </Grid.Column>
-        </Grid.Row></Segment>
+        <Segment ><StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/></Segment>
+
+        <Grid >
+            <Grid.Column mobile={16} tablet={8} computer={8} largeScreen={8} > <Segment>
+                    <NotesAndReminders/>
+            </Segment></Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8} largeScreen={8} >
+            <Segment><SuggestedEvents/></Segment>
+            </Grid.Column>
+        </Grid>
+
       </Grid.Column>
     </Grid.Row>
   </Grid>

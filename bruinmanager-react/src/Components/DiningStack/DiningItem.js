@@ -9,7 +9,7 @@ export default class DiningItem extends React.Component {
 <List.Item className='diningItem-style-wrapper '>
       <List.Content>
         <List.Header className='left floated'>{this.props.name}</List.Header>
-        <List.Description className='right floated '> <Label className="dinintItem-status">{this.props.status}</Label>
+        <List.Description className='right floated dinintItem'> <Label className="dinintItem-status">{this.props.status}</Label>
                     <p className="dinintItem-time">{this.props.time}</p></List.Description>
       </List.Content>
     </List.Item>
