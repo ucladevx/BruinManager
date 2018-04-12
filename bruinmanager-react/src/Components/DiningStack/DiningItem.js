@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './DiningItem.scss';
 
+import {Label,List} from 'semantic-ui-react';
+
 export default class DiningItem extends React.Component {
     render(props) {
         return (
-            <div className="diningItem-style-wrapper">
-                <div className="dinintItem-name">
-                    <p>{this.props.name}</p>
-                </div>
-                <div className="dinintItem-info">
-                    <p className="dinintItem-status">{this.props.status}</p>
-                    <p className="dinintItem-time">{this.props.time}</p>
-                </div>
-            </div>
+<List.Item className='diningItem-style-wrapper '>
+      <List.Content>
+        <List.Header className='left floated'>{this.props.name}</List.Header>
+        <List.Description className='right floated '> <Label className="dinintItem-status">{this.props.status}</Label>
+                    <p className="dinintItem-time">{this.props.time}</p></List.Description>
+      </List.Content>
+    </List.Item>
         );
     }
 }

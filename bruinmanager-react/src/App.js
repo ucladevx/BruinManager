@@ -5,8 +5,8 @@ import {
   Link
 } from 'react-router-dom'
 
-import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
+import 'semantic-ui-css/semantic.min.css';
 import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';

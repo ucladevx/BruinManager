@@ -6,10 +6,11 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import './MainScreen.scss';
 import NavBar from '../Components/NavBar/NavBar.js'
+import Footer from '../Components/Footer/footer.js'
 import Summary from './SummaryTab/Summary';
 import Calendar from './CalendarTab/Calendar';
+import './MainScreen.scss';
 
 const SummaryScreen = () => (
 	  <Summary weekNumber={10}/>
@@ -43,15 +44,12 @@ export default class MainScreen extends React.Component {
     }
 
     render() {
+        let name = "Hello,"+'\u00A0'+(this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : "")+"!"
         return (
-            <Router className="mainScreen-style-wrapper">
+            <Router >
+            <div className="mainScreen-style-wrapper">
                 <div className="mainScreen-wrapper">
-                    <div className="left-of-nav-bar">
-                        <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : ""}!</h2>
-                    </div>
-                    <div className="nav-bar-box">
-                        <NavBar />
-                    </div>
+                   <NavBar name={name}/>
                     <div className="current-tab">
                         <Switch>
                             <Route path="/calendar" component={CalendarScreen} />
@@ -59,6 +57,8 @@ export default class MainScreen extends React.Component {
                             <Route path="/settings" component={SettingsScreen}/>
                             <Route path="/help" component={HelpScreen}/>
                         </Switch>
+                    </div>
+                    <Footer/>
                     </div>
                 </div>
             </Router>

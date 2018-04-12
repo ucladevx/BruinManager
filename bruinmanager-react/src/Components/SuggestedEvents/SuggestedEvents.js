@@ -51,10 +51,6 @@ export default class SuggestedEvents extends React.Component {
 				</div>
 
 				<div style={{display: "flex", width: "100%", height: "calc(100% - 50px)", overflow: "hidden"}}>
-					<div className="tag-bar">
-						<span className="tag">Tag</span>
-						<br/>
-					</div>
 					<div className="scroll-wrapper">
 						<div className="events-header"></div>
 						<div className="newsfeed">

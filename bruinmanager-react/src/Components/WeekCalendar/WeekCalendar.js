@@ -11,6 +11,7 @@ import HeaderCell from './HeaderCell';
 import DayCell from './DayCell';
 import Event from './Event';
 import Modal from './Modal';
+import './style.scss'
 
 const propTypes = {
   firstDay: PropTypes.object, // the first day in the caledar
@@ -468,7 +469,7 @@ class WeekCalendar extends React.Component {
     return (
       <div className={isSelection ? 'weekCalendar weekCalendar__status_selection' : 'weekCalendar'}>
         <div style={{backgroundColor: "#0096EB"}} className="weekCalendar__scaleHeader" >
-          <span>{scaleHeaderTitle}</span>
+          <span style={{color:'black',fontWeight:'normal'}}>{scaleHeaderTitle}</span>
         </div>
         <div className="weekCalendar__header" style={{ left: -this.state.scrollPosition.left }}>
           <CalendarHeader

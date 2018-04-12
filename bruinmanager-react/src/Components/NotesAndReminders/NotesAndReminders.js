@@ -29,6 +29,7 @@ let styles = {
         marginBottom: -25,
         height: "100%",
         boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
+        width:'100%'
 	},
   reminderSection: {
     borderRight: "1px solid #CFCFCF",

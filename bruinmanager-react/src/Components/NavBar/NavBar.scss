@@ -1,22 +1,11 @@
 .active-highlighted-button {
-    background-color: #9EF8FF;
+    //background-color: #9EF8FF;
+}
+
+a.highlighted-button:hover{
+    text-decoration:none;
+    color:black;
 }
 .highlighted-button {
     color: #000000;
-    border-radius: 12;
-    padding-left: 20;
-    padding-right: 20;
-    padding-top: 10;
-    padding-bottom: 10;
-    font-family: Roboto;
-}
-.navBar-style-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    .nav-items {
-  
-    }
 }
