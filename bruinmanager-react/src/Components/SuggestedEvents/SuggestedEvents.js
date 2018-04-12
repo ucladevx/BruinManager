@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import FeedCard from './FeedCard.js';
 import StarButton from './StarButton';
 import './SuggestedEvents.scss';
+
+import  { Image,Item } from 'semantic-ui-react'
+
 export default class SuggestedEvents extends React.Component {
 	constructor(props) {
       super(props);
@@ -35,6 +38,8 @@ export default class SuggestedEvents extends React.Component {
 		return `${this.getTime(dateObj1)}-${this.getTime(dateObj2)}`;
 	}
 	render() {
+
+
 		return(
 			<div className="suggestedEvents-style-wrapper">
 				<div className="search-bar">
@@ -44,6 +49,7 @@ export default class SuggestedEvents extends React.Component {
 					</form>
 					<StarButton/>
 				</div>
+
 				<div style={{display: "flex", width: "100%", height: "calc(100% - 50px)", overflow: "hidden"}}>
 					<div className="tag-bar">
 						<span className="tag">Tag</span>
@@ -52,6 +58,8 @@ export default class SuggestedEvents extends React.Component {
 					<div className="scroll-wrapper">
 						<div className="events-header"></div>
 						<div className="newsfeed">
+
+                         <Item.Group divided>
 							{this.state.eventArray.map((event) => {
 								return <FeedCard title={event.name}
 											date={this.getMonthDate(new Date(event.start_time))}
@@ -63,6 +71,8 @@ export default class SuggestedEvents extends React.Component {
 											key={event.name}
 										/>
 							})}
+                            </Item.Group>
+
 						</div>
 					</div>
 				</div>
