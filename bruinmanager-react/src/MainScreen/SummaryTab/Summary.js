@@ -17,7 +17,7 @@ import moment from 'moment';
 export default class Summary extends React.Component {
     render() {
 		return (
-            <div className="tab-wrapper">
+            <div className="tab-style-wrapper">
                 <div className="left-side">
                     <div>
                         <WeatherBox weekNum={this.props.weekNumber} startWeek="3/11" endWeek="3/17"/>

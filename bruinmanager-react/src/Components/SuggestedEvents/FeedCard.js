@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import StarButton from './StarButton';
+import './FeedCard.scss';
 // title, date, time, location, going, interested
 export default class SuggestedEvents extends React.Component {
 	render(props) {
 		return(
-			<div className="card">
+			<div className="feedCard-style-wrapper">
+			<div className="feedCard-wrapper">
 				<div className="title-wrapper" style={{backgroundImage: `url(${this.props.image})`}}>
 					<StarButton/>
 					<div className="event-backdrop">
@@ -27,6 +29,7 @@ export default class SuggestedEvents extends React.Component {
 						<Button color="link" className="interested-button">+ I'm going!</Button>
 					</div>
 				</div>
+			</div>
 			</div>
 		)
 	}

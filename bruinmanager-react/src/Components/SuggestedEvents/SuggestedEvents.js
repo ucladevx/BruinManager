@@ -36,8 +36,8 @@ export default class SuggestedEvents extends React.Component {
 	}
 	render() {
 		return(
-			<div className="events-wrapper">
-				<div className="searchBar">
+			<div className="suggestedEvents-style-wrapper">
+				<div className="search-bar">
 					<div style={{width: 20,}}></div>
 					<form style={{width: "50%"}}>
 						<input type="text" placeholder="Search for nearby events" style={{width: "100%", borderRadius: "25px", paddingLeft: 20}}/>

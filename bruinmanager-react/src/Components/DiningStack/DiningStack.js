@@ -5,7 +5,7 @@ import './DiningStack.scss';
 export default class DiningStack extends React.Component {
     render(props) {
         return (
-            <div className="diningStack-wrapper">
+            <div className="diningStack-style-wrapper">
                 <DiningTitle title="Dining Hall"/>
                 <DiningItem name = "BPlate" status = "OPEN" time = "until 8PM"/>
                 <DiningItem name = "Covel" status = "CLOSED" time = "for today"/>

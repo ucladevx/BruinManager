@@ -43,7 +43,7 @@ const ButtonLinkHelp = () => {
 export default class NavBar extends React.Component {
     render() {
         return(
-            <div className="nav-buttons">
+            <div className="navBar-style-wrapper">
                 <div>
                     <ButtonLinkDashboard className="nav-items"/>
                     <ButtonLinkCalendar/>

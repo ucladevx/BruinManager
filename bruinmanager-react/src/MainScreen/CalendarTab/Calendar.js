@@ -12,7 +12,7 @@ import moment from 'moment';
 export default class Calendar extends React.Component {
   render() {
     return (
-      <Container fluid>
+      <Container fluid className="calendar-style-wrapper">
         <Row>
             <Col xs="1" className="week-selector">
             </Col>
