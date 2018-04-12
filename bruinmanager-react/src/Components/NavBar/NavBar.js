@@ -45,7 +45,7 @@ export default class NavBar extends React.Component {
         return(
             <div className="navBar-style-wrapper">
                 <div>
-                    <ButtonLinkDashboard className="nav-items"/>
+                    <ButtonLinkDashboard/>
                     <ButtonLinkCalendar/>
                 </div>
                 <div>
