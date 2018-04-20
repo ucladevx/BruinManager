@@ -146,6 +146,7 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 
 else if (window.location.href.indexOf("arcane-cove-10079.herokuapp.com") > -1) {
 	// Get the data that was stored
+
 	chrome.storage.sync.get('data', function(items){
 	   	
 	   	console.log(items.data.user);

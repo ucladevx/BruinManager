@@ -35,27 +35,27 @@ class LoginBox extends Component {
       };
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
-      
-      let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
-      fetch(url, {
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(fb)
-      }).then(response => {
-        return response.json();
-      }).then(data => {
-        console.log(data);
-        this.setState({
-          fbdata: data
-        });
+      this.props.history.push('/dashboard');
+      // let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
+      // fetch(url, {
+      //   method: 'post',
+      //   headers: {'Content-Type':'application/json'},
+      //   body: JSON.stringify(fb)
+      // }).then(response => {
+      //   return response.json();
+      // }).then(data => {
+      //   console.log(data);
+      //   this.setState({
+      //     fbdata: data
+      //   });
         
-        // var bmdata = localStorage.getItem('myBMData');
-        // console.log(bmdata.id);
-        return data;
-      }).then((res) => {
-        this.props.storeData(res);
-        this.props.history.push('/dashboard');
-      })
+      //   // var bmdata = localStorage.getItem('myBMData');
+      //   // console.log(bmdata.id);
+      //   return data;
+      // }).then((res) => {
+      //   this.props.storeData(res);
+      //   this.props.history.push('/dashboard');
+      // })
     }
 
     responseGoogle(response) {
