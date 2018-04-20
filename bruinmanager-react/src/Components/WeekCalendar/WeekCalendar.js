@@ -64,7 +64,7 @@ class WeekCalendar extends React.Component {
     const weekName = new Map([["Mo", "M"], ["Tu", "T"], ["We", "W"], ["Th", "R"], ["Fr", "F"], ["Sa", "S"], ["Su", "U"]]);
     let momentsArray = [];
     for(var i = 0; i < 7; i++) {
-        let curDay = moment().clone().add(i, 'days');
+        let curDay = moment().clone().startOf("week").add(i, 'days');
         let dayName = curDay.format('dd');
         momentsArray.push([weekName.get(dayName), curDay]);
     }
@@ -114,11 +114,17 @@ class WeekCalendar extends React.Component {
         return results.json()
     }).then(data => {
         this.setState({classArray: data[0].classes});
-        this.state.classArray.map((course) => {
+        this.state.classArray.map((course) => {            
             if(course.discussion.days.split("")[0] !== 'N')
-                this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
+            {
+              console.log(course.discussion)
+              this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
+            }
             if(course.lecture.days.split("")[0] !== 'N')
-                this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
+            {
+              console.log(course.lecture)
+              this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
+            }
         });
     });
   }
