@@ -7,16 +7,16 @@ import {
 import './Calendar.scss';
 import { Container, Row, Col } from 'reactstrap';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
-import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.css';
+import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.scss';
 import moment from 'moment';
 export default class Calendar extends React.Component {
   render() {
     return (
-      <Container fluid>
+      <Container fluid className="calendar-style-wrapper">
         <Row>
-            <Col xs="1" class="week-selector">
+            <Col xs="1" className="week-selector">
             </Col>
-            <Col xs="11" class="calendar-content">
+            <Col xs="11" className="calendar-content">
                 <StandardCalendar style={StandardCalendarStyle} startTime={moment({h: 0, m: 0})} isSmall={false} weekNum={7}/>
             </Col>
         </Row>

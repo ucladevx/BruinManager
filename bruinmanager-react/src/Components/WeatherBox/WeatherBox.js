@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-
+import './WeatherBox.scss';
 export default class WeatherBox extends React.Component {
   constructor(props) {
     super(props);
@@ -29,54 +29,16 @@ export default class WeatherBox extends React.Component {
 
   render(props) {
     return (
-      <div style={{display: "flex", flexDirection: "column", border: "1px solid #CFCFCF", boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",}}>
-          <div style={styles.weekNum}>
-            <p style={{...styles.weekInfo, ...styles.centered}}>Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
+      <div className="weather-style-wrapper">
+          <div className="week-num">
+            <p className="week-info centered">Week {this.props.weekNum}<br/>{this.props.startWeek} - {this.props.endWeek}</p>
           </div>
-          <div style={styles.weather}>
-            <p style={{...styles.temperature, ...styles.centered}}><b>{this.state.temperature}&deg;</b></p>
-            <p style={{...styles.weatherCondition, ...styles.centered}}>{this.state.condition}</p>
+          <div className="weather">
+            <p className="temperature centered"><b>{this.state.temperature}&deg;</b></p>
+            <p className="weather-condition centered">{this.state.condition}</p>
           </div>
       </div>
     )
-  }
-}
-
-let styles = {
-  centered: {
-    textAlign: 'center',
-  },
-  temperature: {
-    fontSize: 40,
-    margin: 0,
-    fontFamily: "Roboto",
-  },
-  weather: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: 15,
-  },
-  weatherCondition: {
-    fontSize: 16,
-    margin: 0,
-    fontFamily: "Roboto",
-  },
-  weekInfo: {
-    fontSize: 20,
-    marginBottom: 0,
-    fontWeight: 500,
-  },
-  weekNum: {
-    borderBottom: "1px solid #CFCFCF",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    //marginRight: 50,
-    padding: 5,
-    backgroundColor: "#0096EB",
   }
 }
 

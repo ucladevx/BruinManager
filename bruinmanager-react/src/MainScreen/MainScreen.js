@@ -45,14 +45,14 @@ export default class MainScreen extends React.Component {
     render() {
         return (
             <Router>
-                <div class="box-wrapper">
-                    <div class="left-of-nav-bar">
+                <div className="mainScreen-style-wrapper">
+                    <div className="left-of-nav-bar">
                         <h2>Hello,{'\u00A0'}{this.props.fbdata ? this.props.fbdata.name.split(" ")[0] : ""}!</h2>
                     </div>
-                    <div class="nav-bar-box">
+                    <div className="nav-bar-box">
                         <NavBar />
                     </div>
-                    <div class="current-tab">
+                    <div className="current-tab">
                         <Switch>
                             <Route path="/calendar" component={CalendarScreen} />
                             <Route path="/dashboard" component={SummaryScreen}/>

@@ -2,3 +2,33 @@ input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+.formBox-style-wrapper {
+    display: flex;
+    height: 50;
+    flex-direction: column;
+    font-size: 1vmax;
+    .form-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1vmax;
+    }
+    .form-title {
+        border-bottom: 2px solid #454545;
+        width: 100%;
+        font-size: 1vmax;
+    }
+    .form-text {
+        color: grey;
+     }
+    .form-text-box {
+        border: none;
+        height: 20;
+        outline: none;
+        font-size: 1vmax;
+        text-align: center;
+        background-color: transparent;
+        width: 100%;
+    }
+}

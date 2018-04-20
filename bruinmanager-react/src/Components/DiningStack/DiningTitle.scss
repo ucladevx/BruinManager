@@ -1,0 +1,12 @@
+.diningTitle-style-wrapper {
+    border: 1px solid #CFCFCF;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    background-color: #0096EB;
+    .diningTitle-title-text {
+        margin: 10px;
+        font-size: 15px;
+        font-family: "Roboto";
+    }
+}

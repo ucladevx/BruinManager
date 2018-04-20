@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import DiningTitle from './DiningTitle';
 import DiningItem from './DiningItem';
+import './DiningStack.scss';
 export default class DiningStack extends React.Component {
     render(props) {
         return (
-            <div style={{...{height: this.props.height}, ...styles.wrapper}}>
+            <div className="diningStack-style-wrapper">
                 <DiningTitle title="Dining Hall"/>
                 <DiningItem name = "BPlate" status = "OPEN" time = "until 8PM"/>
                 <DiningItem name = "Covel" status = "CLOSED" time = "for today"/>
@@ -20,10 +21,3 @@ export default class DiningStack extends React.Component {
     }
 }
 
-let styles = {
-    wrapper: {
-        width: "100%",
-        boxShadow: "1px 4px 7px 1px rgba(0, 0, 0, 0.25)",
-        height: "auto",
-    },
-}

@@ -7,7 +7,6 @@ import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
-import './LoginBoxStyle.css';
 
 class LoginBox extends Component {
     constructor(props) {
@@ -26,7 +25,8 @@ class LoginBox extends Component {
 
     responseFacebook(response) {
       // store email, name, and id
-      console.log(response.picture.data.url);
+      console.log("helllo");
+      console.log(response);      
       let fb = {
         "name": response.name,
         "email": response.email,
@@ -35,7 +35,7 @@ class LoginBox extends Component {
       };
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
-
+      
       let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       fetch(url, {
         method: 'post',
@@ -48,6 +48,7 @@ class LoginBox extends Component {
         this.setState({
           fbdata: data
         });
+        
         // var bmdata = localStorage.getItem('myBMData');
         // console.log(bmdata.id);
         return data;

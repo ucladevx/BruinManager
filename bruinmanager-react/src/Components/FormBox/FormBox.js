@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import FormBoxStyle from './FormBox.scss';
+import './FormBox.scss';
 export default class FormBox extends React.Component {
     render(props) {
         return (
-            <div style={styles.formBoxWrapper}>
-                <div style={styles.formBox}>
-                    <form style={{...FormBoxStyle, ...styles.formTitle}}>
-                        <input type={this.props.inputType} placeholder={this.props.title} style={styles.formTextBox}/>
+            <div className="formBox-style-wrapper">
+                <div className="form-box">
+                    <form className="form-title">
+                        <input type={this.props.inputType} placeholder={this.props.title} className="form-text-box"/>
                     </form>
                 </div>
             </div>
@@ -17,34 +17,4 @@ export default class FormBox extends React.Component {
 onClick={() => {this.myInp.focus()}}
 ref={(ip) => this.myInp = ip
 */
-const styles = {
-        formBoxWrapper: {
-            display: "flex",
-            height: 50,
-            flexDirection: "column",
-            textSize: "1vmax",
-        },
-        formBox: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textSize: "1vmax",
-        },
-        formTitle: {
-            borderBottom: "2px solid #454545",
-            width: "100%",
-            textSize: "1vmax",
-        },
-        formText: {
-            color: "grey",
-        },
-        formTextBox: {
-            border: "none",
-            height: 20,
-            outline: "none",
-            textSize: "1vmax",
-            textAlign: "center",
-            backgroundColor: "transparent",
-            width: "100%",
-        },
-}
+

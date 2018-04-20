@@ -88,11 +88,13 @@ class WeekCalendar extends React.Component {
     this.calculateColumnDimension();
     window.addEventListener('resize', this.calculateColumnDimension);
     window.addEventListener('mouseup', this.handleSelectionStop);
-    
+    /*
     // get User id with fb info
     var b = localStorage.getItem("myBMData");
     var c = JSON.parse(b);
-    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/'
+    */
+    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1857222764329669'
+    /*
     if(c.id){
       url = url + c.id;
     }
@@ -101,6 +103,7 @@ class WeekCalendar extends React.Component {
     }
     console.log(url)
     // end logic to get users data from api
+    */
 
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();

@@ -56,9 +56,9 @@ export default class App extends Component {
       </div>
     )
     return (
-      <Router>
-        <div class="fullscreen">
-          <div class="fullscreen">
+      <Router className="app-style-wrapper">
+        <div className="fullscreen">
+          <div className="fullscreen">
               <Route exact path="/" component={Login}/>
               <Route exact path="/signup" component={SignUpScreen}/>
               <Route path="/dashboard" component={DashboardScreen}/>

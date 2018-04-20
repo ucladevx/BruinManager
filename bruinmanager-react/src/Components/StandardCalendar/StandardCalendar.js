@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import './StandardCalendar.scss';
 import WeekCalendar from '../WeekCalendar/WeekCalendar';
 
 export default class StandardCalendar extends React.Component {
