@@ -107,7 +107,7 @@ class WeekCalendar extends React.Component {
 
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
-    console.log(this.state.momentsArray);
+    
 
     fetch(url)
     .then(results => {
@@ -116,15 +116,9 @@ class WeekCalendar extends React.Component {
         this.setState({classArray: data[0].classes});
         this.state.classArray.map((course) => {            
             if(course.discussion.days.split("")[0] !== 'N')
-            {
-              console.log(course.discussion)
               this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
-            }
             if(course.lecture.days.split("")[0] !== 'N')
-            {
-              console.log(course.lecture)
               this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
-            }
         });
     });
   }
@@ -132,15 +126,15 @@ class WeekCalendar extends React.Component {
       let res = parseInt(time.split(":")[0].substring(0, time.length - 2));
       if(time.substring(time.length-2,time.length) === "pm" && res !== 12)
         res += 12;
-      console.log("hour: " + res + time.substring(time.length-2,time.length));
+      //console.log("hour: " + res + time.substring(time.length-2,time.length));
       return parseInt(res);
   }
   parseMinute(time) {
       if(!time.includes(":")) {
-        console.log("minute: " + 0);
+        //console.log("minute: " + 0);
         return 0;
       }
-        console.log("minute: " + parseInt(time.split(":")[1].substring(0, 2)));
+      //console.log("minute: " + parseInt(time.split(":")[1].substring(0, 2)));
       return parseInt(time.split(":")[1].substring(0, 2));
   }
   addTimeSlots(timeSlot, name) {
@@ -217,7 +211,7 @@ class WeekCalendar extends React.Component {
   }
 
   handleSelectionStart = (col, row) => {
-      console.log("handle selection start");
+      //console.log("handle selection start");
     const startSelectionPosition = {
       x: col,
       y: row,
@@ -229,7 +223,7 @@ class WeekCalendar extends React.Component {
   }
 
   handleSelectionStop = (e) => {
-      console.log("handle selection end");
+      //console.log("handle selection end");
     if (e.button !== 0) {
       return;
     }
