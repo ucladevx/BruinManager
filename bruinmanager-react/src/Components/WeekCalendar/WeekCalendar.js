@@ -93,7 +93,7 @@ class WeekCalendar extends React.Component {
     var b = localStorage.getItem("myBMData");
     var c = JSON.parse(b);
     */
-    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/'
+    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1857222764329669'
     /*
     if(c.id){
       url = url + c.id;

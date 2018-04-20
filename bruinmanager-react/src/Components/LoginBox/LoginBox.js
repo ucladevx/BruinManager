@@ -26,7 +26,7 @@ class LoginBox extends Component {
     responseFacebook(response) {
       // store email, name, and id
       console.log("helllo");
-      console.log(response.picture.data.url);
+      console.log(response);      
       let fb = {
         "name": response.name,
         "email": response.email,
