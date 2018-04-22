@@ -13,14 +13,15 @@ var xhr = new XMLHttpRequest();   // new HttpRequest instance
 
 function getEnrollmentAndClassData() {
 
+	// Temporarily commented out, TODO: if no enrollment data, post an empty object
 	// TODO: check if we are on the study list
-	const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
+	// const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
 
-	const enrollmentDataArray = enrollmentData.split("\n") 				// get each <p> as a separate element
-							.map(string => string.trim()) 				// remove whitespace
-							.filter(string => true ? string : false) 	// filter out empty strings
+	// const enrollmentDataArray = enrollmentData.split("\n") 				// get each <p> as a separate element
+	// 						.map(string => string.trim()) 				// remove whitespace
+	// 						.filter(string => true ? string : false) 	// filter out empty strings
 
-	var enroll = processEnrollementData(enrollmentDataArray);
+	// var enroll = processEnrollementData(enrollmentDataArray);
 
 	// TODO: Get class data
 	var classArr = new Array();
@@ -37,7 +38,8 @@ function getEnrollmentAndClassData() {
 	// TODO: save schema with username that is accessible to us later
 	var user = {
 		"user": {
-			"enrollment": enroll,
+			// "enrollment": enroll,
+			"enrollment": {},
 			"classes": classArr,
 			"name": "",
 			"user_id": "",
