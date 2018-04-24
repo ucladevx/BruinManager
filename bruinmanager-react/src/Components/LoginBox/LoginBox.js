@@ -6,7 +6,6 @@ import Logo from './SignikaNegative.png';
 import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
-import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { facebookFetchData } from '../../Actions/Login';
 

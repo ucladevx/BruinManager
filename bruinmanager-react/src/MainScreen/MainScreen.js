@@ -4,61 +4,46 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import {Grid, Responsive } from  'semantic-ui-react'
+import {Grid, Responsive, Segment } from  'semantic-ui-react'
 import NavBar from '../Components/NavBar/NavBar.js'
-import Footer from '../Components/Footer/footer.js'
-import Summary from './SummaryTab/Summary';
-import Calendar from './CalendarTab/Calendar';
+import {BigCalendar,EtcCalendar} from './CalendarTab/Calendar';
+import {SummaryImportant} from './SummaryTab/Summary'
+import SuggestedEvents from '../Components/SuggestedEvents/SuggestedEvents.js';
+import DiningStack from '../Components/DiningStack/DiningStack.js';
 import './MainScreen.scss';
 
-const SummaryScreen = () => (
-	  <Summary weekNumber={10}/>
+const SummaryScreenLeft = () => (
+    <SummaryImportant/>
 )
 
-const CalendarScreen = () => {
-  return (
-    <Calendar />
-  )
+const CalendarScreenLeft = () => {
+    <EtcCalendar />
+}
+
+
+const SummaryScreenRight = () => (
+    <Grid >
+        <Grid.Row>
+             <Grid.Column mobile={16} tablet={16} computer={6}>
+                     <Segment><SuggestedEvents/></Segment>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={16} computer={6}>
+                  <Segment> <DiningStack/> </Segment>
+            </Grid.Column>
+        </Grid.Row>
+    </Grid>
+)
+
+const CalendarScreenRight = () => {
+    <Segment><BigCalendar /></Segment>
 }
 
 const SettingsScreen = () => {
-  return (
     <h1 >Settings</h1>
-  )
 }
 
 const HelpScreen = () => {
-  return (
     <h1 >Help</h1>
-  )
-}
-
-
-const leftPanel = (match) => {
-    return (
-   <Route component={({ match }) =>
-        <div>
-            <Route path="/calendar" component={CalendarScreen} />
-            <Route path="/dashboard" component={SummaryScreen}/>
-            <Route path="/settings" component={SettingsScreen}/>
-            <Route path="/help" component={HelpScreen}/>
-        </div>
-    }/>
-   )
-}
-
-const rightPanel = (match) => {
-    return (
-    <Route component={({ match }) =>
-        <div>
-            <Route path="/calendar" component={CalendarScreen} />
-            <Route path="/dashboard" component={SummaryScreen}/>
-            <Route path="/settings" component={SettingsScreen}/>
-            <Route path="/help" component={HelpScreen}/>
-        </div>
-    }/>
-
-   )
 }
 
 
@@ -73,24 +58,22 @@ export default class MainScreen extends React.Component {
 
     render() {
         return (
-       <div className="mainScreen-style-wrapper">
-        <div className="mainScreen-wrapper">
-            <div className="current-tab">
+       <div className="mainScreen-style-wrapper mainScreen-wrapper current-tab">
             <Responsive minWidth={700}>
             <Router>
                 <Switch>
                     <Grid >
                     <Grid.Row>
                         <Grid.Column width={5}>
-                            <Route path="/calendar" component={CalendarScreen} />
-                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/calendar" component={CalendarScreenLeft} />
+                            <Route path="/dashboard" component={SummaryScreenLeft}/>
                             <Route path="/settings" component={SettingsScreen}/>
                             <Route path="/help" component={HelpScreen}/>
                         </Grid.Column>
                          <Grid.Column width={11}>
                             <NavBar/>
-                            <Route path="/calendar" component={CalendarScreen} />
-                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/calendar" component={CalendarScreenRight} />
+                            <Route path="/dashboard" component={SummaryScreenRight}/>
                             <Route path="/settings" component={SettingsScreen}/>
                             <Route path="/help" component={HelpScreen}/>
                         </Grid.Column>
@@ -107,8 +90,10 @@ export default class MainScreen extends React.Component {
                     <Grid.Row>
                         <Grid.Column >
                             <NavBar/>
-                            <Route path="/calendar" component={CalendarScreen} />
-                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/calendar" component={CalendarScreenLeft} />
+                            <Route path="/calendar" component={CalendarScreenRight} />
+                            <Route path="/dashboard" component={SummaryScreenLeft}/>
+                            <Route path="/dashboard" component={SummaryScreenRight}/>
                             <Route path="/settings" component={SettingsScreen}/>
                             <Route path="/help" component={HelpScreen}/>
                         </Grid.Column>
@@ -117,27 +102,7 @@ export default class MainScreen extends React.Component {
             </Switch>
           </Router>
          </Responsive>
-          </div>
-       </div>
     </div>
-
-
 		);
 	}
 }
-/*
-
-            <Responsive maxWidth={699}>
-                <Grid >
-                    <Grid.Row>
-                        <Grid.Column >
-                            <NavBar/>
-                            <Route path="/calendar" component={CalendarScreen} />
-                            <Route path="/dashboard" component={SummaryScreen}/>
-                            <Route path="/settings" component={SettingsScreen}/>
-                            <Route path="/help" component={HelpScreen}/>
-                        </Grid.Column>
-                     </Grid.Row>
-              </Grid>
-            </Responsive>
-*/

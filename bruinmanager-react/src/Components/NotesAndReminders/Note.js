@@ -9,15 +9,12 @@ export default class Note extends React.Component {
   render() {
     return (
       <div>
-      <div>
         <p style={styles.inlined}>X</p>
         <div style={{...styles.spacing, ...styles.inlined}}></div>
         <p style={styles.inlined}>Note #1 name</p>
         <div style={styles.rightText}>
           <p style={styles.inlined}>{this.props.currentDate}</p>
         </div>
-      </div>
-      <div></div>
       </div>
     )
   }
