@@ -25,7 +25,8 @@ class LoginBox extends Component {
 
     responseFacebook(response) {
       // store email, name, and id
-      console.log(response.picture.data.url);
+      console.log("helllo");
+      console.log(response);      
       let fb = {
         "name": response.name,
         "email": response.email,
@@ -34,26 +35,27 @@ class LoginBox extends Component {
       };
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
-
-      let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
-      fetch(url, {
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(fb)
-      }).then(response => {
-        return response.json();
-      }).then(data => {
-        console.log(data);
-        this.setState({
-          fbdata: data
-        });
-        // var bmdata = localStorage.getItem('myBMData');
-        // console.log(bmdata.id);
-        return data;
-      }).then((res) => {
-        this.props.storeData(res);
-        this.props.history.push('/dashboard');
-      })
+      this.props.history.push('/dashboard');
+      // let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
+      // fetch(url, {
+      //   method: 'post',
+      //   headers: {'Content-Type':'application/json'},
+      //   body: JSON.stringify(fb)
+      // }).then(response => {
+      //   return response.json();
+      // }).then(data => {
+      //   console.log(data);
+      //   this.setState({
+      //     fbdata: data
+      //   });
+        
+      //   // var bmdata = localStorage.getItem('myBMData');
+      //   // console.log(bmdata.id);
+      //   return data;
+      // }).then((res) => {
+      //   this.props.storeData(res);
+      //   this.props.history.push('/dashboard');
+      // })
     }
 
     responseGoogle(response) {

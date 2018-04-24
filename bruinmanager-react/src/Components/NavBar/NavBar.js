@@ -36,7 +36,7 @@ const ButtonLinkSettings = () => {
 
 const ButtonLinkHelp = () => {
   return(
-    <NavLink to="/help" className="highlighted-button" activeClassName="styles.active-highlighted-button">
+    <NavLink to="/help" className="highlighted-button" activeClassName="active-highlighted-button">
       Help
     </NavLink>
   )
@@ -62,7 +62,6 @@ export default class NavBar extends React.Component {
             <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}><ButtonLinkHelp/></Menu.Item>
     </Menu.Menu>
       </Menu>
-
         );
     }
 }
