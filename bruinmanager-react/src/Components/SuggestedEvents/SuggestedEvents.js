@@ -2,27 +2,22 @@ import React, { Component } from 'react';
 import FeedCard from './FeedCard.js';
 import StarButton from './StarButton';
 import './SuggestedEvents.scss';
+import { connect } from 'react-redux';
+import { eventsFetchData } from '../../Actions/SuggestedEvents';
 
 import  { Image,Item } from 'semantic-ui-react'
 
-export default class SuggestedEvents extends React.Component {
+ class SuggestedEvents extends React.Component {
 	constructor(props) {
       super(props);
       this.state = {
         eventList: props.eventList,
-		height: props.height,
 		eventArray: [],
       }
     }
 
 	componentDidMount() {
-		fetch('https://arcane-cove-10079.herokuapp.com/api/events/1')
-		.then(results => {
-			return results.json();
-		}).then(data => {
-			console.log(data);
-			this.setState({eventArray: data.events[0].eventArr});
-		})
+		this.props.fetchData("https://arcane-cove-10079.herokuapp.com/api/events/1")
 	}
 
 	getMonthDate(dateObj) {
@@ -38,8 +33,14 @@ export default class SuggestedEvents extends React.Component {
 		return `${this.getTime(dateObj1)}-${this.getTime(dateObj2)}`;
 	}
 	render() {
+		if (this.props.hasErrored) {
+            return <p>Sorry! There was an error loading the events</p>;
+        }
 
-
+        if (this.props.isLoading) {
+            return <p>Loading…</p>;
+        }
+		console.log(this.props.events);
 		return(
 			<div className="suggestedEvents-style-wrapper">
 				<div className="search-bar">
@@ -56,7 +57,7 @@ export default class SuggestedEvents extends React.Component {
 						<div className="newsfeed">
 
                          <Item.Group divided>
-							{this.state.eventArray.map((event) => {
+							{this.props.events.map((event) => {
 								return <FeedCard title={event.name}
 											date={this.getMonthDate(new Date(event.start_time))}
 											location= {event.location}
@@ -76,3 +77,19 @@ export default class SuggestedEvents extends React.Component {
 		)
 	}
 }
+
+const mapStateToProps = (state) => {
+    return {
+        events: state.events,
+        hasErrored: state.eventsHasErrored,
+        isLoading: state.eventsIsLoading
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(eventsFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SuggestedEvents);
