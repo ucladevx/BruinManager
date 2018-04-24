@@ -19,7 +19,7 @@ export function eventsIsLoading(state = false, action) {
 export function events(state = [], action) {
     switch (action.type) {
         case 'EVENTS_FETCH_DATA_SUCCESS':
-            return action.events;
+            return action.events.events[0].eventArr;
         default:
             return state;
     }
