@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './DiningItem.scss';
 
 import {Label,List} from 'semantic-ui-react';

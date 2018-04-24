@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import React from 'react';
 import './Summary.scss';
 import {Grid,Segment } from  'semantic-ui-react'
-import {Container, Row, Col} from 'reactstrap';
 import SuggestedEvents from '../../Components/SuggestedEvents/SuggestedEvents.js';
 import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
 import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.scss';
 import WeatherBox from '../../Components/WeatherBox/WeatherBox.js';
 import DiningStack from '../../Components/DiningStack/DiningStack.js';
-import NotesAndReminders from '../../Components/NotesAndReminders/NotesAndReminders.js';
 import moment from 'moment';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 

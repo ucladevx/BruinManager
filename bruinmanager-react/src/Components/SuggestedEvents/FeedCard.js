@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import StarButton from './StarButton';
-import  {  Image,Item, Button } from 'semantic-ui-react'
+import React from 'react';
+import  { Item, Button } from 'semantic-ui-react'
 import './FeedCard.scss';
 // title, date, time, location, going, interested
 export default class SuggestedEvents extends React.Component {

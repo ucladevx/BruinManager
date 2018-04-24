@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DiningTitle from './DiningTitle';
 import DiningItem from './DiningItem';
 import './DiningStack.scss';

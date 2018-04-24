@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FeedCard from './FeedCard.js';
 import StarButton from './StarButton';
 import './SuggestedEvents.scss';
 import { connect } from 'react-redux';
 import { eventsFetchData } from '../../Actions/SuggestedEvents';
 
-import  { Image,Item } from 'semantic-ui-react'
+import  { Item } from 'semantic-ui-react'
 
  class SuggestedEvents extends React.Component {
 	constructor(props) {

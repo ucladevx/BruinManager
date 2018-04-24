@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import React from 'react';
 import './WeatherBox.scss';
 export default class WeatherBox extends React.Component {
   constructor(props) {

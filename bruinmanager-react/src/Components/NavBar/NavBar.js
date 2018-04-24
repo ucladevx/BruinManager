@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,7 +7,7 @@ import {
   NavLink
 } from 'react-router-dom';
 import { Image, Button, Dropdown, Menu } from 'semantic-ui-react'
-import TabButton from '../TabButton/TabButton.js';
+
 import './NavBar.scss';
 
 const ButtonLinkDashboard = () => {

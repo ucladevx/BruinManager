@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import React from 'react';
 import './Calendar.scss';
-import WeatherBox from '../../Components/WeatherBox/WeatherBox.js';
 
-import { Container, Row, Col } from 'reactstrap';
 import {Grid,Segment } from  'semantic-ui-react'
 //import StandardCalendar from '../../Components/StandardCalendar/StandardCalendar.js';
 //import StandardCalendarStyle from '../../Components/StandardCalendar/StandardCalendar.scss';
-import moment from 'moment';
 import Calendar2 from 'material-ui/DatePicker/Calendar';
 
 

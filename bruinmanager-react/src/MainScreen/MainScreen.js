@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
-  NavLink
 } from 'react-router-dom';
-import {Grid,Segment,Responsive } from  'semantic-ui-react'
+import {Grid, Responsive } from  'semantic-ui-react'
 import NavBar from '../Components/NavBar/NavBar.js'
 import Footer from '../Components/Footer/footer.js'
 import Summary from './SummaryTab/Summary';

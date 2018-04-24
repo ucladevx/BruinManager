@@ -1,14 +1,5 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  NavLink
-} from 'react-router-dom';
-import { Container, Divider, Image } from 'semantic-ui-react'
-import TabButton from '../TabButton/TabButton.js';
-
+import React from 'react';
+import { Container, Image } from 'semantic-ui-react'
 
 export default class Footer extends React.Component {
 
