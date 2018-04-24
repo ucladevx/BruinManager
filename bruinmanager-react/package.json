@@ -109,6 +109,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.8.3",
+    "react-redux": "^5.0.7",
     "sass-loader": "^6.0.7"
   }
 }
