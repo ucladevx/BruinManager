@@ -6,7 +6,7 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import {Grid,Segment } from  'semantic-ui-react'
+import {Grid,Segment,Responsive } from  'semantic-ui-react'
 import NavBar from '../Components/NavBar/NavBar.js'
 import Footer from '../Components/Footer/footer.js'
 import Summary from './SummaryTab/Summary';
@@ -25,15 +25,44 @@ const CalendarScreen = () => {
 
 const SettingsScreen = () => {
   return (
-    <Calendar />
+    <h1 >Settings</h1>
   )
 }
 
 const HelpScreen = () => {
   return (
-    <Calendar />
+    <h1 >Help</h1>
   )
 }
+
+
+const leftPanel = (match) => {
+    return (
+   <Route component={({ match }) =>
+        <div>
+            <Route path="/calendar" component={CalendarScreen} />
+            <Route path="/dashboard" component={SummaryScreen}/>
+            <Route path="/settings" component={SettingsScreen}/>
+            <Route path="/help" component={HelpScreen}/>
+        </div>
+    }/>
+   )
+}
+
+const rightPanel = (match) => {
+    return (
+    <Route component={({ match }) =>
+        <div>
+            <Route path="/calendar" component={CalendarScreen} />
+            <Route path="/dashboard" component={SummaryScreen}/>
+            <Route path="/settings" component={SettingsScreen}/>
+            <Route path="/help" component={HelpScreen}/>
+        </div>
+    }/>
+
+   )
+}
+
 
 export default class MainScreen extends React.Component {
     constructor(props) {
@@ -46,31 +75,71 @@ export default class MainScreen extends React.Component {
 
     render() {
         return (
-            <Router >
-            <div className="mainScreen-style-wrapper">
-                <div className="mainScreen-wrapper">
+       <div className="mainScreen-style-wrapper">
+        <div className="mainScreen-wrapper">
+            <div className="current-tab">
+            <Responsive minWidth={700}>
+            <Router>
+                <Switch>
                     <Grid >
                     <Grid.Row>
-                      <Grid.Column mobile={0} tablet={4} computer={4} largeScreen={4} >
-                        <Segment> </Segment>
-                      </Grid.Column>
-                      <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={12} >
-                          <NavBar />
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-                    <div className="current-tab">
-                        <Switch>
+                        <Grid.Column width={5}>
                             <Route path="/calendar" component={CalendarScreen} />
                             <Route path="/dashboard" component={SummaryScreen}/>
                             <Route path="/settings" component={SettingsScreen}/>
                             <Route path="/help" component={HelpScreen}/>
-                        </Switch>
-                    </div>
-                    <Footer/>
-                    </div>
-                </div>
-            </Router>
+                        </Grid.Column>
+                         <Grid.Column width={11}>
+                            <NavBar/>
+                            <Route path="/calendar" component={CalendarScreen} />
+                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/settings" component={SettingsScreen}/>
+                            <Route path="/help" component={HelpScreen}/>
+                        </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+            </Switch>
+          </Router>
+         </Responsive>
+
+         <Responsive maxWidth={699}>
+            <Router>
+                <Switch>
+                <Grid >
+                    <Grid.Row>
+                        <Grid.Column >
+                            <NavBar/>
+                            <Route path="/calendar" component={CalendarScreen} />
+                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/settings" component={SettingsScreen}/>
+                            <Route path="/help" component={HelpScreen}/>
+                        </Grid.Column>
+                     </Grid.Row>
+              </Grid>
+            </Switch>
+          </Router>
+         </Responsive>
+          </div>
+       </div>
+    </div>
+
+
 		);
 	}
 }
+/*
+
+            <Responsive maxWidth={699}>
+                <Grid >
+                    <Grid.Row>
+                        <Grid.Column >
+                            <NavBar/>
+                            <Route path="/calendar" component={CalendarScreen} />
+                            <Route path="/dashboard" component={SummaryScreen}/>
+                            <Route path="/settings" component={SettingsScreen}/>
+                            <Route path="/help" component={HelpScreen}/>
+                        </Grid.Column>
+                     </Grid.Row>
+              </Grid>
+            </Responsive>
+*/
