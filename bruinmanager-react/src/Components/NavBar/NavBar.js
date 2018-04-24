@@ -49,25 +49,27 @@ export default class NavBar extends React.Component {
     render() {
         const { activeItem } = this.state
 
-        return(
+    return(
      <Menu inverted secondary>
      <Menu.Menu position='left'>
-            <Menu.Item > <Image centered src='/temp-logo.png' />
-                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinHub</p>  </Menu.Item>
-            <Menu.Item > {this.props.name} </Menu.Item>
-    </Menu.Menu>
-        <Menu.Menu position='right'>
         <Menu.Item>
             <Menu.Item name='dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick}><ButtonLinkDashboard className="nav-items"/></Menu.Item>
             <Menu.Item name='calendar' active={activeItem === 'calendar'} onClick={this.handleItemClick}><ButtonLinkCalendar/></Menu.Item>
          </Menu.Item>
-        <Menu.Item>
+    </Menu.Menu>
+        <Menu.Menu position='right'>
             <Menu.Item name='settings' active={activeItem === 'settings'} onClick={this.handleItemClick}> <ButtonLinkSettings/></Menu.Item>
             <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}><ButtonLinkHelp/></Menu.Item>
-          </Menu.Item>
-        </Menu.Menu>
+    </Menu.Menu>
       </Menu>
 
         );
     }
 }
+
+/*
+Remove bruinhub
+ <Menu.Item > <Image centered src='/temp-logo.png' />
+                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinHub</p>  </Menu.Item>
+            <Menu.Item > {this.props.name} </Menu.Item>
+*/

@@ -12,6 +12,10 @@ import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
 import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import AppBar from 'material-ui/AppBar';
 
 const Home = () => (
   <div>
@@ -58,6 +62,7 @@ export default class App extends Component {
       </div>
     )
     return (
+     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <Router className="app-style-wrapper">
         <div className="fullscreen">
           <div className="fullscreen">
@@ -67,6 +72,7 @@ export default class App extends Component {
           </div>
         </div>
       </Router>
+    </MuiThemeProvider>
     );
   }
 }

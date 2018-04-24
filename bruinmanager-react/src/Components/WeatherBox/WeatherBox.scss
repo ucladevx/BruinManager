@@ -1,35 +1,5 @@
 @import '../../definitions';
-.weather-wrapper {
-    display: flex;
-    flex-direction: column;
-    @include widget-dec();
-}
-.centered {
-    text-align: center;
-}
-.temperature {
-    margin: 0;
-}
-.weather {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15;
-}
-.weather-condition {
-    margin: 0;
-}
-.week-info {
-    margin-bottom: 0;
-}
-.week-num {
-    border-bottom: 1px solid #CFCFCF;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    //marginRight: 50;
-    padding: 5;
-    @include widget-header-dec();
+.ui.segment.week {
+    background:none;
+    color:white;
 }
