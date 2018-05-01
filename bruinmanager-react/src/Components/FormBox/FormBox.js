@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './FormBox.scss';
 export default class FormBox extends React.Component {
     render(props) {

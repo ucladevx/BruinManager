@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
   NavLink
 } from 'react-router-dom';
-import { Image, Button, Dropdown, Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
+//import './NavBar.scss';
 import './NavBar.scss';
 
 const ButtonLinkDashboard = () => {
@@ -68,9 +65,3 @@ export default class NavBar extends React.Component {
     }
 }
 
-/*
-Remove bruinhub
- <Menu.Item > <Image centered src='/temp-logo.png' />
-                    <p style={{paddingLeft:'.2em',fontWeight:'bold'}}> BruinHub</p>  </Menu.Item>
-            <Menu.Item > {this.props.name} </Menu.Item>
-*/

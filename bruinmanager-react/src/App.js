@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -8,7 +9,6 @@ import {
 
 import './App.scss';
 import 'semantic-ui-css/semantic.min.css';
-import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
@@ -82,26 +82,3 @@ export default class App extends Component {
     );
   }
 }
-
-/*
-
-<ul>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/">Home</Link></li>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/dashboard">Dashboard</Link></li>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/login">Login</Link></li>
-</ul>
-
-<hr/>
-
-
-let styles = {
-  container: {
-    backgroundColor: 'red',
-  },
-  header: {
-    height: 150,
-    padding: 20,
-    color: '#ffffff',
-  },
-}
-*/

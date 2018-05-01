@@ -3,8 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
-  NavLink
 } from 'react-router-dom';
 //import {Grid,Segment } from  'semantic-ui-react'
 import CalendarDrawer from './CalendarTab/CalendarDrawer/CalendarDrawer';

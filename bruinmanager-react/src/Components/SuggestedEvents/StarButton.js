@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import React from 'react';
 import clearStar from './clear-star.png';
 import yellowStar from './yellow-star.png';
 

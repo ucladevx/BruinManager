@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  NavLink,
+  NavLink
 } from 'react-router-dom';
 import Icon from './images/bruinhub-wordmark.png';
 //import Logo from './images/SignikaNegative.png';

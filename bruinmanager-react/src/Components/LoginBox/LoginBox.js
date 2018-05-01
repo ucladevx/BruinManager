@@ -6,33 +6,24 @@ import Logo from './bruinhub-logo+wordmark.png';
 import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
+<<<<<<< HEAD
+import { connect } from 'react-redux';
+import { facebookFetchData } from '../../Actions/Login';
+
+=======
 //import FontAwesome from 'react-fontawesome';
 import './LoginBox.scss';
+>>>>>>> bigdemoupdate
 class LoginBox extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        fbdata: null
-      }
-      this.componentClicked = this.componentClicked.bind(this);
-      this.responseFacebook = this.responseFacebook.bind(this);
-    }
-
-    componentClicked(e) {
+    componentClicked  = response => {
       //e.preventDefault();
 
     }
 
-    responseFacebook(response) {
+    responseFacebook = response => {
       // store email, name, and id
-      console.log("helllo");
-      console.log(response);      
-      let fb = {
-        "name": response.name,
-        "email": response.email,
-        "id": response.userID,
-        "picture": response.picture.data.url,
-      };
+       let fb = this.props.facebookFetchData(response)
+        alert(fb)
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
       this.props.history.push('/dashboard');
@@ -48,7 +39,7 @@ class LoginBox extends Component {
       //   this.setState({
       //     fbdata: data
       //   });
-        
+
       //   // var bmdata = localStorage.getItem('myBMData');
       //   // console.log(bmdata.id);
       //   return data;
@@ -64,6 +55,51 @@ class LoginBox extends Component {
 
     render() {        
         return (
+<<<<<<< HEAD
+            <div style={styles.loginDisplayWrapper}>
+               <div style={styles.logoHeader}>
+                   <div style={styles.logoWrapper}>
+                       <img src={Logo} style={styles.logoStyle}/>
+                   </div>
+               </div>
+               <div style={styles.interface}>
+                   <div style={styles.loginInfo}>
+                       <div style={styles.thirdPartyLogin}>
+                           <div style={{display: "flex", flexDirection:"column", height: "100%", justifyContent: "space-around",alignItems:"flex-start",}}>
+                               <FacebookLogin
+                                 appId="185794305530394"
+                                 autoLoad={true}
+                                 fields="name,email,picture"
+                                 onClick={this.componentClicked}
+                                 callback={this.responseFacebook}
+                                 render={renderProps => (
+                                     <button onClick={renderProps.onClick} style={{width: "100%", height: "30%", backgroundColor: "#475993", color: "#FFFFFF", border: "none", cursor: "pointer",}}>
+                                       <div style={{display:"flex", width:"100%"}}>
+                                           <div style={{width:"15%"}}>
+                                               <img src={fbLogo} style={{width: "2vmax", height: "2vmax",}}/>
+                                           </div>
+                                           <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center", fontSize: "1.1vmax",}}>
+                                               <span> Login with Facebook</span>
+                                           </div>
+                                       </div>
+                                     </button>
+                                 )} />
+                               <GoogleLogin
+                                 clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                 buttonText="Login"
+                                 onSuccess={this.responseGoogle}
+                                 onFailure={this.responseGoogle}
+                                 style={{width: "100%", height: "30%", backgroundColor: "#DF4B38", color: "#FFFFFF", border: "none", fontSize: "1.1vmax", cursor: "pointer",}}>
+                                 <div style={{display:"flex", width:"100%"}}>
+                                     <div style={{width:"15%"}}>
+                                         <img src={gmailLogo} style={{width: "2vmax", height: "2vmax",}}/>
+                                     </div>
+                                     <div style={{width:"85%", display:"flex", justifyContent:"center", alignItems: "center",}}>
+                                         <span> Login with Google</span>
+                                     </div>
+                                 </div>
+                               </GoogleLogin>
+=======
             <div style={styles.loginDisplayWrapper} className="login-box-style">
                            <div style={styles.logoHeader}>
                                <div style={styles.logoWrapper}>
@@ -129,12 +165,48 @@ class LoginBox extends Component {
                                <div style={styles.forgotWrapper}>
                                    <a href="" style={{color: "#919191", marginTop: 20, fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none"}}>forgot your password?</a>
                                </div>
+>>>>>>> bigdemoupdate
                            </div>
                        </div>
+                       <div style={styles.lineDivider}>
+                           <div style={{width: 1, height: 50, border: "1px solid #919191"}}/>
+                           <span style={{color: "#919191", marginTop: 7, marginBottom: 7, fontSize: "1.2vmax"}}>OR</span>
+                           <div style={{width: 1, height: 50, border: "1px solid #919191"}}/>
+                       </div>
+                       <div style={styles.firstPartyLogin}>
+                           <FormBox title="Email" inputType="text"/>
+                           <FormBox title="Password" inputType="password"/>
+                           <Link to="/dashboard"><button className="hoverDark">Login</button> </Link>
+                       </div>
+                   </div>
+                   <div style={styles.circleDivider}>
+                       <div style={{fontSize: "1vmax"}}><span>OR</span></div>
+                   </div>
+                   <div style={styles.createWrapper}>
+                       <a href="" style={{color: "#000000", fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none", borderBottom: "3px dashed #0096EB"}}>Create an Account</a>
+                   </div>
+                   <div style={styles.forgotWrapper}>
+                       <a href="" style={{color: "#919191", marginTop: 20, fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none"}}>forgot your password?</a>
+                   </div>
+               </div>
+           </div>
         );
     }
 }
-export default withRouter(LoginBox);
+
+const mapStateToProps = (state) => {
+    return {
+        fb_data: state.fb_data
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        facebookFetchData: (response) => dispatch(facebookFetchData(response))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginBox));
 
 let styles = {
     loginDisplayWrapper: {
