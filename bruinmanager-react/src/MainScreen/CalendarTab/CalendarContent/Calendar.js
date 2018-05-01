@@ -10,11 +10,16 @@ import {Grid,Segment } from  'semantic-ui-react'
 import StandardCalendar from '../../../Components/StandardCalendar/StandardCalendar.js';
 import StandardCalendarStyle from '../../../Components/StandardCalendar/StandardCalendar.scss';
 import moment from 'moment';
+import Paper from 'material-ui/Paper';
 
 export default class Calendar extends React.Component {
   render() {
     return (
-      <StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {false} weekNum={10}/>
+      <div className="calendar-style-wrapper">
+        <Paper zDepth={1} style={{width:"100%", height:"100%"}} children={
+          <StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {false} weekNum={5}/>
+        }/>
+      </div>
     )
   }
 }

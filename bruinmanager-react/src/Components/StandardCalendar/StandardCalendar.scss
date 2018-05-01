@@ -10,6 +10,10 @@
     padding-top: 28px;
     color: #6b6b6b;
     @include widget-dec();
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
 }
 .weekCalendar * {
     box-sizing: border-box;

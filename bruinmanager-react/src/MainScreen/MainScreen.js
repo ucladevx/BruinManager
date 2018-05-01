@@ -13,16 +13,19 @@ import GenericContent from '../Components/GenericContent/GenericContent';
 import CalendarContent from './CalendarTab/CalendarContent/Calendar';
 import SummaryContent from './SummaryTab/SummaryContent/Summary';
 import Drawer from 'material-ui/Drawer';
+import Logo from './bruinhub-wordmark.png';
 import './MainScreen.scss';
 
 const SummaryScreen = () => {
   return(
     <div className="mainScreen-style-wrapper">
-      <Drawer width = "25%" open={true}>
+      <Drawer width = "25%" open={true} zDepth={2} >
         <div className="generic-drawer-style-wrapper">
           <div className="padding-wrapper">
-            <div className="logo-wrapper">LOGO</div>
-              <SummaryDrawer />
+            <div className="logo-wrapper">
+              <img src={Logo} className="logo-style"/>
+            </div>
+            <SummaryDrawer />
             <div />
           </div>
         </div>            
@@ -35,11 +38,13 @@ const SummaryScreen = () => {
 const CalendarScreen = () => {
   return (
     <div className="mainScreen-style-wrapper">
-      <Drawer width = "25%" open={true}>
+      <Drawer width = "25%" open={true} zDepth={2}>
         <div className="generic-drawer-style-wrapper">
           <div className="padding-wrapper">
-            <div className="logo-wrapper">LOGO</div>
-              <CalendarDrawer />
+            <div className="logo-wrapper">
+              <img src={Logo} className="logo-style"/>
+            </div>
+            <CalendarDrawer />
             <div />
           </div>
         </div>            

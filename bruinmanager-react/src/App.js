@@ -15,7 +15,7 @@ import MainScreen from './MainScreen/MainScreen';
 import CalendarContent from './MainScreen/CalendarTab/CalendarContent/Calendar.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
+import {blue700, blue500,} from 'material-ui/styles/colors';
 
 const Home = () => (
   <div>
@@ -59,14 +59,22 @@ export default class App extends Component {
     let DashboardScreen = () => (
       <MainScreen fbdata={this.state.fbdata}/>
     )
+    let muiTheme = getMuiTheme({
+      palette: {
+        primary1Color: blue700,
+        primary2Color: blue500,
+        pickerHeaderColor: blue700,
+      },
+    });
     return (
-     <MuiThemeProvider>
+     <MuiThemeProvider muiTheme={muiTheme}>
       <Router className="app-style-wrapper">
         <div className="fullscreen">
           <Switch>
             <Route exact path="/" component={Login}/>
             <Route exact path="/signup" component={SignUpScreen}/>
             <Route exact path="/dashboard" component={DashboardScreen}/>
+            <Route exact path="/calendar" component={DashboardScreen}/>
           </Switch>
         </div>
       </Router>

@@ -1,8 +1,7 @@
 .calendar-style-wrapper {
-    .week-selector {
-        border: 1px solid black;
-    }
-    .calendar-content {
-        max-height: 700;
-    }
+    display: flex;
+    width: 95%;
+    height: 95%;
+    justify-content: center;
+    align-items: center;
 }

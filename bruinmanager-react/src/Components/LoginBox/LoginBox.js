@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import fbLogo from './fbLogo.png';
 import gmailLogo from './gmailLogo.png';
-import Logo from './SignikaNegative.png';
+import Logo from './bruinhub-logo+wordmark.png';
 import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
@@ -161,12 +161,12 @@ let styles = {
     },
     logoWrapper: {
         display: "flex",
-        width: "100%",
+        width: "55%",
         justifyContent: "center",
         alignItems: "center",
     },
     logoStyle: {
-        width: "75%",
+        width: "55%",
         height: "auto",
     },
     interface: {

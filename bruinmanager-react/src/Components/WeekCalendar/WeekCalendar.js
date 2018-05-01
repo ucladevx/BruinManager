@@ -489,7 +489,7 @@ class WeekCalendar extends React.Component {
           />
         </div>
         <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, overflowX: "scroll", overflowY: "hidden",} :
-                                                                                                        {height: "auto", width: "auto", pointerEvents: "auto",}}>
+                                                                                                        {minHeight: "100%", width: "auto", pointerEvents: "auto", overflowX: "hidden", overflowY: "scroll"}}>
           <CalendarBody
             ref = "calendarbody"
             firstDay={firstDay}

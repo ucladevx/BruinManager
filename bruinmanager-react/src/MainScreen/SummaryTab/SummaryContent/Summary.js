@@ -19,7 +19,7 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 export default class Summary extends React.Component {
     render() {
 		return (
-   <Grid >
+   <Grid style={{width: "95%",}}>
     <Grid.Row>
       <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6} >
         <Segment><SuggestedEvents/></Segment>        
@@ -27,14 +27,14 @@ export default class Summary extends React.Component {
       <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={10} >
          <Grid>
             <Grid.Row>
-                 <Grid.Column mobile={16} tablet={8} computer={8} largeScreen={8} >
+                 
                  <Segment> <NotesAndReminders/> </Segment>
-                </Grid.Column>
+                
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column mobile={16} tablet={8} computer={8} largeScreen={8} >
+                
                       <Segment><DiningStack/></Segment>
-                </Grid.Column>
+                
             </Grid.Row>
         </Grid>
 

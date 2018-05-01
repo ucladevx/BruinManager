@@ -9,4 +9,30 @@
     align-items: flex-end;
 }
 
+.generic-drawer-style-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //border-right: 1px solid grey;
+    .padding-wrapper {
+        height: 95%;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-style {
+        height: 80px;
+        margin-top: 10px;
+    }
+}
 
