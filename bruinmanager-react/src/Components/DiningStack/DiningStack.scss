@@ -1,4 +1,6 @@
 @import '../../definitions';
 .diningStack-style-wrapper {
     @include widget-dec();
+    display: flex;
+    
 }

@@ -1,16 +1,39 @@
 .mainScreen-style-wrapper {
+    width: 100vw;
+    height: 100vh;
     //background: linear-gradient( rgba(83, 104, 149, .5), rgba(83, 104, 149, .5) ), url("/UCLA-Campus.jpg");
     //background-color: black;
+    background-color: white;
     background-size: cover;
-    .mainScreen-wrapper {
-        width: 90vw;
-        margin:auto;
-    }
-
-    .row{
-    margin-right:0;
-    margin-left:0;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
+.generic-drawer-style-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //border-right: 1px solid grey;
+    .padding-wrapper {
+        height: 95%;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-style {
+        height: 80px;
+        margin-top: 10px;
+    }
+}
 

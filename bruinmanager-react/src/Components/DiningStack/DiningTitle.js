@@ -6,11 +6,11 @@ export default class DiningTitle extends React.Component {
         return (
     <List.Item className="diningTitle-style-title">
       <List.Content>
-        <List.Header >
-            <div >
+        <List.Header>
+            <div>
                 <h1 className="diningTitle-title-text">{this.props.title}</h1>
             </div>
-        </List.Header >
+        </List.Header>
       </List.Content>
     </List.Item>);
     }
