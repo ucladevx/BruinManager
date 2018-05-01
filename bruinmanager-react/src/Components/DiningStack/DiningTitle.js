@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './DiningTitle.scss';
 import {List} from 'semantic-ui-react';
 export default class DiningTitle extends React.Component {

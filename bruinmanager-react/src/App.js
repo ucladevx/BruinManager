@@ -1,41 +1,19 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 import './App.scss';
 import 'semantic-ui-css/semantic.min.css';
-import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
-import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-/*
-const Dashboard = () => (
-  <div>
-    <MainScreen firstName="Taasin"/>
-  </div>
-)
-*/
-
-const Calendar = () => (
-  <div>
-    <CalendarScreen/>
-  </div>
-)
 
 export default class App extends Component {
   constructor(props) {
@@ -76,26 +54,3 @@ export default class App extends Component {
     );
   }
 }
-
-/*
-
-<ul>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/">Home</Link></li>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/dashboard">Dashboard</Link></li>
-  <li style={{display: 'inline', marginLeft: 5,}}><Link to="/login">Login</Link></li>
-</ul>
-
-<hr/>
-
-
-let styles = {
-  container: {
-    backgroundColor: 'red',
-  },
-  header: {
-    height: 150,
-    padding: 20,
-    color: '#ffffff',
-  },
-}
-*/
