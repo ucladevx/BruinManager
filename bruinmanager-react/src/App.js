@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom'
 
 import './App.scss';
@@ -11,8 +12,7 @@ import logo from './logo.svg';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
-import CalendarScreen from './MainScreen/CalendarTab/Calendar.js';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import CalendarContent from './MainScreen/CalendarTab/CalendarContent/Calendar.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
@@ -33,7 +33,7 @@ const Dashboard = () => (
 
 const Calendar = () => (
   <div>
-    <CalendarScreen/>
+    <CalendarContent/>
   </div>
 )
 
@@ -57,19 +57,17 @@ export default class App extends Component {
       <LoginScreen storeData={this.getData}/>
     );
     let DashboardScreen = () => (
-      <div>
-        <MainScreen fbdata={this.state.fbdata}/>
-      </div>
+      <MainScreen fbdata={this.state.fbdata}/>
     )
     return (
-     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+     <MuiThemeProvider>
       <Router className="app-style-wrapper">
         <div className="fullscreen">
-          <div className="fullscreen">
-              <Route exact path="/" component={Login}/>
-              <Route exact path="/signup" component={SignUpScreen}/>
-              <Route path="/dashboard" component={DashboardScreen}/>
-          </div>
+          <Switch>
+            <Route exact path="/" component={Login}/>
+            <Route exact path="/signup" component={SignUpScreen}/>
+            <Route exact path="/dashboard" component={DashboardScreen}/>
+          </Switch>
         </div>
       </Router>
     </MuiThemeProvider>

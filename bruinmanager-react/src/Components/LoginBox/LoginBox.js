@@ -6,8 +6,8 @@ import Logo from './SignikaNegative.png';
 import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
-import FontAwesome from 'react-fontawesome';
-
+//import FontAwesome from 'react-fontawesome';
+import './LoginBox.scss';
 class LoginBox extends Component {
     constructor(props) {
       super(props);
@@ -62,9 +62,9 @@ class LoginBox extends Component {
       console.log(response);
     }
 
-    render() {
+    render() {        
         return (
-            <div style={styles.loginDisplayWrapper}>
+            <div style={styles.loginDisplayWrapper} className="login-box-style">
                            <div style={styles.logoHeader}>
                                <div style={styles.logoWrapper}>
                                    <img src={Logo} style={styles.logoStyle}/>
@@ -124,7 +124,7 @@ class LoginBox extends Component {
                                    <div style={{fontSize: "1vmax"}}><span>OR</span></div>
                                </div>
                                <div style={styles.createWrapper}>
-                                   <a href="" style={{color: "#000000", fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none", borderBottom: "3px dashed #0096EB"}}>Create an Account</a>
+                                <Link to="/signup"><a href="" style={{color: "#000000", fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none", borderBottom: "3px dashed #0096EB"}}>Create an Account</a></Link>
                                </div>
                                <div style={styles.forgotWrapper}>
                                    <a href="" style={{color: "#919191", marginTop: 20, fontFamily: "Roboto", fontSize: "1.25vmax", textDecoration: "none"}}>forgot your password?</a>
@@ -195,7 +195,7 @@ let styles = {
         width: "45%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         alignItems: "center",
     },
     loginSetup: {

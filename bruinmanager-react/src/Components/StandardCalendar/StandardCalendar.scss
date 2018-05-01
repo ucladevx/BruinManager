@@ -171,3 +171,7 @@
 .customModal__button_float_right {
     float: right
 }
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

@@ -11,7 +11,7 @@ export default class LandingScreen extends Component {
                     <Col>
                         <Row>
                             <Col style={{marginBottom: 10}}>
-                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative", fontSize: "3vmax"}}>BruinManager for busy Bruins</h1>
+                                <h1 style={{marginBottom: 10, fontFamily: "Signika Negative", fontSize: "3vmax"}}>BruinHub for busy Bruins</h1>
                                 <p style={{fontFamily: "Signika Negative", fontSize: "1.1vmax"}}>
                                 You won’t need another app to manage your life as a Bruin.</p>
                             </Col>
@@ -82,7 +82,7 @@ export default class LandingScreen extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <p style={{fontFamily: "Roboto", fontSize: "1.1vmax",}}><br/>Download our BruinManager Chrome extension to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
+                                <p style={{fontFamily: "Roboto", fontSize: "1.1vmax",}}><br/>Download our BruinHub Chrome extension to enable real-time syncing. We scrape your myUCLA data, with your permission, and send this straight to your calendar automatically.<br/><br/>If you don’t use Chrome, you can upload an ICS file from myUCLA instead!</p>
                             </Col>
                         </Row>
                     </Col>

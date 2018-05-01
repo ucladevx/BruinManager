@@ -7,7 +7,6 @@ import {
   NavLink
 } from 'react-router-dom';
 import { Image, Button, Dropdown, Menu } from 'semantic-ui-react'
-import TabButton from '../TabButton/TabButton.js';
 import './NavBar.scss';
 
 const ButtonLinkDashboard = () => {
@@ -42,15 +41,18 @@ const ButtonLinkHelp = () => {
   )
 }
 export default class NavBar extends React.Component {
-     state = { activeItem: 'dashboard' }
 
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: this.props.activeItem };
+  }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-    render() {
+    render(props) {
         const { activeItem } = this.state
 
     return(
-     <Menu inverted secondary>
+     <Menu secondary>
      <Menu.Menu position='left'>
         <Menu.Item>
             <Menu.Item name='dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick}><ButtonLinkDashboard className="nav-items"/></Menu.Item>

@@ -13,14 +13,14 @@ export default class DiningStack extends React.Component {
                 <DiningItem name = "Covel" status = "CLOSED" time = "for today"/>
                 <DiningItem name = "De Neve" status = "OPEN" time = "until 8PM"/>
                 <DiningItem name = "Feast" status = "CLOSED" time = "for today"/>
-                </List>
-                <List divided relaxed>
+            </List>
+            <List divided relaxed>
                 <DiningTitle title="Quick Service"/>
                 <DiningItem name = "Bruin Cafe" status = "OPEN" time = "until 10PM"/>
                 <DiningItem name = "Cafe 1919" status = "CLOSED" time = "for today"/>
                 <DiningItem name = "Rende" status = "CLOSED" time = "until 9PM"/>
                 <DiningItem name = "The Study" status = "OPEN" time = "until 2AM"/>
-                </List>
+            </List>
             </div>
         );
     }
