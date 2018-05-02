@@ -12,7 +12,7 @@ import StandardCalendarStyle from '../../../Components/StandardCalendar/Standard
 import moment from 'moment';
 import Paper from 'material-ui/Paper';
 
-export class EtcCalendar extends React.Component {
+export default class Calendar extends React.Component {
   render() {
     return (
       <div className="calendar-style-wrapper">

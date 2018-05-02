@@ -15,7 +15,7 @@ import MainScreen from './MainScreen/MainScreen';
 import CalendarContent from './MainScreen/CalendarTab/CalendarContent/Calendar.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {blue700, blue500,} from 'material-ui/styles/colors';
+import {blue700, blue500, yellow500} from 'material-ui/styles/colors';
 
 const Home = () => (
   <div>
@@ -63,6 +63,7 @@ export default class App extends Component {
       palette: {
         primary1Color: blue700,
         primary2Color: blue500,
+        accent1Color: yellow500,
         pickerHeaderColor: blue700,
       },
     });

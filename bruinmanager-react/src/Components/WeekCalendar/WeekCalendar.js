@@ -95,7 +95,6 @@ class WeekCalendar extends React.Component {
     //var c = JSON.parse(b);
     var c = b;
     console.log(c);
-    console.log(c.id);
     
     // GET request this url to get user's classes
     //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
