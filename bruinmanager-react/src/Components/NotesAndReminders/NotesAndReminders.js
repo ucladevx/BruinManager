@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
-import {List, ListItem} from 'material-ui/List';
+import {List, ListItem, makeSelectable} from 'material-ui/List';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {Grid, Segment} from  'semantic-ui-react'
 import RaisedButton from 'material-ui/RaisedButton';
@@ -9,11 +10,49 @@ import NotesSection from './NotesSection';
 import ReminderSection from './ReminderSection';
 import './notesReminders.scss';
 
+let SelectableList = makeSelectable(List);
+
+function wrapState(ComposedComponent) {
+  return class SelectableList extends Component {
+    static propTypes = {
+      children: PropTypes.node.isRequired,
+      defaultValue: PropTypes.number.isRequired,
+    };
+
+    componentWillMount() {
+      this.setState({
+        selectedIndex: this.props.defaultValue,
+      });
+    }
+
+    handleRequestChange = (event, index) => {
+      this.setState({
+        selectedIndex: index,
+      });
+      console.log(this.state.selectedIndex);
+    };
+
+    render() {
+      return (
+        <ComposedComponent
+          value={this.state.selectedIndex}
+          onChange={this.handleRequestChange}
+        >
+          {this.props.children}
+        </ComposedComponent>
+      );
+    }
+  };
+}
+
+SelectableList = wrapState(SelectableList);
+
 export default class NotesAndReminders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notesArr: []
+      notesArr: [],
+      noteCount: 0,
     }
     this.createNote = this.createNote.bind(this);
   }
@@ -22,14 +61,15 @@ export default class NotesAndReminders extends React.Component {
     let elem = (<ListItem
       primaryText="Untitled"
       secondaryText="Empty Note"
-      secondaryTextLines={2}
+      secondaryTextLines={1}
+      value={this.state.noteCount + 1}
     />);
     let arr = this.state.notesArr;
-    arr.push(elem);
+    arr.unshift(elem);
     this.setState({
-      notesArr: arr
+      notesArr: arr,
+      noteCount: this.state.noteCount + 1
     })
-    console.log(this.state.notesArr);
   }
 
   render() {
@@ -44,9 +84,9 @@ export default class NotesAndReminders extends React.Component {
                                <Grid.Row>
                                    <Grid.Column mobile={6} tablet={6} computer={6} largeScreen={6} >
                                       <div className="scrollable-note-preview">
-                                         <List>
+                                         <SelectableList>
                                             {this.state.notesArr}
-                                         </List>
+                                         </SelectableList>
                                       </div>
                                    </Grid.Column>
                                    <Grid.Column mobile={10} tablet={10} computer={10} largeScreen={10} >
