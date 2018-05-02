@@ -2,7 +2,31 @@
 @import '../../definitions';
 .notes-and-reminders-section{
     @include widget-dec();
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -50px;
+    padding-bottom: 50px;
 }
 .notes-header,.reminder-header{
     @include widget-header-dec();
+}
+.note-message {
+  font-size: 8px;
+}
+.scrollable-note-preview {
+  overflow-y: scroll;
+  height: 300px;
+}
+.note-content-section {
+  padding: 10px;
+  border: none;
+  width: 112%;
+  position: absolute;
+  height: 100%;
+  justify-content: left;
+  align-items: left;
+  outline: 0;
 }
