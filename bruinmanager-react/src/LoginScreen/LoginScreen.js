@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  NavLink,
+  NavLink
 } from 'react-router-dom';
 import Icon from './images/Vector.png';
-import Logo from './images/SignikaNegative.png';
-import combineLogo from './images/logo_bm.png';
 import LoginBox from '../Components/LoginBox/LoginBox.js';
 import LandingInfo from './LandingInfo';
-import FontAwesome from 'react-fontawesome';
 
 export default class LoginScreen extends Component {
 
