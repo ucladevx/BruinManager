@@ -97,7 +97,7 @@ class WeekCalendar extends React.Component {
     console.log(c);
     
     // GET request this url to get user's classes
-    //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
+    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
     // TODO: get request this url and put classes in the calendar
     //console.log(url);
 
@@ -106,20 +106,21 @@ class WeekCalendar extends React.Component {
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
     
-    /*
+    
     fetch(url)
     .then(results => {
         return results.json()
     }).then(data => {
+        console.log(data[0].classes);
         this.setState({classArray: data[0].classes});
-        this.state.classArray.map((course) => {            
-            if(course.discussion.days.split("")[0] !== 'N')
+        this.state.classArray.map((course) => {
+            if("discussion" in course && course.discussion.days.split("")[0] !== 'N')
               this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
-            if(course.lecture.days.split("")[0] !== 'N')
+            if("lecture" in course && course.lecture.days.split("")[0] !== 'N')
               this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
         });
     });
-    */
+    
   }
   parseHour(time) {
       let res = parseInt(time.split(":")[0].substring(0, time.length - 2));
