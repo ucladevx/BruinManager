@@ -1,25 +1,28 @@
-export function diningHasErrored(state = false, action) {
+export function diningHasErrored(state = {}, action) {
     switch (action.type) {
         case 'DINING_HAS_ERRORED':
-            return action.hasErrored;
+            state[action.name] = action.hasErrored;
+            return state;
         default:
             return state;
     }
 }
 
-export function diningIsLoading(state = false, action) {
+export function diningIsLoading(state = {}, action) {
     switch (action.type) {
         case 'DINING_IS_LOADING':
-            return action.isLoading;
+            state[action.name] = action.isLoading;
+            return state;
         default:
             return state;
     }
 }
 
-export function dining(state = [], action) {
+export function dining(state = {}, action) {
     switch (action.type) {
         case 'DINING_FETCH_DATA_SUCCESS':
-            return action.dining;
+            state[action.name] = action.dining;
+            return state;
         default:
             return state;
     }

@@ -1,12 +1,13 @@
 import React from 'react';
 //import './DiningItem.scss';
-import { connect } from 'react-redux';
-import { diningFetchData } from '../../Actions/DiningItem';
+//import { connect } from 'react-redux';
+//import { diningFetchData } from '../../Actions/DiningItem';
 import Opened from 'material-ui/svg-icons/action/lock-open';
 import Closed from 'material-ui/svg-icons/action/lock-outline';
 import {red300, green300} from 'material-ui/styles/colors';
 import {List, ListItem} from 'material-ui/List';
-class DiningItem extends React.Component {
+
+export default class DiningItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,48 +27,70 @@ class DiningItem extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchData(`https://arcane-cove-10079.herokuapp.com/api/hours/${this.state.name}`)
+  componentDidMount() {    
+    fetch(`https://arcane-cove-10079.herokuapp.com/api/hours/${this.state.name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          status: data.status,
+          closing: data.closingTime,
+        })
+      });
   }
 
   getProperName() {
     return this.state.convertName[`${this.state.name}`];
   }
   
-  getProperResponse(dining) {
-    console.log("**");
-    console.log(dining);
-    if(dining.status === "OPEN")
-      return `until ${dining.closing}`;
-    else if(dining.closing === -1)
-      return "";
-    else if(dining.closing !== "Loading")
-      return `until ${dining.closing}`;
+  getProperResponse() {
+    if(this.state.status === undefined)
+      return "try again later";
+    if(this.state.status === "OPEN")
+      return `until ${this.state.closing}`;
+    else
+      return "closed right now";
+  }
+  
+  getProperIcon() {
+    if(this.state.status === "OPEN")
+      return <Opened color={green300}/>;
+    else
+      return <Closed color={red300}/>;
   }
 
   render() {
-    console.log(this.props.dining);
-    if(this.props.hasErrored)
-      return <ListItem primaryText={this.getProperName(this.props.dining)} secondaryText="Try again later..."/>
-    if(this.props.isLoading)
-      return <ListItem primaryText={this.getProperName(this.props.dining)} secondaryText="Loading..." />
-    return <ListItem primaryText={this.getProperName(this.props.dining)} secondaryText={this.getProperResponse(this.props.dining)} rightIcon={<Opened color={green300}/>}/>
+    return <ListItem
+            primaryText={this.getProperName()}
+            secondaryText={this.getProperResponse()}
+            rightIcon={this.getProperIcon()} />
   }
 }
 
+/*
+render --
+    if(curName in this.props.hasErrored)
+      return <ListItem primaryText={this.getProperName(exactDining)} secondaryText="Try again later..."/>
+    if(this.props.isLoading[curName])
+      return <ListItem primaryText={this.getProperName(exactDining)} secondaryText="Loading..." />
+--
+
 const mapStateToProps = (state) => {
+  console.log("STATE")
+  console.log(state)
   return {
-      status: state.dining.status,
-      closing: state.dining.closing,
-      hasErrored: state.diningHasErrored,
-      isLoading: state.diningIsLoading
-  };
+    dining: state.dining,
+    hasErrored: state.diningHasErrored,
+    isLoading: state.diningIsLoading
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      fetchData: (url) => dispatch(diningFetchData(url))
+      fetchData: (url, name) => dispatch(diningFetchData(url, name))
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiningItem);
+*/

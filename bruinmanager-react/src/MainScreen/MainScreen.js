@@ -40,7 +40,7 @@ const CalendarScreen = () => {
         <div className="generic-drawer-style-wrapper">
           <div className="padding-wrapper">
             <div className="logo-wrapper">
-              <img src={Logo} className="logo-style"/>
+              <img src={Logo} alt="BruinHub" className="logo-style"/>
             </div>
             <CalendarDrawer />
             <div />
