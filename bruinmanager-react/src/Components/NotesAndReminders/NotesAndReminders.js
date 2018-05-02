@@ -10,6 +10,28 @@ import ReminderSection from './ReminderSection';
 import './notesReminders.scss';
 
 export default class NotesAndReminders extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notesArr: []
+    }
+    this.createNote = this.createNote.bind(this);
+  }
+
+  createNote() {
+    let elem = (<ListItem
+      primaryText="Untitled"
+      secondaryText="Empty Note"
+      secondaryTextLines={2}
+    />);
+    let arr = this.state.notesArr;
+    arr.push(elem);
+    this.setState({
+      notesArr: arr
+    })
+    console.log(this.state.notesArr);
+  }
+
   render() {
     return (
       <div className='notes-and-reminders-section' style={styles.background}>
@@ -23,31 +45,7 @@ export default class NotesAndReminders extends React.Component {
                                    <Grid.Column mobile={6} tablet={6} computer={6} largeScreen={6} >
                                       <div className="scrollable-note-preview">
                                          <List>
-                                             <ListItem
-                                               primaryText="Note Title"
-                                               secondaryText="Note message here. Feel free to read more by clicking on me"
-                                               secondaryTextLines={2}
-                                             />
-                                             <ListItem
-                                               primaryText="Note Title"
-                                               secondaryText="Note message here. Feel free to read more by clicking on me"
-                                               secondaryTextLines={2}
-                                             />
-                                             <ListItem
-                                               primaryText="Note Title"
-                                               secondaryText="Note message here. Feel free to read more by clicking on me"
-                                               secondaryTextLines={2}
-                                             />
-                                             <ListItem
-                                               primaryText="Note Title"
-                                               secondaryText="Note message here. Feel free to read more by clicking on me"
-                                               secondaryTextLines={2}
-                                             />
-                                             <ListItem
-                                               primaryText="Note Title"
-                                               secondaryText="Note message here. Feel free to read more by clicking on me"
-                                               secondaryTextLines={2}
-                                             />
+                                            {this.state.notesArr}
                                          </List>
                                       </div>
                                    </Grid.Column>
@@ -65,7 +63,7 @@ export default class NotesAndReminders extends React.Component {
                       <Grid style={{width: "100%", paddingLeft: 15}}>
                           <Grid.Row style={{marginLeft: 10}}>
                               <Grid.Column mobile={6} tablet={6} computer={6} largeScreen={6}>
-                                  <RaisedButton label="Create New Note" primary={true} />
+                                  <RaisedButton label="Create New Note" primary={true} onClick={this.createNote} />
                               </Grid.Column>
                               <Grid.Column mobile={4} tablet={4} computer={4} largeScreen={4}>
                               </Grid.Column>
@@ -96,6 +94,33 @@ export default class NotesAndReminders extends React.Component {
     </Col>
   </Row>
 </Container>
+*/
+/*
+<ListItem
+  primaryText="Note Title"
+  secondaryText="Note message here. Feel free to read more by clicking on me"
+  secondaryTextLines={2}
+/>
+<ListItem
+  primaryText="Note Title"
+  secondaryText="Note message here. Feel free to read more by clicking on me"
+  secondaryTextLines={2}
+/>
+<ListItem
+  primaryText="Note Title"
+  secondaryText="Note message here. Feel free to read more by clicking on me"
+  secondaryTextLines={2}
+/>
+<ListItem
+  primaryText="Note Title"
+  secondaryText="Note message here. Feel free to read more by clicking on me"
+  secondaryTextLines={2}
+/>
+<ListItem
+  primaryText="Note Title"
+  secondaryText="Note message here. Feel free to read more by clicking on me"
+  secondaryTextLines={2}
+/>
 */
 
 let styles = {
