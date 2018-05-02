@@ -82,49 +82,109 @@ function processEnrollementData(data){	// TODO: only get this once, first pass d
 function processClassData(data){
 
 	console.log(data);
+
+	var normalClass = -1;
 	// get location of "Lec 1", all values are relative to this position
 	var i;
-	for(i = 0; i < data.length; i++){
-		if(data[i] == "Lec 1"){
-			i++;
+	for(var k = 0; k < data.length; k++){
+		if(data[k] == "Lec 1" || data[k] == "Lec 2"){
+			normalClass = 1;
+			i = k++;
+			break;
+		}
+
+		else if(data[k].includes("Lab ") && data[k].length == 5){
+			normalClass = 0;
+			i = k;
 			break;
 		}
 	}
+	// for(i = 0; i < data.length; i++){
+	// 	if(data[i] == "Lec 1" || data[i] == "Lec 2"){
+	// 		normalClass = 1;
+	// 		i++;
+	// 		break;
+	// 	}
 
-	var lecture =  {
-		"name": data[0] + " " + data[1],
-		"section": data[i-1],
-		"status": data[i],
-		"waitlist_status": data[i+1],
-		"days": data[i+2],
-		"time": data[i+3],
-		"location": data[i+4],
-		"units": data[i+5],
-		"instructor": data[i+6]
+	// 	else if(data[i].includes("Lab ") && data[i].length == 5){
+	// 		normalClass = 0;
+	// 		break;
+	// 	}
+	// }
+
+	var lecture;
+	var discussion;
+
+	if(normalClass){
+
+		lecture =  {
+			"name": data[0] + " " + data[1],
+			"section": data[i-1],
+			"status": data[i],
+			"waitlist_status": data[i+1],
+			"days": data[i+2],
+			"time": data[i+3],
+			"location": data[i+4],
+			"units": data[i+5],
+			"instructor": data[i+6]
+		}
+
+		var j;
+		for(j = i; j < data.length - 1; j++){
+			if(data[j] == "Exchange Class"){
+				if(data[j+1] != "Change Grade Type"){
+					break;
+				}
+				else{
+					j++;
+					break;
+				}
+			}
+		}
+
+		console.log("hi");
+		console.log(j);
+		console.log(data[j]);
+		console.log(data[j+1]);
+
+		discussion = {
+			"section": data[j+1],
+			"status": data[j+2],
+			"waitlist_status": data[j+3],
+			"days": data[j+4],
+			"time": data[j+5],
+			"location": data[j+6],
+			"instructor": data[j+8]
+		}
+
+
 	}
 
-	var j;
-	for(j = i; j < data.length - 1; j++){
-		if(data[j] == "Exchange Class"){
-			if(data[j+1] != "Change Grade Type"){
-				break;
-			}
-			else{
-				j++;
-				break;
-			}
+	else if(!normalClass){
+		// console.log(i);
+		lecture =  {
+			"name": data[0] + " " + data[1],
+			"section": data[i],
+			"status": data[i+1],
+			"waitlist_status": data[i+2],
+			"days": data[i+3],
+			"time": data[i+4],
+			"location": data[i+5],
+			"units": data[i+6],
+			"instructor": data[i+7]
+		}
+
+		discussion = {
+			"section": "",
+			"status": "",
+			"waitlist_status": "",
+			"days": "",
+			"time": "",
+			"location": "",
+			"instructor": "",
 		}
 	}
 
-	var discussion = {
-		"section": data[j+1],
-		"status": data[j+2],
-		"waitlist_status": data[j+3],
-		"days": data[j+4],
-		"time": data[j+5],
-		"location": data[j+6],
-		"instructor": data[j+8],
-	}
 
 	var clasData = {
 		"lecture": lecture,
