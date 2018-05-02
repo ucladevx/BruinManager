@@ -2,13 +2,21 @@
 @import '../../definitions';
 .ui.segment.week {
     background:none;
-    color:white;    
+    color:white;
     box-shadow: none;
 }
 .weather-box-style {
-    
+
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.weather-info {
+  font-family: 'Roboto';
+  font-size: 18px;
+}
+.week-num {
+  font-family: 'Roboto';
+  font-size: 36px;
 }
