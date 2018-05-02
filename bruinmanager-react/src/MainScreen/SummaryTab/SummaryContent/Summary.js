@@ -16,7 +16,7 @@ export default class Summary extends React.Component {
    <Grid style={{width: "95%",}}>
     <Grid.Row>
       <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6} >
-        <Segment><SuggestedEvents/></Segment>        
+        <Segment><SuggestedEvents/></Segment>
       </Grid.Column>
       <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={10} >
         <Grid.Row>
@@ -33,3 +33,10 @@ export default class Summary extends React.Component {
 }
 //<Segment> <NotesAndReminders/> </Segment>
 //<Segment ><StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/></Segment>
+/*
+<Grid.Column mobile={16} tablet={1} computer={1} largeScreen={1}>
+  <Grid.Row>
+    <br/>
+  </Grid.Row>
+</Grid.Column>
+*/

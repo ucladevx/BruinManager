@@ -30,8 +30,8 @@ export default class WeatherBox extends React.Component {
   render(props) {
     return (
       <div className="weather-box-style">
-            <h1>Week {this.props.weekNum}</h1>
-            <p>{moment().format("dddd, MMMM Do")}<br/>
+            <p className="week-num">Week {this.props.weekNum}</p>
+            <p className="weather-info">{moment().format("dddd, MMMM Do")}<br/>
             {this.state.temperature}&deg;, {this.state.condition}</p>
       </div>
     )
