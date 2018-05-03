@@ -154,8 +154,6 @@ export default class NotesAndReminders extends React.Component {
   }
 
 
-
-
   render() {
     return (
       <div className='notes-and-reminders-section' style={styles.background}>
