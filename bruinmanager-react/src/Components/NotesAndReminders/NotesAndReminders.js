@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col } from 'reactstrap';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {Grid, Segment} from  'semantic-ui-react'
@@ -8,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import NotesSection from './NotesSection';
 import ReminderSection from './ReminderSection';
+import {red400, blue700} from 'material-ui/styles/colors';
 import './notesReminders.scss';
 
 let SelectableList = makeSelectable(List);
@@ -174,9 +174,9 @@ export default class NotesAndReminders extends React.Component {
                                       </div>
                                    </Grid.Column>
                                    <Grid.Column mobile={10} tablet={10} computer={10} largeScreen={10} >
-                                     <div>
+                                     <Paper zDepth={1} children={
                                         <textarea type="text" name="note-content" className="note-content-section" ref="textinput" onChange={this.updateNoteInputValue} ></textarea>
-                                     </div>
+                                      }/>
                                    </Grid.Column>
                                </Grid.Row>
                              </Grid>
@@ -192,10 +192,10 @@ export default class NotesAndReminders extends React.Component {
                               <Grid.Column mobile={4} tablet={4} computer={4} largeScreen={4}>
                               </Grid.Column>
                               <Grid.Column mobile={3} tablet={3} computer={3} largeScreen={3}>
-                                  <RaisedButton label="Delete" backgroundColor="red" onClick={this.deleteNote} />
+                                  <RaisedButton label="Delete" backgroundColor={red400} labelStyle={{color: "white"}} onClick={this.deleteNote} />
                               </Grid.Column>
                               <Grid.Column mobile={3} tablet={3} computer={3} largeScreen={3}>
-                                  <RaisedButton label="Save" backgroundColor="cornflowerblue" onClick={this.saveNote} />
+                                  <RaisedButton label="Save" primary={true} onClick={this.saveNote} />
                               </Grid.Column>
                           </Grid.Row>
                       </Grid>

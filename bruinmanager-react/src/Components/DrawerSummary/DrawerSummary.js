@@ -14,6 +14,7 @@ export default class DrawerSummary extends React.Component {
         var b = localStorage.getItem("myBMData");
         var c = JSON.parse(b);
         var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/' + c.id;
+        //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
         let ans = []
         fetch(url)
         .then(results => {
