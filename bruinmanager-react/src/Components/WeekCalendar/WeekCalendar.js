@@ -109,8 +109,10 @@ class WeekCalendar extends React.Component {
     
     fetch(url)
     .then(results => {
+        console.log(results)
         return results.json()
     }).then(data => {
+      console.log(data)
         console.log(data[0].classes);
         this.setState({classArray: data[0].classes});
         this.state.classArray.map((course) => {
