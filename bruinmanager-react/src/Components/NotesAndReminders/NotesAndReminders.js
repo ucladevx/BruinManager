@@ -29,7 +29,6 @@ function wrapState(ComposedComponent) {
       this.setState({
         selectedIndex: index,
       });
-      console.log(this.state.selectedIndex);
     };
 
     render() {
