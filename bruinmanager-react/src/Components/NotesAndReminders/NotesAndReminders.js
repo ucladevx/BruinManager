@@ -52,16 +52,20 @@ export default class NotesAndReminders extends React.Component {
     this.state = {
       notesArr: [],
       noteCount: 0,
+      noteInput: '',
+      selectedNum: 0
     }
     this.createNote = this.createNote.bind(this);
   }
 
   createNote() {
+    let num = this.state.noteCount + 1;
     let elem = (<ListItem
       primaryText="Untitled"
       secondaryText="Empty Note"
       secondaryTextLines={1}
       value={this.state.noteCount + 1}
+      onClick={() =>  this.selectNote(num,"Empty Note")}
     />);
     let arr = this.state.notesArr;
     arr.unshift(elem);
@@ -69,7 +73,45 @@ export default class NotesAndReminders extends React.Component {
       notesArr: arr,
       noteCount: this.state.noteCount + 1
     })
+
   }
+
+  selectNote = (num,text) => {
+    this.refs.textinput.value=text;
+    this.setState({
+      selectedNum: num,
+      noteInput:text
+    })
+  }
+
+   saveNote = e => {
+    if(this.state.selectedNum>this.state.noteCount)
+        return;
+
+    let notesArr = this.state.notesArr;
+    let selectedNum =  this.state.selectedNum;
+    let userText = this.state.noteInput;
+    let elem = (<ListItem
+      primaryText={userText.substring(0,8)}
+      secondaryText={userText}
+      secondaryTextLines={1}
+      value={selectedNum}
+      onClick={() =>  this.selectNote(selectedNum,userText)}
+    />);
+    notesArr[notesArr.length - selectedNum] = elem;
+    this.setState({
+      notesArr: notesArr
+    })
+  }
+
+   updateNoteInputValue = e => {
+    this.setState({
+      noteInput: e.target.value
+    })
+  }
+
+
+
 
   render() {
     return (
@@ -90,7 +132,7 @@ export default class NotesAndReminders extends React.Component {
                                    </Grid.Column>
                                    <Grid.Column mobile={10} tablet={10} computer={10} largeScreen={10} >
                                      <div>
-                                        <textarea type="text" name="note-content" className="note-content-section"></textarea>
+                                        <textarea type="text" name="note-content" className="note-content-section" ref="textinput" onChange={this.updateNoteInputValue} ></textarea>
                                      </div>
                                    </Grid.Column>
                                </Grid.Row>
@@ -110,7 +152,7 @@ export default class NotesAndReminders extends React.Component {
                                   <RaisedButton label="Cancel" backgroundColor="red" />
                               </Grid.Column>
                               <Grid.Column mobile={3} tablet={3} computer={3} largeScreen={3}>
-                                  <RaisedButton label="Save" backgroundColor="cornflowerblue" />
+                                  <RaisedButton label="Save" backgroundColor="cornflowerblue" onClick={this.saveNote} />
                               </Grid.Column>
                           </Grid.Row>
                       </Grid>
