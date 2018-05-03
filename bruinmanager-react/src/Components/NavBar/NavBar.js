@@ -1,4 +1,5 @@
 import React from 'react';
+import Paper from 'material-ui/Paper';
 import {
   NavLink
 } from 'react-router-dom';
@@ -49,6 +50,7 @@ export default class NavBar extends React.Component {
         const { activeItem } = this.state
 
     return(
+      
      <Menu secondary>
      <Menu.Menu position='left'>
         <Menu.Item>
@@ -61,6 +63,7 @@ export default class NavBar extends React.Component {
             <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}><ButtonLinkHelp/></Menu.Item>
     </Menu.Menu>
       </Menu>
+      
         );
     }
 }

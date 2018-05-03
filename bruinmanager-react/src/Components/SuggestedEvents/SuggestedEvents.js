@@ -47,10 +47,10 @@ import CircularProgress from 'material-ui/CircularProgress';
 				</div>);
         }
 		return(
-			<Paper zDepth={1} children={
-				<Tabs>
+			<Paper zDepth={1} style={{height: "100%"}} children={
+				<Tabs style={{height: "100%"}}> 
 					<Tab label="Feed">
-						<GridList cellHeight="10vh" cols={1} style={{height: "70vh", overflowY: "auto"}}>
+						<GridList cellHeight="20%" cols={1} style={{maxHeight: "86vh", overflowY: "auto"}}>
 							{this.props.events.map((event) => {
 								return (<FeedCard
 											date={this.getMonthDate(new Date(event.start_time))}

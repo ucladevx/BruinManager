@@ -48,7 +48,7 @@ export default class DiningItem extends React.Component {
     if(this.state.status === undefined)
       return "try again later";
     if(this.state.status === "OPEN")
-      return `until ${this.state.closing}`;
+      return `until ${this.state.closing.split("m")[0]}m`;
     else
       return "closed right now";
   }
