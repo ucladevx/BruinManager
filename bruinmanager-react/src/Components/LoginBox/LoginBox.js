@@ -52,7 +52,7 @@ class LoginBox extends Component {
 
     render() {        
         return (
-            <div style={styles.loginDisplayWrapper}>
+            <div style={styles.loginDisplayWrapper} className="login-box-style">
                <div style={styles.logoHeader}>
                    <div style={styles.logoWrapper}>
                        <img src={Logo} style={styles.logoStyle}/>

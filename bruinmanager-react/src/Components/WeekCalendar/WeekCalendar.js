@@ -114,9 +114,9 @@ class WeekCalendar extends React.Component {
         console.log(data[0].classes);
         this.setState({classArray: data[0].classes});
         this.state.classArray.map((course) => {
-            if("discussion" in course && course.discussion.days.split("")[0] !== 'N')
+            if("discussion" in course && "days" in course.discussion && course.discussion.days.split("")[0] !== 'N')
               this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
-            if("lecture" in course && course.lecture.days.split("")[0] !== 'N')
+            if("lecture" in course && "days" in course.lecture && course.lecture.days.split("")[0] !== 'N')
               this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
         });
     });

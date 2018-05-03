@@ -13,21 +13,19 @@ import NotesAndReminders from '../../../Components/NotesAndReminders/NotesAndRem
 export default class Summary extends React.Component {
     render() {
 		return (
-   <Grid style={{width: "95%",}}>
-    <Grid.Row>
-      <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6} >
-        <Segment><SuggestedEvents/></Segment>
-      </Grid.Column>
-      <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={10} >
-        <Grid.Row>
+      <Grid style={{height: "100%"}}>
+        <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6}>
+          <SuggestedEvents/>
+        </Grid.Column>
+        <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={9} style={{marginLeft: "30px"}}>
+          <Grid.Row>
             <NotesAndReminders/>
-        </Grid.Row>
-        <Grid.Row>
+          </Grid.Row>
+          <Grid.Row>
             <DiningStack/>
-        </Grid.Row>
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
+          </Grid.Row>
+        </Grid.Column>
+      </Grid>
 		)
 	}
 }

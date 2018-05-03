@@ -8,13 +8,15 @@ export default class GenericContent extends React.Component {
   render(props) {      
     return (
         <div className="generic-content-style-wrapper">
-            <div className="navbar-wrapper">
-                <div className="navbar-padding">
-                    <NavBar activeItem = {this.props.activeItem}/>
+            <div className="padding-wrapper">
+                <div className="navbar-wrapper">
+                    <div className="navbar-padding">
+                        <NavBar activeItem = {this.props.activeItem}/>
+                    </div>
                 </div>
-            </div>
-            <div className="content-wrapper">
-                {this.props.children}
+                <div className="content-wrapper">
+                    {this.props.children}
+                </div>
             </div>
         </div>
     );
