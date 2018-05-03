@@ -56,6 +56,8 @@ export default class NotesAndReminders extends React.Component {
       selectedNum: 0
     }
     this.createNote = this.createNote.bind(this);
+    this.saveNote = this.saveNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   createNote() {
@@ -74,6 +76,37 @@ export default class NotesAndReminders extends React.Component {
       noteCount: this.state.noteCount + 1
     })
 
+  }
+
+  deleteNote(e) {
+    if(this.state.selectedNum>this.state.noteCount)
+        return;
+
+    let notesArr = this.state.notesArr;
+    let selectedNum =  this.state.selectedNum;
+    let userText = this.state.noteInput;
+    let elem = (<ListItem
+      primaryText={userText.substring(0,8)}
+      secondaryText={userText}
+      secondaryTextLines={1}
+      value={selectedNum}
+      onClick={() =>  this.selectNote(selectedNum,userText)}
+    />);
+    /*
+    let index = 0;
+    for(let i = 0; i < notesArr.length; i++) {
+      if(notesArr[i].props.value == selectedNum) {
+        index = i;
+        break;
+      }
+    }
+    notesArr = notesArr.splice(index, 1);
+    */
+    notesArr[notesArr.length - selectedNum] = null;
+    this.setState({
+      notesArr: notesArr,
+    })
+    this.refs.textinput.value=''
   }
 
   selectNote = (num,text) => {
@@ -98,13 +131,23 @@ export default class NotesAndReminders extends React.Component {
       value={selectedNum}
       onClick={() =>  this.selectNote(selectedNum,userText)}
     />);
+    /*
+    let index = 0;
+    for(let i = 0; i < notesArr.length; i++) {
+      if(notesArr[i].props.value == selectedNum) {
+        index = i;
+        break;
+      }
+    }
+    */
     notesArr[notesArr.length - selectedNum] = elem;
+    //notesArr[index] = elem;
     this.setState({
       notesArr: notesArr
     })
   }
 
-   updateNoteInputValue = e => {
+  updateNoteInputValue = e => {
     this.setState({
       noteInput: e.target.value
     })
@@ -149,7 +192,7 @@ export default class NotesAndReminders extends React.Component {
                               <Grid.Column mobile={4} tablet={4} computer={4} largeScreen={4}>
                               </Grid.Column>
                               <Grid.Column mobile={3} tablet={3} computer={3} largeScreen={3}>
-                                  <RaisedButton label="Cancel" backgroundColor="red" />
+                                  <RaisedButton label="Delete" backgroundColor="red" onClick={this.deleteNote} />
                               </Grid.Column>
                               <Grid.Column mobile={3} tablet={3} computer={3} largeScreen={3}>
                                   <RaisedButton label="Save" backgroundColor="cornflowerblue" onClick={this.saveNote} />
