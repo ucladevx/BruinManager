@@ -89,7 +89,7 @@ function processClassData(data){
 	for(var k = 0; k < data.length; k++){
 		if(data[k] == "Lec 1" || data[k] == "Lec 2"){
 			normalClass = 1;
-			i = k++;
+			i = ++k;
 			break;
 		}
 
@@ -99,24 +99,12 @@ function processClassData(data){
 			break;
 		}
 	}
-	// for(i = 0; i < data.length; i++){
-	// 	if(data[i] == "Lec 1" || data[i] == "Lec 2"){
-	// 		normalClass = 1;
-	// 		i++;
-	// 		break;
-	// 	}
-
-	// 	else if(data[i].includes("Lab ") && data[i].length == 5){
-	// 		normalClass = 0;
-	// 		break;
-	// 	}
-	// }
 
 	var lecture;
 	var discussion;
 
 	if(normalClass){
-
+		console.log(i);
 		lecture =  {
 			"name": data[0] + " " + data[1],
 			"section": data[i-1],
@@ -142,11 +130,6 @@ function processClassData(data){
 			}
 		}
 
-		console.log("hi");
-		console.log(j);
-		console.log(data[j]);
-		console.log(data[j+1]);
-
 		discussion = {
 			"section": data[j+1],
 			"status": data[j+2],
@@ -156,12 +139,9 @@ function processClassData(data){
 			"location": data[j+6],
 			"instructor": data[j+8]
 		}
-
-
 	}
 
 	else if(!normalClass){
-		// console.log(i);
 		lecture =  {
 			"name": data[0] + " " + data[1],
 			"section": data[i],
