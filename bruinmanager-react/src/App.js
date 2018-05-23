@@ -12,6 +12,7 @@ import 'semantic-ui-css/semantic.min.css';
 import LoginScreen from './LoginScreen/LoginScreen.js';
 import SignUpScreen from './LoginScreen/SignUpScreen.js';
 import MainScreen from './MainScreen/MainScreen';
+import IntermediateScreen from './Components/IntermediatePage/IntermediatePage.js';
 import CalendarContent from './MainScreen/CalendarTab/CalendarContent/Calendar.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -76,6 +77,7 @@ export default class App extends Component {
             <Route exact path="/signup" component={SignUpScreen}/>
             <Route exact path="/dashboard" component={DashboardScreen}/>
             <Route exact path="/calendar" component={DashboardScreen}/>
+            <Route exact path="/intermediate" component={IntermediateScreen}/>
           </Switch>
         </div>
       </Router>

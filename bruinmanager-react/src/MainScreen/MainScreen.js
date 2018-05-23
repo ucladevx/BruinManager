@@ -10,6 +10,7 @@ import SummaryDrawer from './SummaryTab/SummaryDrawer/SummaryDrawer';
 import GenericContent from '../Components/GenericContent/GenericContent';
 import CalendarContent from './CalendarTab/CalendarContent/Calendar';
 import SummaryContent from './SummaryTab/SummaryContent/Summary';
+import IntermediateContent from '../Components/IntermediatePage/IntermediatePage.js';
 import Drawer from 'material-ui/Drawer';
 import Logo from './bruinhub-wordmark.png';
 import './MainScreen.scss';
@@ -52,6 +53,12 @@ const CalendarScreen = () => {
   );
 }
 
+const IntermediateScreen = () => {
+  return (
+    <IntermediateContent />
+  );
+}
+
 export default class MainScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -69,6 +76,7 @@ export default class MainScreen extends React.Component {
           <Route path="/calendar" component={CalendarScreen} />
           <Route path="/settings" component={SummaryScreen} />
           <Route path="/help" component={SummaryScreen} />
+          <Route path="/help" component={IntermediateScreen} />
         </Switch>
       </Router>
 		);

@@ -92,13 +92,13 @@ class WeekCalendar extends React.Component {
     
     // get User id with fb info
     var b = localStorage.getItem("myBMData");
-    var c = JSON.parse(b);
-    console.log(c);
+    //var c = JSON.parse(b);
+    //console.log(c);
     
     // GET request this url to get user's classes
 
-    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/' + c.id;
-    //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
+    //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/' + c.id;
+    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
     
     // TODO: get request this url and put classes in the calendar
     //console.log(url);

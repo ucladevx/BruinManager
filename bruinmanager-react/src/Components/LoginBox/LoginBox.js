@@ -23,7 +23,7 @@ class LoginBox extends Component {
         alert(fb)
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
-      this.props.history.push('/dashboard');
+      this.props.history.push('/intermediate');
       // let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       // fetch(url, {
       //   method: 'post',
@@ -105,7 +105,7 @@ class LoginBox extends Component {
                        <div style={styles.firstPartyLogin}>
                            <FormBox title="Email" inputType="text"/>
                            <FormBox title="Password" inputType="password"/>
-                           <Link to="/dashboard"><button className="hoverDark">Login</button> </Link>
+                           <Link to="/intermediate"><button className="hoverDark">Login</button> </Link>
                        </div>
                    </div>
                    <div style={styles.circleDivider}>
