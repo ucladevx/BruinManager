@@ -92,32 +92,39 @@ class WeekCalendar extends React.Component {
     
     // get User id with fb info
     var b = localStorage.getItem("myBMData");
-    var c = JSON.parse(b);
-    console.log(c.id);
+    //var c = JSON.parse(b);
+    //console.log(c);
     
     // GET request this url to get user's classes
-    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/' + c.id;
+
+    //var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/' + c.id;
+    var url = 'https://arcane-cove-10079.herokuapp.com/api/classes/1941429952552173';//c.id;
+    
     // TODO: get request this url and put classes in the calendar
-    console.log(url);
+    //console.log(url);
 
     // end logic to get users data from api
 
     if(!this.state.isSmall)
         this.refs.calendarbody.refs[0].refs[moment().hours()].refs[moment().hours()].scrollIntoView();
     
-
+    
     fetch(url)
     .then(results => {
+        console.log(results)
         return results.json()
     }).then(data => {
+      console.log(data)
+        console.log(data[0].classes);
         this.setState({classArray: data[0].classes});
-        this.state.classArray.map((course) => {            
-            if(course.discussion.days.split("")[0] !== 'N')
+        this.state.classArray.map((course) => {
+            if("discussion" in course && "days" in course.discussion && course.discussion.days.split("")[0] !== 'N')
               this.addTimeSlots(course.discussion, `[DIS] ${course.lecture.name}`);
-            if(course.lecture.days.split("")[0] !== 'N')
+            if("lecture" in course && "days" in course.lecture && course.lecture.days.split("")[0] !== 'N')
               this.addTimeSlots(course.lecture, `[LEC] ${course.lecture.name}`);
         });
     });
+    
   }
   parseHour(time) {
       let res = parseInt(time.split(":")[0].substring(0, time.length - 2));
@@ -486,7 +493,7 @@ class WeekCalendar extends React.Component {
           />
         </div>
         <div className="weekCalendar__content" onScroll={this.handleScroll} style={this.state.isSmall ? {minHeight: 300, maxHeight: 300, overflowX: "scroll", overflowY: "hidden",} :
-                                                                                                        {minHeight: 650, maxHeight: 650, pointerEvents: "auto",}}>
+                                                                                                        {minHeight: "100%", width: "auto", pointerEvents: "auto", overflowX: "hidden", overflowY: "scroll"}}>
           <CalendarBody
             ref = "calendarbody"
             firstDay={firstDay}

@@ -58,6 +58,8 @@ export default class StandardCalendar extends React.Component {
 
     if(tempTime.toDate() > timeLimit)
         tempTime = moment({h: 19, m:0 });
+    if(!this.state.isSmall)
+        tempTime = moment({h: 0, m: 0});
     return <WeekCalendar
       firstDay = {moment().startOf('week')}
       startTime = {tempTime}

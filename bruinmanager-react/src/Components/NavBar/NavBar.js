@@ -1,10 +1,11 @@
 import React from 'react';
+import Paper from 'material-ui/Paper';
 import {
   NavLink
 } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react'
-
 //import './NavBar.scss';
+import './NavBar.scss';
 
 const ButtonLinkDashboard = () => {
   return (
@@ -38,14 +39,18 @@ const ButtonLinkHelp = () => {
   )
 }
 export default class NavBar extends React.Component {
-     state = { activeItem: 'dashboard' }
 
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: this.props.activeItem };
+  }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-    render() {
+    render(props) {
         const { activeItem } = this.state
 
     return(
+      
      <Menu secondary>
      <Menu.Menu position='left'>
         <Menu.Item>
@@ -58,6 +63,7 @@ export default class NavBar extends React.Component {
             <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}><ButtonLinkHelp/></Menu.Item>
     </Menu.Menu>
       </Menu>
+      
         );
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './WeatherBox.scss';
+import moment from 'moment';
 export default class WeatherBox extends React.Component {
   constructor(props) {
     super(props);
@@ -28,9 +29,9 @@ export default class WeatherBox extends React.Component {
 
   render(props) {
     return (
-      <div style={{background:'none'}}>
-            <h1 className="week-info centered">Week {this.props.weekNum}</h1>
-            <p>{this.props.startWeek} - {this.props.endWeek} <br/>
+      <div className="weather-box-style">
+            <p className="week-num">Week {this.props.weekNum}</p>
+            <p className="weather-info">{moment().format("dddd, MMMM Do")}<br/>
             {this.state.temperature}&deg;, {this.state.condition}</p>
       </div>
     )

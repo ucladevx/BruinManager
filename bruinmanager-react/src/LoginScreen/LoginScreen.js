@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   NavLink
 } from 'react-router-dom';
-import Icon from './images/Vector.png';
+import Icon from './images/bruinhub-wordmark.png';
+//import Logo from './images/SignikaNegative.png';
 import LoginBox from '../Components/LoginBox/LoginBox.js';
 import LandingInfo from './LandingInfo';
 
@@ -13,8 +14,8 @@ export default class LoginScreen extends Component {
             <div style={styles.landingWrapper}>
                 <div style={styles.navBar}>
                     <div style={styles.navContent}>
-                        <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
-                            <img src={Icon} style={{height: 40, }}/>
+                        <div style={{display: "flex", justifyContent: "center", justifyContent: "center", alignItems:"center"}}>
+                            <img src={Icon} style={{height: 45, }}/>
                         </div>
                         <div>
                             <NavLink to="/">
@@ -79,7 +80,7 @@ let styles = {
         alignItems: "center",
     },
     navtext: {
-      fontFamily: 'Signika Negative',
+      fontFamily: 'Terminal Dosis',
       color: "#475993",
       fontSize: 20,
       marginLeft: 40,

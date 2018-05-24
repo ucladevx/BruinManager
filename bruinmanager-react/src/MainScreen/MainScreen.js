@@ -4,105 +4,122 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import {Grid, Responsive, Segment } from  'semantic-ui-react'
-import NavBar from '../Components/NavBar/NavBar.js'
-import {BigCalendar,EtcCalendar} from './CalendarTab/Calendar';
-import {SummaryImportant} from './SummaryTab/Summary'
-import SuggestedEvents from '../Components/SuggestedEvents/SuggestedEvents.js';
-import DiningStack from '../Components/DiningStack/DiningStack.js';
+//import {Grid,Segment } from  'semantic-ui-react'
+import CalendarDrawer from './CalendarTab/CalendarDrawer/CalendarDrawer';
+import SummaryDrawer from './SummaryTab/SummaryDrawer/SummaryDrawer';
+import GenericContent from '../Components/GenericContent/GenericContent';
+import CalendarContent from './CalendarTab/CalendarContent/Calendar';
+import SummaryContent from './SummaryTab/SummaryContent/Summary';
+import IntermediateContent from '../Components/IntermediatePage/IntermediatePage.js';
+import Drawer from 'material-ui/Drawer';
+import Logo from './bruinhub-wordmark.png';
 import './MainScreen.scss';
 
-const SummaryScreenLeft = () => (
-    <SummaryImportant/>
-)
-
-const CalendarScreenLeft = () => {
-    <EtcCalendar />
+const SummaryScreen = () => {
+  return(
+    <div className="mainScreen-style-wrapper">
+      <Drawer width = "25%" open={true} zDepth={2} >
+        <div className="generic-drawer-style-wrapper">
+          <div className="padding-wrapper">
+            <div className="logo-wrapper">
+              <img src={Logo} alt="BruinHub" className="logo-style"/>
+            </div>
+            <SummaryDrawer />
+            <div />
+          </div>
+        </div>            
+      </Drawer>
+      <GenericContent activeItem="dashboard"><SummaryContent /></GenericContent>
+    </div>
+  );
 }
 
-
-const SummaryScreenRight = () => (
-    <Grid >
-        <Grid.Row>
-             <Grid.Column mobile={16} tablet={16} computer={6}>
-                     <Segment><SuggestedEvents/></Segment>
-            </Grid.Column>
-            <Grid.Column mobile={16} tablet={16} computer={6}>
-                  <Segment> <DiningStack/> </Segment>
-            </Grid.Column>
-        </Grid.Row>
-    </Grid>
-)
-
-const CalendarScreenRight = () => {
-    <Segment><BigCalendar /></Segment>
+const CalendarScreen = () => {
+  return (
+    <div className="mainScreen-style-wrapper">
+      <Drawer width = "25%" open={true} zDepth={2}>
+        <div className="generic-drawer-style-wrapper">
+          <div className="padding-wrapper">
+            <div className="logo-wrapper">
+              <img src={Logo} alt="BruinHub" className="logo-style"/>
+            </div>
+            <CalendarDrawer />
+            <div />
+          </div>
+        </div>            
+      </Drawer> 
+      <GenericContent activeItem="calendar"><CalendarContent /></GenericContent>
+    </div>
+  );
 }
 
-const SettingsScreen = () => {
-    <h1 >Settings</h1>
+const IntermediateScreen = () => {
+  return (
+    <IntermediateContent />
+  );
 }
-
-const HelpScreen = () => {
-    <h1 >Help</h1>
-}
-
 
 export default class MainScreen extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          isActiveDashboard: true,
-          fbdata: this.props.fbdata
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActiveDashboard: true,
+      fbdata: this.props.fbdata
+    };
+  }
 
-    render() {
-        return (
-       <div className="mainScreen-style-wrapper mainScreen-wrapper current-tab">
-            <Responsive minWidth={700}>
-            <Router>
-                <Switch>
-                    <Grid >
-                    <Grid.Row>
-                        <Grid.Column width={5}>
-                            <Route path="/calendar" component={CalendarScreenLeft} />
-                            <Route path="/dashboard" component={SummaryScreenLeft}/>
-                            <Route path="/settings" component={SettingsScreen}/>
-                            <Route path="/help" component={HelpScreen}/>
-                        </Grid.Column>
-                         <Grid.Column width={11}>
-                            <NavBar/>
-                            <Route path="/calendar" component={CalendarScreenRight} />
-                            <Route path="/dashboard" component={SummaryScreenRight}/>
-                            <Route path="/settings" component={SettingsScreen}/>
-                            <Route path="/help" component={HelpScreen}/>
-                        </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-            </Switch>
-          </Router>
-         </Responsive>
-
-         <Responsive maxWidth={699}>
-            <Router>
-                <Switch>
-                <Grid >
-                    <Grid.Row>
-                        <Grid.Column >
-                            <NavBar/>
-                            <Route path="/calendar" component={CalendarScreenLeft} />
-                            <Route path="/calendar" component={CalendarScreenRight} />
-                            <Route path="/dashboard" component={SummaryScreenLeft}/>
-                            <Route path="/dashboard" component={SummaryScreenRight}/>
-                            <Route path="/settings" component={SettingsScreen}/>
-                            <Route path="/help" component={HelpScreen}/>
-                        </Grid.Column>
-                     </Grid.Row>
-              </Grid>
-            </Switch>
-          </Router>
-         </Responsive>
-    </div>
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/dashboard" component={SummaryScreen} />
+          <Route path="/calendar" component={CalendarScreen} />
+          <Route path="/settings" component={SummaryScreen} />
+          <Route path="/help" component={SummaryScreen} />
+          <Route path="/help" component={IntermediateScreen} />
+        </Switch>
+      </Router>
 		);
 	}
 }
+
+/*
+            <Switch>
+              <Route path="/calendar" component={<CalendarScreen />} />
+              <Route path="/dashboard" component={<SummaryScreen />} />
+              <Route path="/settings" component={<SummaryScreen />} />
+              <Route path="/help" component={<SummaryScreen />} />
+            </Switch>
+
+
+
+            <Switch>
+              <Route path="/calendar" component={<GenericContent><CalendarContent /></GenericContent> } />
+              <Route path="/dashboard" component={<GenericContent><CalendarContent /></GenericContent> } />
+              <Route path="/settings" component={SettingsScreen}/>
+              <Route path="/help" component={HelpScreen}/>
+            </Switch>
+                    <div>
+                    </div>
+                    <div>
+                      <Grid>
+                      <Grid.Row>
+                        <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={4} >
+                          <Segment></Segment>
+                        </Grid.Column>
+                        <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={12} >
+                            <NavBar />
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                      <div className="current-tab">
+                          <Switch>
+                              <Route path="/calendar" component={CalendarScreen} />
+                              <Route path="/dashboard" component={SummaryScreen}/>
+                              <Route path="/settings" component={SettingsScreen}/>
+                              <Route path="/help" component={HelpScreen}/>
+                          </Switch>
+                      </div>
+                      <Footer/>
+                      </div>
+*/

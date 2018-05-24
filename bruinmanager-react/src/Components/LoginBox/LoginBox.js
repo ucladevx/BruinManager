@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import fbLogo from './fbLogo.png';
 import gmailLogo from './gmailLogo.png';
-import Logo from './SignikaNegative.png';
+import Logo from './bruinhub-logo+wordmark.png';
 import FormBox from '../FormBox/FormBox.js';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
 import { connect } from 'react-redux';
 import { facebookFetchData } from '../../Actions/Login';
 
+//import FontAwesome from 'react-fontawesome';
+import './LoginBox.scss';
 class LoginBox extends Component {
     componentClicked  = response => {
       //e.preventDefault();
@@ -21,7 +23,7 @@ class LoginBox extends Component {
         alert(fb)
 
       localStorage.setItem('myBMData', JSON.stringify(fb));
-      this.props.history.push('/dashboard');
+      this.props.history.push('/intermediate');
       // let url = "https://arcane-cove-10079.herokuapp.com/post/userID";
       // fetch(url, {
       //   method: 'post',
@@ -48,9 +50,9 @@ class LoginBox extends Component {
       console.log(response);
     }
 
-    render() {
+    render() {        
         return (
-            <div style={styles.loginDisplayWrapper}>
+            <div style={styles.loginDisplayWrapper} className="login-box-style">
                <div style={styles.logoHeader}>
                    <div style={styles.logoWrapper}>
                        <img src={Logo} style={styles.logoStyle}/>
@@ -103,7 +105,7 @@ class LoginBox extends Component {
                        <div style={styles.firstPartyLogin}>
                            <FormBox title="Email" inputType="text"/>
                            <FormBox title="Password" inputType="password"/>
-                           <Link to="/dashboard"><button className="hoverDark">Login</button> </Link>
+                           <Link to="/intermediate"><button className="hoverDark">Login</button> </Link>
                        </div>
                    </div>
                    <div style={styles.circleDivider}>
@@ -160,12 +162,12 @@ let styles = {
     },
     logoWrapper: {
         display: "flex",
-        width: "100%",
+        width: "55%",
         justifyContent: "center",
         alignItems: "center",
     },
     logoStyle: {
-        width: "75%",
+        width: "55%",
         height: "auto",
     },
     interface: {
@@ -194,7 +196,7 @@ let styles = {
         width: "45%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         alignItems: "center",
     },
     loginSetup: {

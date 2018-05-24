@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-
 export default class Note extends React.Component {
   removeParent(e) {
     this.remove();
