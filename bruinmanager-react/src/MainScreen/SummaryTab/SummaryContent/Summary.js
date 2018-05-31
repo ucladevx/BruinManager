@@ -13,7 +13,7 @@ import NotesAndReminders from '../../../Components/NotesAndReminders/NotesAndRem
 export default class Summary extends React.Component {
     render() {
 		return (
-      <Grid style={{height: "100%"}}>
+      <Grid style={{height: "95%"}}>
         <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6}>
           <SuggestedEvents/>
         </Grid.Column>

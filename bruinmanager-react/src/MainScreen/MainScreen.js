@@ -1,75 +1,25 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
-//import {Grid,Segment } from  'semantic-ui-react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RMS from './ResponsiveMainScreen.js';
 import CalendarDrawer from './CalendarTab/CalendarDrawer/CalendarDrawer';
 import SummaryDrawer from './SummaryTab/SummaryDrawer/SummaryDrawer';
-import GenericContent from '../Components/GenericContent/GenericContent';
+//import GenericContent from '../Components/GenericContent/GenericContent';
 import CalendarContent from './CalendarTab/CalendarContent/Calendar';
 import SummaryContent from './SummaryTab/SummaryContent/Summary';
 import IntermediateContent from '../Components/IntermediatePage/IntermediatePage.js';
-import Drawer from 'material-ui/Drawer';
-import NewDrawer from '@material-ui/core/Drawer';
-import Logo from './bruinhub-wordmark.png';
 import './MainScreen.scss';
-//<Drawer width = "25%" open={true} zDepth={2} >
+
+
+
 const SummaryScreen = () => {
-  return(
-    <div className="mainScreen-style-wrapper">
-      <NewDrawer
-        variant="permanent"
-        anchor="left"
-        classes={{
-          paper: {position: 'relative', width: '500px'}
-        }}
-      >
-        <div className="generic-drawer-style-wrapper">
-          <div className="padding-wrapper">
-            <div className="logo-wrapper">
-              <img src={Logo} alt="BruinHub" className="logo-style"/>
-            </div>
-              <SummaryDrawer />
-            <div />
-          </div>
-        </div>            
-      </NewDrawer>
-      <GenericContent activeItem="dashboard"><SummaryContent /></GenericContent>
-    </div>
-  );
+  return(<RMS specificContent={<SummaryContent/>} specificDrawer={<SummaryDrawer/>}/>);
 }
-
 const CalendarScreen = () => {
-  return (
-    <div className="mainScreen-style-wrapper">
-      <NewDrawer
-        variant="permanent"
-        anchor="left"
-        classes={{paper: {width: "25%"}}}
-      >
-        <div className="generic-drawer-style-wrapper">
-          <div className="padding-wrapper">
-            <div className="logo-wrapper">
-              <img src={Logo} alt="BruinHub" className="logo-style"/>
-            </div>
-              <CalendarDrawer />
-            <div />
-          </div>
-        </div>
-      </NewDrawer>
-      <GenericContent activeItem="calendar"><CalendarContent /></GenericContent>
-    </div>
-  );
+  return(<RMS specificContent={<CalendarContent/>} specificDrawer={<CalendarDrawer/>}/>);
 }
-
 const IntermediateScreen = () => {
-  return (
-    <IntermediateContent />
-  );
+  return(<RMS specificContent={<IntermediateContent/>}/>);
 }
-
 export default class MainScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -87,50 +37,60 @@ export default class MainScreen extends React.Component {
           <Route path="/calendar" component={CalendarScreen} />
           <Route path="/settings" component={SummaryScreen} />
           <Route path="/help" component={SummaryScreen} />
-          <Route path="/help" component={IntermediateScreen} />
+          <Route path="/inter" component={IntermediateScreen} />
         </Switch>
       </Router>
 		);
 	}
 }
 
-/*
-            <Switch>
-              <Route path="/calendar" component={<CalendarScreen />} />
-              <Route path="/dashboard" component={<SummaryScreen />} />
-              <Route path="/settings" component={<SummaryScreen />} />
-              <Route path="/help" component={<SummaryScreen />} />
-            </Switch>
+// const SummaryScreen = (props) => {
+//   return(
+//     <div className="mainScreen-style-wrapper">
+//       <NewDrawer
+//         variant="permanent"
+//         anchor="left"
+//         className={props.classes.drawer}>
+//         <div className="generic-drawer-style-wrapper">
+//           <div className="padding-wrapper">
+//             <div className="logo-wrapper">
+//               <img src={Logo} alt="BruinHub" className="logo-style"/>
+//             </div>
+//               <SummaryDrawer />
+//             <div />
+//           </div>
+//         </div>            
+//       </NewDrawer>
+//       <GenericContent activeItem="dashboard"><SummaryContent /></GenericContent>
+//     </div>
+//   );
+// }
 
+// const CalendarScreen = (props) => {
+//   return (
+//     <div className="mainScreen-style-wrapper">
+//       <NewDrawer
+//         variant="permanent"
+//         anchor="left"
+//         className={props.classes.drawer}>
+//         <div className="generic-drawer-style-wrapper">
+//           <div className="padding-wrapper">
+//             <div className="logo-wrapper">
+//               <img src={Logo} alt="BruinHub" className="logo-style"/>
+//             </div>
+//               <CalendarDrawer />
+//             <div />
+//           </div>
+//         </div>
+//       </NewDrawer>
+//       <GenericContent activeItem="calendar"><CalendarContent /></GenericContent>
+//     </div>
+//   );
+// }
 
-
-            <Switch>
-              <Route path="/calendar" component={<GenericContent><CalendarContent /></GenericContent> } />
-              <Route path="/dashboard" component={<GenericContent><CalendarContent /></GenericContent> } />
-              <Route path="/settings" component={SettingsScreen}/>
-              <Route path="/help" component={HelpScreen}/>
-            </Switch>
-                    <div>
-                    </div>
-                    <div>
-                      <Grid>
-                      <Grid.Row>
-                        <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={4} >
-                          <Segment></Segment>
-                        </Grid.Column>
-                        <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={12} >
-                            <NavBar />
-                        </Grid.Column>
-                      </Grid.Row>
-                    </Grid>
-                      <div className="current-tab">
-                          <Switch>
-                              <Route path="/calendar" component={CalendarScreen} />
-                              <Route path="/dashboard" component={SummaryScreen}/>
-                              <Route path="/settings" component={SettingsScreen}/>
-                              <Route path="/help" component={HelpScreen}/>
-                          </Switch>
-                      </div>
-                      <Footer/>
-                      </div>
-*/
+// const IntermediateScreen = () => {
+//   return (
+//     <IntermediateContent />
+//     <ResponsiveDrawer specificDrawer="" specificContent=""/>
+//   );
+// }

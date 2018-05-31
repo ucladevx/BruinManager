@@ -17,7 +17,7 @@ export default class Calendar extends React.Component {
     return (
       <div className="calendar-style-wrapper">
         <Paper zDepth={1} style={{width:"100%", height:"100%"}} children={
-          <StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {false} weekNum={5}/>
+          <StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {false} weekNum={10}/>
         }/>
       </div>
     )

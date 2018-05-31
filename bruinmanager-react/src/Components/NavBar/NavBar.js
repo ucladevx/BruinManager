@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from 'material-ui/Paper';
 import {
   NavLink
 } from 'react-router-dom';

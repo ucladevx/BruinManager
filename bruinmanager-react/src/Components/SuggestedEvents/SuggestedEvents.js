@@ -47,7 +47,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 				</div>);
         }
 		return(
-			<Paper zDepth={1} style={{height: "100%"}} children={
+			<Paper zDepth={1} style={{height: "95%"}} children={
 				<Tabs style={{height: "100%"}}> 
 					<Tab label="Feed">
 						<GridList cellHeight="20%" cols={1} style={{maxHeight: "86vh", overflowY: "auto"}}>
