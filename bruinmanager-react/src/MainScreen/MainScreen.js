@@ -12,23 +12,30 @@ import CalendarContent from './CalendarTab/CalendarContent/Calendar';
 import SummaryContent from './SummaryTab/SummaryContent/Summary';
 import IntermediateContent from '../Components/IntermediatePage/IntermediatePage.js';
 import Drawer from 'material-ui/Drawer';
+import NewDrawer from '@material-ui/core/Drawer';
 import Logo from './bruinhub-wordmark.png';
 import './MainScreen.scss';
-
+//<Drawer width = "25%" open={true} zDepth={2} >
 const SummaryScreen = () => {
   return(
     <div className="mainScreen-style-wrapper">
-      <Drawer width = "25%" open={true} zDepth={2} >
+      <NewDrawer
+        variant="permanent"
+        anchor="left"
+        classes={{
+          paper: {position: 'relative', width: '500px'}
+        }}
+      >
         <div className="generic-drawer-style-wrapper">
           <div className="padding-wrapper">
             <div className="logo-wrapper">
               <img src={Logo} alt="BruinHub" className="logo-style"/>
             </div>
-            <SummaryDrawer />
+              <SummaryDrawer />
             <div />
           </div>
         </div>            
-      </Drawer>
+      </NewDrawer>
       <GenericContent activeItem="dashboard"><SummaryContent /></GenericContent>
     </div>
   );
@@ -37,17 +44,21 @@ const SummaryScreen = () => {
 const CalendarScreen = () => {
   return (
     <div className="mainScreen-style-wrapper">
-      <Drawer width = "25%" open={true} zDepth={2}>
+      <NewDrawer
+        variant="permanent"
+        anchor="left"
+        classes={{paper: {width: "25%"}}}
+      >
         <div className="generic-drawer-style-wrapper">
           <div className="padding-wrapper">
             <div className="logo-wrapper">
               <img src={Logo} alt="BruinHub" className="logo-style"/>
             </div>
-            <CalendarDrawer />
+              <CalendarDrawer />
             <div />
           </div>
-        </div>            
-      </Drawer> 
+        </div>
+      </NewDrawer>
       <GenericContent activeItem="calendar"><CalendarContent /></GenericContent>
     </div>
   );
