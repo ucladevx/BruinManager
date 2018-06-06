@@ -1,12 +1,26 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import Stepper from './IntermediatePageStepper';
+import Paper from '@material-ui/core/Paper';
 import './IntermediatePage.scss';
-export default class FormBox extends React.Component {
-    render(props) {
-        return (
-            <div className="IntermediatePage-style-wrapper">
-                <Link to="/dashboard"><button>Go to Dashboard!</button> </Link>
-            </div>
-        );
-    }
-}
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    root: theme.mixins.gutters({
+      paddingTop: 16,
+      paddingBottom: 16,
+      marginTop: theme.spacing.unit * 3,
+    }),
+  });
+  
+  function IntermediatePage(props) {
+    const { classes } = props;
+    return (
+      <div className="intermediate-page-wrapper">
+        <Paper className={classes.root} elevation={4}>
+            <Stepper />
+        </Paper>
+      </div>
+    );
+  }
+  
+  export default withStyles(styles)(IntermediatePage);

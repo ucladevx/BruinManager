@@ -12,7 +12,6 @@ import Logo from './bruinhub-wordmark.png';
 //import Typography from '@material-ui/core/Typography';
 //import GenericContent from '../Components/GenericContent/GenericContent';
 const drawerWidth = 300;
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -66,18 +65,24 @@ class ResponsiveMainScreen extends React.Component {
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Button color="secondary" component={Link} to="/dashboard">Dashboard</Button>
-            <Button color="secondary" component={Link} to="/calendar">Calendar</Button>
-            <Button color="secondary" component={Link} to="/settings">Settings</Button>
-            <Button color="secondary" component={Link} to="/help">Help</Button>
+            <div style={{display:"flex", justifyContent: "space-between", alignItems: "center", width:"100%"}}>
+              <div>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={this.handleDrawerToggle}
+                  className={classes.navIconHide}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Button color="secondary" component={Link} to="/dashboard">Dashboard</Button>
+                <Button color="secondary" component={Link} to="/calendar">Calendar</Button>
+              </div>
+              <div>
+                <Button color="secondary" component={Link} to="/settings">Settings</Button>
+                <Button color="secondary" component={Link} to="/help">Help</Button>
+              </div>
+            </div>
           </Toolbar>
         </AppBar>
         <Hidden mdUp>

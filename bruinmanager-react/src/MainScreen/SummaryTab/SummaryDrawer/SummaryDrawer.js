@@ -5,10 +5,15 @@ import DrawerSummary from '../../../Components/DrawerSummary/DrawerSummary.js';
 export default class SummaryDrawer extends React.Component {
     render() {
         return(
-            <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-betw"}}>
-                <WeatherBox weekNum="10"/>
-                <DrawerSummary />
+            <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center"}}>
+                <div style={{width: "80%", height: "100%", display: "flex", flexDirection: "column",marginTop: 70}}>
+                    <WeatherBox weekNum="10"/>
+                    <DrawerSummary />
+                </div>
             </div>
         );
     }
 }
+/*
+
+*/

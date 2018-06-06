@@ -13,6 +13,25 @@ import NotesAndReminders from '../../../Components/NotesAndReminders/NotesAndRem
 export default class Summary extends React.Component {
     render() {
 		return (
+      <div>
+      <Grid style={{height: "95%"}}>
+        <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={7}>
+          <SuggestedEvents/>
+        </Grid.Column>
+        <Grid.Column mobile={16} tablet={12} computer={12} largeScreen={8} style={{marginLeft: "30px"}}>
+          <Grid.Row>
+            
+          </Grid.Row>
+          <Grid.Row>
+            
+          </Grid.Row>
+        </Grid.Column>
+      </Grid>
+      </div>
+		)
+	}
+}
+/*
       <Grid style={{height: "95%"}}>
         <Grid.Column mobile={16} tablet={4} computer={4} largeScreen={6}>
           <SuggestedEvents/>
@@ -26,9 +45,8 @@ export default class Summary extends React.Component {
           </Grid.Row>
         </Grid.Column>
       </Grid>
-		)
-	}
-}
+
+*/
 //<Segment> <NotesAndReminders/> </Segment>
 //<Segment ><StandardCalendar className={StandardCalendarStyle} startTime={moment()} isSmall = {true} weekNum={10}/></Segment>
 /*

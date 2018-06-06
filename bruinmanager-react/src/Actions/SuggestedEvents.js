@@ -27,11 +27,13 @@ export function eventsFetchData(url) {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
-                dispatch(eventsIsLoading(false));
                 return response;
             })
             .then((response) => response.json())
-            .then((events) => dispatch(eventsFetchDataSuccess(events)))
+            .then((events) => {
+                dispatch(eventsFetchDataSuccess(events))
+                dispatch(eventsIsLoading(false));
+            })
             .catch(() => dispatch(eventsHasErrored(true)));
     };
 }

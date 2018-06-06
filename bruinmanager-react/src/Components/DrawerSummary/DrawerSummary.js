@@ -1,7 +1,11 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
+//import {List, ListItem} from 'material-ui/List';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import moment from 'moment';
 import './DrawerSummary.scss';
+import Divider from '@material-ui/core/Divider';
 export default class DrawerSummary extends React.Component {
     constructor(props) {
         super(props);
@@ -57,9 +61,25 @@ export default class DrawerSummary extends React.Component {
 
     render() {
         return (
-            <List>
-                {this.state.eventsToday.map(ele => {return <ListItem primaryText={ele.name.split("-")[0]} secondaryText={ele.time}/>})}
-            </List>
+            <div>
+                <List>
+                    <Divider />
+                    {this.state.eventsToday.map(ele => {
+                        return(
+                        <div>
+                            <ListItem>
+                                <ListItemText
+                                    primary={ele.name.split("-")[0]}
+                                    secondary={ele.time}
+                                />
+                            </ListItem>
+                            <Divider />
+                        </div>
+                        );
+                        })}
+                </List>
+            </div>
         );
     }
 }
+//primaryText={ele.name.split("-")[0]} secondaryText={ele.time}
