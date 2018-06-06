@@ -9,19 +9,19 @@
 				calendar won't work on this first login, should work in calendar page
 */
 
-var xhr = new XMLHttpRequest();   // new HttpRequest instance 
+var xhr = new XMLHttpRequest();   // new HttpRequest instance
 
 function getEnrollmentAndClassData() {
 
 	// Temporarily commented out, TODO: if no enrollment data, post an empty object
 	// TODO: check if we are on the study list
-	// const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
+	const enrollmentData = document.getElementById("EnrApptTermTable").textContent // get entire enrollment data
 
-	// const enrollmentDataArray = enrollmentData.split("\n") 				// get each <p> as a separate element
-	// 						.map(string => string.trim()) 				// remove whitespace
-	// 						.filter(string => true ? string : false) 	// filter out empty strings
+	const enrollmentDataArray = enrollmentData.split("\n") 				// get each <p> as a separate element
+							.map(string => string.trim()) 				// remove whitespace
+							.filter(string => true ? string : false) 	// filter out empty strings
 
-	// var enroll = processEnrollementData(enrollmentDataArray);
+	var enroll = processEnrollementData(enrollmentDataArray);
 
 	// TODO: Get class data
 	var classArr = new Array();
@@ -38,12 +38,12 @@ function getEnrollmentAndClassData() {
 	// TODO: save schema with username that is accessible to us later
 	var user = {
 		"user": {
-			// "enrollment": enroll,
-			"enrollment": {},
+			"enrollment": enroll,
+			// "enrollment": {},
 			"classes": classArr,
 			"name": "",
 			"user_id": "",
-			"email": ""		
+			"email": ""
 		}
 	}
 
@@ -94,6 +94,12 @@ function processClassData(data){
 		}
 
 		else if(data[k].includes("Lab ") && data[k].length == 5){
+			normalClass = 0;
+			i = k;
+			break;
+		}
+
+		else if(data[k].includes("STU ") || data[k].includes("SEM ")){
 			normalClass = 0;
 			i = k;
 			break;
@@ -189,32 +195,33 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 			document.body.appendChild(loader);
 
 			getEnrollmentAndClassData()
+			alert("We've got your data, now head back to bruinmanager.com!")
 		} else {
 			alert("BruinManager stopped!");
 		}
 	});
 
-} 
-// else if (window.location.href.indexOf("google.com") > -1) { //TODO: change this to domain of bruinmanager when we create a site
+}
 
 else if (window.location.href.indexOf("arcane-cove-10079.herokuapp.com") > -1) {
 	// Get the data that was stored
 
 	chrome.storage.sync.get('data', function(items){
-	   	
+
 	   	console.log(items.data.user);
 
 		var url = "https://arcane-cove-10079.herokuapp.com/post/user";
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 		xhr.send(JSON.stringify(items.data.user));
-	
+
 	});
 }
 
-// post fb data and user classes to backend
-else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com/dashboard") > -1){
-	
+//TODO: only POST if data has changed
+// post fb data and user classes to backend from intermediate page
+else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com/intermediate") > -1){
+
 	var b = localStorage.getItem("myBMData");
 	var c = JSON.parse(b);
 	console.log(c.name);
@@ -225,7 +232,7 @@ else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp
 
 		var b = localStorage.getItem("myBMData");
 		var c = JSON.parse(b);
-	   	
+
 	   	items.data.user.email = c.email;
 	   	items.data.user.user_id = c.id;
 	   	items.data.user.name= c.name
@@ -236,37 +243,64 @@ else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 		xhr.send(JSON.stringify(items.data.user));
-	
+
 	});
 
 }
+
+// else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com/dashboard") > -1){
+//
+// 	var b = localStorage.getItem("myBMData");
+// 	var c = JSON.parse(b);
+// 	console.log(c.name);
+// 	console.log(c.email);
+// 	console.log(c.id);
+//
+// 	chrome.storage.sync.get('data', function(items){
+//
+// 		var b = localStorage.getItem("myBMData");
+// 		var c = JSON.parse(b);
+//
+// 	   	items.data.user.email = c.email;
+// 	   	items.data.user.user_id = c.id;
+// 	   	items.data.user.name= c.name
+//
+// 	   	console.log(items.data.user);
+//
+// 		var url = "https://arcane-cove-10079.herokuapp.com/post/user";
+// 		xhr.open("POST", url, true);
+// 		xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+// 		xhr.send(JSON.stringify(items.data.user));
+//
+// 	});
+//
+// }
 
 
 //TODO: only POST if data has changed
-else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com") > -1){
-	// idk();
-	var b = localStorage.getItem("myBMData");
-	var c = JSON.parse(b);
-	console.log(c.name);
-	console.log(c.email);
-	console.log(c.id);
-
-	chrome.storage.sync.get('data', function(items){
-
-		var b = localStorage.getItem("myBMData");
-		var c = JSON.parse(b);
-	   	
-	   	items.data.user.email = c.email;
-	   	items.data.user.user_id = c.id;
-	   	items.data.user.name= c.name
-
-	   	console.log(items.data.user);
-
-		// var url = "https://arcane-cove-10079.herokuapp.com/post/user";
-		// xhr.open("POST", url, true);
-		// xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
-		// xhr.send(JSON.stringify(items.data.user));
-	
-	});
-}
-
+// else if(window.location.href.indexOf("https://mysterious-retreat-53839.herokuapp.com") > -1){
+// 	// idk();
+// 	var b = localStorage.getItem("myBMData");
+// 	var c = JSON.parse(b);
+// 	console.log(c.name);
+// 	console.log(c.email);
+// 	console.log(c.id);
+//
+// 	chrome.storage.sync.get('data', function(items){
+//
+// 		var b = localStorage.getItem("myBMData");
+// 		var c = JSON.parse(b);
+//
+// 	   	items.data.user.email = c.email;
+// 	   	items.data.user.user_id = c.id;
+// 	   	items.data.user.name= c.name
+//
+// 	   	console.log(items.data.user);
+//
+// 		// var url = "https://arcane-cove-10079.herokuapp.com/post/user";
+// 		// xhr.open("POST", url, true);
+// 		// xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+// 		// xhr.send(JSON.stringify(items.data.user));
+//
+// 	});
+// }
