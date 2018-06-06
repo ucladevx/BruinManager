@@ -7,7 +7,7 @@ export default class GenericCardContainer extends React.Component {
   render() {
     console.log("props: ", this.props);
     return(
-      <div style={{height: 500, width: "100%", overflowY: "auto",display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center"}}>
+      <div style={{maxHeight:500, width: "100%", overflowY: "auto",display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center"}}>
         {this.props.cards.map((card) => {
           return(card);
         })}

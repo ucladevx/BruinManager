@@ -66,12 +66,10 @@ class FeedCard extends React.Component {
             <div style={{width: "60%"}}>
               <CardHeader
                 title={this.state.title}
-                subheader={this.state.date}
               />
               <CardContent>
                 <Typography component="p">
-                  {this.state.time}
-                  {this.state.location}
+                  {this.state.date + "\n" + this.state.time + "\n" + this.state.location}
                 </Typography>
               </CardContent>
             </div>
