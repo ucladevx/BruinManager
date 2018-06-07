@@ -121,7 +121,7 @@ class HorizontalLinearStepper extends React.Component {
                   style={{marginRight: 12}}
                 />
                 <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
+                  label={stepIndex === 3 ? 'Finish' : 'Next'}
                   primary={true}
                   onClick={this.handleNext}
                 />
