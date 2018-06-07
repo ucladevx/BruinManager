@@ -114,6 +114,12 @@ function processClassData(data){
 			break;
 		}
 
+		else if( data[k].includes("Tut 1") || data[k].includes("Tut 2") || data[k].includes("Tut 3")){
+			normalClass = 0;
+			i = k;
+			break;
+		}
+
 	}
 
 	var lecture;
