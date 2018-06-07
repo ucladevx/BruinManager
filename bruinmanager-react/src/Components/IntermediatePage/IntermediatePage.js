@@ -46,7 +46,7 @@ const Step0 = () => {
     )
   }
 
-class HorizontalLinearStepper extends React.Component {
+class IntermediatePage extends React.Component {
 
   state = {
     finished: false,
@@ -134,4 +134,4 @@ class HorizontalLinearStepper extends React.Component {
   }
 }
 
-export default HorizontalLinearStepper;
+export default IntermediatePage;
