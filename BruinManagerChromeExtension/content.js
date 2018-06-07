@@ -85,12 +85,21 @@ function processClassData(data){
 
 	var normalClass = -1;
 	// get location of "Lec 1", all values are relative to this position
+
 	var i;
 	for(var k = 0; k < data.length; k++){
-		if(data[k] == "Lec 1" || data[k] == "Lec 2"){
+		if(data[k] == "Lec 1" || data[k] == "Lec 2" || data[k] == "Lec 3" || data[k] == "Lec 4" || data[k] == "Lec 5" || data[k] == "Lec 6"){
 			normalClass = 1;
 			i = ++k;
 			break;
+		}
+
+		else if (data[k].includes("Lec 1") || data[k].includes("Lec 2") || data[k].includes("Lec 3") || data[k].includes("Lec 4") || data[k].includes("Lec 5") || data[k].includes("Lec 6")){
+			if (data[k].indexOf("Dis ") < 0 || data[k].indexOf("Lab ") < 0){
+				normalClass = 0;
+				i=k;
+				break;
+			}
 		}
 
 		else if(data[k].includes("Lab ") && data[k].length == 5){
@@ -99,11 +108,12 @@ function processClassData(data){
 			break;
 		}
 
-		else if(data[k].includes("STU ") || data[k].includes("SEM ")){
+		else if(data[k].includes("Stu ") || data[k].includes("Sem ")){
 			normalClass = 0;
 			i = k;
 			break;
 		}
+
 	}
 
 	var lecture;
@@ -185,7 +195,7 @@ function processClassData(data){
 if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf("studylist") > -1) {
 
 	chrome.storage.sync.get(/* String or Array */["data"], function(data){
-		if(confirm("Allow BruinManager to scrape data on this page?")) {
+		if(confirm("With your consent, we will now obtain your study list schedule for this quarter and enrollment appointments.")) {
 			// inject loader into html to tell user we are gathering data
 			// CSS is in loader.css
 			const loader = document.createElement("div");
@@ -195,9 +205,9 @@ if(window.location.href.indexOf("ucla.edu") > -1 && window.location.href.indexOf
 			document.body.appendChild(loader);
 
 			getEnrollmentAndClassData()
-			alert("We've got your data, now head back to bruinmanager.com!")
+			alert("We've got your data, now head back to www.bruinhub.com!")
 		} else {
-			alert("BruinManager stopped!");
+			alert("BruinHub has been paused!");
 		}
 	});
 
